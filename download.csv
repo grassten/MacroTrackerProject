@@ -1,0 +1,50 @@
+Source: USDA National Nutrient Database for Standard Reference 28 slightly revised May 2016 Software v.3.8.6.5 2018-02-04
+Full Report (All Nutrients)
+Report Run at: March 07, 2018 19:16 EST
+"Nutrient data for: 09427, Abiyuch, raw"
+Food Group:  Fruits and Fruit Juices
+Common Name:garlic pear
+Carbohydrate Factor: 3.6 Fat Factor: 8.37 Protein Factor: 3.36 Nitrogen to Protein Conversion Factor: 6.25 
+Nutrient,Unit,1Value per 100 g,Data points,Std. Error,"0.5 cup = 114.0g",
+Proximates
+"Water",g,79.90,1,--,91.09
+"Energy",kcal,69,--,--,79
+"Energy",kJ,290,--,--,331
+"Protein",g,1.50,1,--,1.71
+"Total lipid (fat)",g,0.10,1,--,0.11
+"Ash",g,0.90,1,--,1.03
+"Carbohydrate, by difference",g,17.60,--,--,20.06
+"Fiber, total dietary",g,5.3,1,--,6.0
+"Sugars, total",g,8.55,1,--,9.75
+"Sucrose",g,0.05,1,--,0.06
+"Glucose (dextrose)",g,4.50,1,--,5.13
+"Fructose",g,3.80,1,--,4.33
+"Lactose",g,0.00,1,--,0.00
+"Maltose",g,0.20,1,--,0.23
+"Galactose",g,0.00,1,--,0.00
+Minerals
+"Calcium, Ca",mg,8,1,--,9
+"Iron, Fe",mg,1.61,1,--,1.84
+"Magnesium, Mg",mg,24,1,--,27
+"Phosphorus, P",mg,47,1,--,54
+"Potassium, K",mg,304,1,--,347
+"Sodium, Na",mg,20,1,--,23
+"Zinc, Zn",mg,0.31,1,--,0.35
+"Copper, Cu",mg,0.057,1,--,0.065
+"Manganese, Mn",mg,0.182,1,--,0.207
+Vitamins
+"Vitamin C, total ascorbic acid",mg,54.1,1,--,61.7
+"Vitamin A, RAE",µg,5,1,--,6
+"Retinol",µg,0,--,--,0
+"Carotene, beta",µg,60,1,--,68
+"Carotene, alpha",µg,0,1,--,0
+"Vitamin A, IU",IU,100,1,--,114
+Lipids
+"Fatty acids, total saturated",g,0.014,1,--,0.016
+"Fatty acids, total trans",g,0.000,--,--,0.000
+Amino Acids
+Other
+
+
+Sources of Data
+1,"A.C. Shovic","Nutrient composition of abiyuch and rowal fruits",1999,Tropical Science,39 pp. 159-159

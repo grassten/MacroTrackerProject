@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Steven Asten | Portfolio</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link href="customnavbar.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<!--navbar code-->
+<body>
+	<div class="navbar">
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand brand-name" href="index.html">Steven Asten</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse nav navbar-nav navbar-right">
+						<ul class="nav navbar-nav">
+							<li class="active"><a class="scrollable" href="#snap1">About me</a></li>
+							<li><a class="scrollable" href="#snap2">Portfolio</a></li>
+							<li><a class="scrollable" href="#snap3">Contact me</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</div> <!--end navbar code-->
+
+	<!--about me section-->
+	<div class="about-me-heading" id="snap1">
+		<h2 class="text-center about-me-text">About me</h2>
+	</div>
+	<div class="row about-me-row">
+		<div class="col-md-8">
+			<p class="lead intro-text">Welcome to my portfolio! I'm an IST student at Penn State, currently working as a help desk technician. Feel free to look around and check out my social media!</p>
+		</div>
+		<div class="col-md-4">
+			<img class="img-responsive img-circle center-block pretty-face" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAgBAAAAJDJmNTM2MzhjLWIzMzEtNGFiZC05ZTRjLTYwYjliMGE0NjZlNg.jpg" alt="Picture of my beautiful face.">
+		</div>
+	</div> <!--end about me section-->
+
+	<!--portfolio section-->
+	<div id="snap2" class="portfolio-heading">
+		<h2 class="text-center portfolio-text">Portfolio</h2>
+	</div>
+
+	<!-- first row of portfolio links -->
+	<div class="row portfolio-row">
+		<div class="col-md-6">
+			<div class="thumbnail">
+				<a href="https://github.com/grassten/MapGame.git" target="_blank"><img class="img-responsive center-block" src="http://i.imgur.com/VFuyjQG.jpg" alt="Link to Map Game Project on github"></a>
+				<div class="caption">
+					<p>Map Quiz game written in Java for IST 311 project course.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="thumbnail">
+				<a href="https://github.com/grassten/NagiosPlugins.git" target="_blank"><img class="img-responsive center-block" src="http://i.imgur.com/PG21jYV.jpg" alt="Link to Nagios Project on github"></a>
+				<div class="caption">
+					<p>Nagios plugins written in Bash for printer monitoring.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- second row of portfolio links -->
+	<div class="row portfolio-row">
+		<div class="col-md-6">
+			<div class="thumbnail">
+				<a href="https://github.com/grassten/NagiosPlugins.git" target="_blank"><img class="img-responsive center-block" src="http://i.imgur.com/PG21jYV.jpg" alt="Link to Nagios Project on github"></a>
+				<div class="caption">
+					<p>Nagios plugins written in Bash for printer monitoring.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="thumbnail">
+				<a href="https://github.com/grassten/MapGame.git" target="_blank"><img class="img-responsive center-block" src="http://i.imgur.com/VFuyjQG.jpg" alt="Link to Map Game Project on github"></a>
+				<div class="caption">
+					<p>Map Quiz game written in Java for IST 311 project course.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end portfolio section-->
+
+	<!--contact section-->
+	<div id="snap3" class="contact-heading">
+		<h2 class="text-center contact-text">Contact me</h2>
+	</div>
+	
+
+	<form id="contactForm" novalidate="">
+		<div class="form-item">
+			<label class="form-label lead" for="“name”">Name</label>
+			<input class="form-input" id="name" type="text" placeholder="Name" required=""/>
+		</div>
+		<div class="form-item">
+			<label class="form-label lead" for="“email”">Email Address</label>
+			<input class="form-input" id="email" type="email" placeholder="Email Address" required=""/>
+		</div>
+		<div class="form-item">
+			<label class="form-label lead" for="“phone”">Phone Number</label>
+			<input class="form-input" id="phone" type="tel" placeholder="Phone Number" required=""/>
+		</div>
+		<div class="form-item">
+			<label class="form-label lead" for="“message”">Message</label>
+			<textarea class="form-input" id="message" rows="5" placeholder="Message" required=""></textarea>
+		</div><br/>
+		<button class="btn btn-success" type="submit">Send</button>
+	</form>
+
+
+	<p class="lead row-centered checkoutsm">Check out my social media and code projects:</p>
+	<div class="row row-centered">
+		<a href="https://www.freecodecamp.com/grassten" target="_blank"><img src="http://i.imgur.com/GmS5qTo.png" alt="Free Code Camp Profile link"></a>
+		<a href="https://www.linkedin.com/in/stevenasten" target="_blank"><img src="http://i.imgur.com/F49FPXR.png" alt="Linked In Profile link"></a>
+		<a href="https://github.com/grassten" target="_blank"><img src="http://i.imgur.com/VJ09qgZ.png" alt="Git Hub profile link"></a>
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script>
+		$(function() {$('body').on('click', 'a.scrollable', function(event) {
+			var $anchor = $(this);
+			$('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top},1500,'easeInOutExpo');
+			event.preventDefault();
+		});
+	});
+
+		$('body').scrollspy({target: '.navbar-fixed-top'})
+	</script>
+
+
+</body>
+
+</html>

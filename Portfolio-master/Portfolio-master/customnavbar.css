@@ -1,0 +1,92 @@
+.navbar-custom {
+    background-color:#4682B4;
+    color:#ffffff;
+    border-radius:0;
+  	box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  	min-height: 70px;
+  	vertical-align: middle;
+}
+
+.navbar-custom .navbar-brand {
+	color: white;
+	line-height: 40px;
+}
+
+.navbar-custom .navbar-nav li a {
+	color: white;
+	line-height: 40px;
+}
+
+body {
+	max-width: 1024px;
+	margin: auto;
+	padding-bottom: 50px;
+}
+
+.portfolio-row {
+	margin-bottom: 20px;
+}
+
+.about-me-row {
+	max-width: 1024px;
+	margin: auto;
+	background-color: lightgrey;
+}
+
+.intro-text {
+	margin-top: 115px;
+	margin-left: 30px;
+}
+
+.pretty-face {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.about-me-heading, .portfolio-heading, .contact-heading {
+	max-width: 1024px;
+	background-color: #4682B4;
+	height: 50px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	vertical-align: middle;
+
+}
+
+.about-me-heading > .about-me-text, .portfolio-heading > .portfolio-text, .contact-heading > .contact-text {
+	color: white;
+	height: 50px;
+	line-height: 50px;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+
+form {
+	display: table;
+}
+
+.form-item {
+	display: table-row;
+}
+
+.form-label {
+	display: table-cell;
+}
+
+.form-input {
+	display: table-cell;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+textarea {
+	width: 400px;
+}
+
+.checkoutsm {
+	margin-top: 100px;
+}
+
