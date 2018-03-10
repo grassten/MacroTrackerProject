@@ -1,8 +1,0 @@
-- app
-	- --init.py--
-	- routes.py
-	- templates
-		- index.html
-		- nutrition.html
-- venv
-- macroapp.py

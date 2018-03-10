@@ -1,17 +1,25 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, flash, redirect
 from app import app
 import requests
 from jinja2 import Template
+from app.forms import SearchForm, LoginForm
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/')
 def home():
+    return render_template('index.html')
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    form = SearchForm()
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('search.html', form=form)
 
     if request.method == 'POST':
 
         # get user input from search bar
-        food_search = request.form['search']
+        food_search = form.search.data
 
         # build API URL to search for food
         search_url = "https://api.nal.usda.gov/ndb/search/?format=json"
@@ -33,7 +41,7 @@ def home():
             food_list_clean.append((i['name'], i['ndbno']))
 
         # return list of food to web page
-        return render_template('index.html', food_list_clean=food_list_clean)
+        return render_template('search.html', food_list_clean=food_list_clean, form=form)
 
 
 @app.route('/<string:ndbno>')
@@ -62,3 +70,12 @@ def get_nutrition(ndbno):
                            food_fat=food_fat,
                            food_carbs=food_carbs
                            )
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.remember_me.data))
+        return redirect('/')
+    return render_template('login.html', form=form)

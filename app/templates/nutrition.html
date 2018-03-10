@@ -1,44 +1,40 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<div>
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Nutrition Info:</h1>
+<div class="container">
+	<div class="jumbotron">
+		<h1>Nutrition Info:</h1>
 
-			<span id="results">Results: </span><br />
+		<span id="results">Results: </span><br />
 
-			<span id="food_name">Name:</span>
-			<span id="food_name_result">{{ food_name }}</span>
-			<br />
+		<span id="food_name">Name:</span>
+		<span id="food_name_result">{{ food_name }}</span>
+		<br />
 
-			<span id="food_measure">Measure:</span>
-			<span id="food_measure_result">{{ food_measure }}</span>
-			<br />
+		<span id="food_measure">Measure:</span>
+		<span id="food_measure_result">{{ food_measure }}</span>
+		<br />
 
-			<span id="food_calories">Calories:</span>
-			<span id="food_calories_result">{{ food_cals }}</span>
-			<br />
+		<span id="food_calories">Calories:</span>
+		<span id="food_calories_result">{{ food_cals }}</span>
+		<br />
 
-			<span id="food_protein">Protein</span>
-			<span id="food_protein_result">{{ food_protein }}</span>
-			<br />
+		<span id="food_protein">Protein</span>
+		<span id="food_protein_result">{{ food_protein }}</span>
+		<br />
 
-			<span id="food_fat">Fat</span>
-			<span id="food_fat_result">{{ food_fat }}</span>
-			<br />
+		<span id="food_fat">Fat</span>
+		<span id="food_fat_result">{{ food_fat }}</span>
+		<br />
 
-			<span id="food_carbs">Carbs</span>
-			<span id="food_carbs_result">{{ food_carbs }}</span>
-			<br />
+		<span id="food_carbs">Carbs</span>
+		<span id="food_carbs_result">{{ food_carbs }}</span>
+		<br />
 
-			<button>Add</button>
-			<form action={{ url_for('home') }} style="display: inline;">
-				<input type="submit" value="Back">
-			</form>
-
-			</div>
+		<button>Add</button>
+		<form action={{ url_for('search') }} style="display: inline;">
+			<input type="submit" value="Back">
+		</form>
 	</div>
 </div>
-
 {% endblock %}
