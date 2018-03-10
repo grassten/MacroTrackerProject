@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Search</h1>
+			<form method='post'>
+				<input type="text" placeholder="Search a food.." name="search" />
+				<button type="submit"><i class="fa fa-search"></i></button><br />
+				<span id="results">Results: </span><br />
+				{% for food_name in food_list_clean %}
+					<span id="food_name_result"><a href={{ url_for('get_nutrition', ndbno = food_name[1]) }}>{{ food_name[0] }}</a></span>
+					<br />
+				{% endfor %}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
