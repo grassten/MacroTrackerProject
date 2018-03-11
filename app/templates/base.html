@@ -21,11 +21,26 @@
         <li><a href="/search">Search</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">Login</a></li>
+        {% if current_user.is_anonymous %}
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% else %}
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% endif %}
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
 {% endblock %}
 
 {% block content %}{% endblock %}
