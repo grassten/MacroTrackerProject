@@ -39,14 +39,18 @@ def search():
         # build list of tuples w/ name of food and associated ndbno (unique ID)
         resp = requests.get(url=search_url, params=params)
 
-        food_list = resp.json()['list']['item']
-        food_list_clean = []
+        if "zero results" in str(resp.json()):
+            flash("No results found.")
+            return redirect(url_for('search'))
+        else:
+            food_list = resp.json()['list']['item']
+            food_list_clean = []
 
-        for i in food_list:
-            food_list_clean.append((i['name'], i['ndbno']))
+            for i in food_list:
+                food_list_clean.append((i['name'], i['ndbno']))
 
-        # return list of food to web page
-        return render_template('search.html', food_list_clean=food_list_clean, form=form)
+            # return list of food to web page
+            return render_template('search.html', food_list_clean=food_list_clean, form=form)
 
 
 @app.route('/<string:ndbno>', methods=['GET', 'POST'])
@@ -63,31 +67,35 @@ def get_nutrition(ndbno):
 
     resp = requests.get(url=url, params=params)
 
-    food_name = resp.json()['report']['foods'][0]['name']
-    food_measure = resp.json()['report']['foods'][0]['measure']
-    food_cals = resp.json()['report']['foods'][0]['nutrients'][0]['value']
-    food_protein = resp.json()['report']['foods'][0]['nutrients'][1]['value']
-    food_fat = resp.json()['report']['foods'][0]['nutrients'][2]['value']
-    food_carbs = resp.json()['report']['foods'][0]['nutrients'][3]['value']
+    if "No food" in str(resp.json()):
+        flash("No foods found.")
+        return redirect(url_for('search'))
+    else:
+        food_name = resp.json()['report']['foods'][0]['name']
+        food_measure = resp.json()['report']['foods'][0]['measure']
+        food_cals = resp.json()['report']['foods'][0]['nutrients'][0]['value']
+        food_protein = resp.json()['report']['foods'][0]['nutrients'][1]['value']
+        food_fat = resp.json()['report']['foods'][0]['nutrients'][2]['value']
+        food_carbs = resp.json()['report']['foods'][0]['nutrients'][3]['value']
 
-    if request.method == 'GET':
-        return render_template('nutrition.html',
-                               food_name=food_name,
-                               food_measure=food_measure,
-                               food_cals=food_cals,
-                               food_protein=food_protein,
-                               food_fat=food_fat,
-                               food_carbs=food_carbs,
-                               ndbno=ndbno,
-                               form1=form1,
-                               )
+        if request.method == 'GET':
+            return render_template('nutrition.html',
+                                   food_name=food_name,
+                                   food_measure=food_measure,
+                                   food_cals=food_cals,
+                                   food_protein=food_protein,
+                                   food_fat=food_fat,
+                                   food_carbs=food_carbs,
+                                   ndbno=ndbno,
+                                   form1=form1,
+                                   )
 
-    if request.method == 'POST':
-        meal_choice = form1.meal.data
-        food = Food(food_name=food_name, kcal=food_cals, protein=food_protein, fat=food_fat, carbs=food_carbs, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
-        db.session.add(food)
-        db.session.commit()
-        return redirect(url_for('diary'))
+        if request.method == 'POST':
+            meal_choice = form1.meal.data
+            food = Food(food_name=food_name, kcal=food_cals, protein=food_protein, fat=food_fat, carbs=food_carbs, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+            db.session.add(food)
+            db.session.commit()
+            return redirect(url_for('diary'))
 
 
 @app.route('/diary', methods=['GET', 'POST'])
@@ -103,8 +111,20 @@ def diary():
             db.session.commit()
         else:
             flash("Diary entry not found.")
+        return redirect(url_for('diary'))
 
-    return render_template('diary.html', foods=foods, form=form)
+    total_cals = 0
+    total_carbs = 0
+    total_protein = 0
+    total_fat = 0
+
+    for food in foods:
+        total_cals = total_cals + food.kcal
+        total_carbs = total_carbs + food.carbs
+        total_protein = total_protein + food.protein
+        total_fat = total_fat + food.fat
+
+    return render_template('diary.html', foods=foods, form=form, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein)
 
 
 @app.route('/login', methods=['GET', 'POST'])
