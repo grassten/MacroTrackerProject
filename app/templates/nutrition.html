@@ -5,6 +5,8 @@
 	<div class="jumbotron">
 		<h1>Nutrition Info:</h1>
 
+		<form><input name="ndbno" value={{ ndbno }}></form>
+
 		<span id="results">Results: </span><br />
 
 		<span id="food_name">Name:</span>
@@ -31,7 +33,10 @@
 		<span id="food_carbs_result">{{ food_carbs }}</span>
 		<br />
 
-		<button>Add</button>
+		<form action={{ url_for('addfood') }}>
+			<input type="submit" value="Add to Diary">
+		</form>
+
 		<form action={{ url_for('search') }} style="display: inline;">
 			<input type="submit" value="Back">
 		</form>

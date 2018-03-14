@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <table>
+            <tr>
+                <td>Breakfast</td>
+                <td>kcal</td>
+                <td>Protein</td>
+                <td>Fat</td>
+                <td>Carbs</td>
+            </tr>
+            {% for food in foods %}
+            <tr>
+                <td>{{ food['food_name'] }}</td>
+                <td>{{ food['food_kcal'] }}</td>
+                <td>{{ food['food_protein'] }}</td>
+                <td>{{ food['food_fat'] }}</td>
+                <td>{{ food['food_carbs'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
