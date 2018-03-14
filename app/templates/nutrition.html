@@ -33,13 +33,14 @@
 		<span id="food_carbs_result">{{ food_carbs }}</span>
 		<br />
 
-		<form action={{ url_for('addfood') }}>
-			<input type="submit" value="Add to Diary">
+		<form method='post'>
+			{{ form1.hidden_tag() }}
+			<p>
+				{{ form1.meal() }}
+				{{ form1.add() }}
+			</p>
 		</form>
 
-		<form action={{ url_for('search') }} style="display: inline;">
-			<input type="submit" value="Back">
-		</form>
 	</div>
 </div>
 {% endblock %}

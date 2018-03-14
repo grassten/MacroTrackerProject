@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, PasswordField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField, HiddenField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
 
@@ -14,6 +14,17 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Submit')
+
+
+class AddToDiaryForm(FlaskForm):
+    MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"), ("Dinner", "Dinner"), ("Snacks", "Snacks")]
+    add = SubmitField('Add to Diary')
+    meal = SelectField(label='Select Meal', choices=MEAL_CHOICES)
+
+
+class RemoveFood(FlaskForm):
+    remove = SubmitField('Remove')
+    entry_id = HiddenField('')
 
 
 class RegistrationForm(FlaskForm):

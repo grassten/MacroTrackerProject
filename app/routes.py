@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from app import app, db
 import requests
 from jinja2 import Template
-from app.forms import SearchForm, LoginForm, RegistrationForm
+from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood
 from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
 from app.models import User, Food
@@ -49,45 +49,10 @@ def search():
         return render_template('search.html', food_list_clean=food_list_clean, form=form)
 
 
-@app.route('/<string:ndbno>')
+@app.route('/<string:ndbno>', methods=['GET', 'POST'])
 def get_nutrition(ndbno):
-    url = "https://api.nal.usda.gov/ndb/nutrients/?format=json"
-    params = dict(
-        api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe",
-        nutrients=["205", "204", "208", "203"],
-        ndbno=ndbno
-    )
 
-    resp = requests.get(url=url, params=params)
-
-    food_name = resp.json()['report']['foods'][0]['name']
-    food_measure = resp.json()['report']['foods'][0]['measure']
-    food_cals = resp.json()['report']['foods'][0]['nutrients'][0]['value']
-    food_protein = resp.json()['report']['foods'][0]['nutrients'][1]['value']
-    food_fat = resp.json()['report']['foods'][0]['nutrients'][2]['value']
-    food_carbs = resp.json()['report']['foods'][0]['nutrients'][3]['value']
-
-    return render_template('nutrition.html',
-                           food_name=food_name,
-                           food_measure=food_measure,
-                           food_cals=food_cals,
-                           food_protein=food_protein,
-                           food_fat=food_fat,
-                           food_carbs=food_carbs,
-                           ndbno=ndbno
-                           )
-
-
-@app.route('/diary')
-def diary(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    food = Food.query.filter_by(user_id=1)
-
-    return render_template('diary.html', food=food)
-
-
-def addfood():
-    ndbno = request.form.get("ndbno")
+    form1 = AddToDiaryForm()
 
     url = "https://api.nal.usda.gov/ndb/nutrients/?format=json"
     params = dict(
@@ -105,11 +70,41 @@ def addfood():
     food_fat = resp.json()['report']['foods'][0]['nutrients'][2]['value']
     food_carbs = resp.json()['report']['foods'][0]['nutrients'][3]['value']
 
-    food = Food(food_name=food_name, kcal=food_cals, protein=food_protein, fat=food_fat, carbs=food_carbs, meal="breakfast")
-    db.session.add(food)
-    db.session.commit()
+    if request.method == 'GET':
+        return render_template('nutrition.html',
+                               food_name=food_name,
+                               food_measure=food_measure,
+                               food_cals=food_cals,
+                               food_protein=food_protein,
+                               food_fat=food_fat,
+                               food_carbs=food_carbs,
+                               ndbno=ndbno,
+                               form1=form1,
+                               )
 
-    return render_template('diary.html', user=user, food=food)
+    if request.method == 'POST':
+        meal_choice = form1.meal.data
+        food = Food(food_name=food_name, kcal=food_cals, protein=food_protein, fat=food_fat, carbs=food_carbs, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+        db.session.add(food)
+        db.session.commit()
+        return redirect(url_for('diary'))
+
+
+@app.route('/diary', methods=['GET', 'POST'])
+def diary():
+    form = RemoveFood()
+    foods = Food.query.filter_by(user_id=current_user.get_id())
+
+    if request.method == 'POST':
+        remove_id = form.entry_id.data
+        user_id_for_row = Food.query.filter_by(id=remove_id)[0].user_id
+        if str(user_id_for_row) == current_user.get_id():
+            Food.query.filter_by(id=remove_id).delete()
+            db.session.commit()
+        else:
+            flash("Diary entry not found.")
+
+    return render_template('diary.html', foods=foods, form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
