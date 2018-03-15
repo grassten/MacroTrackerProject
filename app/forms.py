@@ -19,8 +19,10 @@ class LoginForm(FlaskForm):
 
 class AddToDiaryForm(FlaskForm):
     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"), ("Dinner", "Dinner"), ("Snacks", "Snacks")]
+    QUANTITY_CHOICES=[("1", "1"), ("2","2"), ("3","3"), ("4","4"), ("5","5")]
     add = SubmitField('Add to Diary')
-    meal = SelectField(label='Select Meal', choices=MEAL_CHOICES)
+    meal = SelectField(label='Select Meal', choices=MEAL_CHOICES, validators=[DataRequired()])
+    quantity = SelectField(label='Select Quantity', choices=QUANTITY_CHOICES, validators=[DataRequired()])
 
 
 class RemoveFood(FlaskForm):

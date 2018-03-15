@@ -8,21 +8,24 @@
 {% block content %}
 <div class="container">
     <div class="jumbotron">
-        <table class="table table-bordered">
+        <h1 class='text-center'>Food Diary</h1>
+        <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 30%">Breakfast</th>
-                    <th class="text-center">kcal</th>
-                    <th class="text-center">Protein</th>
-                    <th class="text-center">Fat</th>
-                    <th class="text-center">Carbs</th>
+                    <th style="width: 40%">Breakfast</th>
+                    <th style="width: 10%" class="text-center">Count</th>
+                    <th style="width: 10%" class="text-center">kcal</th>
+                    <th style="width: 10%" class="text-center">Protein</th>
+                    <th style="width: 10%" class="text-center">Fat</th>
+                    <th style="width: 10%" class="text-center">Carbs</th>
                     <th class="text-center">Remove</th>
                 </tr>
             </thead>
             {% for food in foods %}
             {% if food.meal == "Breakfast" %}
             <tr>
-                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name }}</a></td>
+                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit}}</a></td>
+                <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
                 <td class="text-center">{{ food.protein }}</td>
                 <td class="text-center">{{ food.fat }}</td>
@@ -38,24 +41,34 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: right;">Total</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+                <td class="text-center">{{ total_cals['Breakfast'] }}</td>
+                <td class="text-center">{{ total_protein['Breakfast'] }}</td>
+                <td class="text-center">{{ total_fat['Breakfast'] }}</td>
+                <td class="text-center">{{ total_carbs['Breakfast'] }}</td>
             </tr>
         </table>
-        <table class="table table-bordered">
+
+        <br/>
+
+        <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 30%">Lunch</th>
-                    <th class="text-center">kcal</th>
-                    <th class="text-center">Protein</th>
-                    <th class="text-center">Fat</th>
-                    <th class="text-center">Carbs</th>
+                    <th style="width: 40%">Lunch</th>
+                    <th style="width: 10%" class="text-center">Count</th>
+                    <th style="width: 10%" class="text-center">kcal</th>
+                    <th style="width: 10%" class="text-center">Protein</th>
+                    <th style="width: 10%" class="text-center">Fat</th>
+                    <th style="width: 10%" class="text-center">Carbs</th>
                     <th class="text-center">Remove</th>
                 </tr>
             </thead>
             {% for food in foods %}
             {% if food.meal == "Lunch" %}
             <tr>
-                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name }}</a></td>
+                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a></td>
+                <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
                 <td class="text-center">{{ food.protein }}</td>
                 <td class="text-center">{{ food.fat }}</td>
@@ -71,24 +84,34 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: right;">Total</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+                <td class="text-center">{{ total_cals['Lunch'] }}</td>
+                <td class="text-center">{{ total_protein['Lunch'] }}</td>
+                <td class="text-center">{{ total_fat['Lunch'] }}</td>
+                <td class="text-center">{{ total_carbs['Lunch'] }}</td>
             </tr>
         </table>
-        <table class="table table-bordered">
+
+        <br/>
+
+        <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 30%">Dinner</th>
-                    <th class="text-center">kcal</th>
-                    <th class="text-center">Protein</th>
-                    <th class="text-center">Fat</th>
-                    <th class="text-center">Carbs</th>
+                    <th style="width: 40%">Dinner</th>
+                    <th style="width: 10%" class="text-center">Count</th>
+                    <th style="width: 10%" class="text-center">kcal</th>
+                    <th style="width: 10%" class="text-center">Protein</th>
+                    <th style="width: 10%" class="text-center">Fat</th>
+                    <th style="width: 10%" class="text-center">Carbs</th>
                     <th class="text-center">Remove</th>
                 </tr>
             </thead>
             {% for food in foods %}
             {% if food.meal == "Dinner" %}
             <tr>
-                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name }}</a></td>
+                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a></td>
+                <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
                 <td class="text-center">{{ food.protein }}</td>
                 <td class="text-center">{{ food.fat }}</td>
@@ -104,24 +127,34 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: right;">Total</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+                <td class="text-center">{{ total_cals['Dinner'] }}</td>
+                <td class="text-center">{{ total_protein['Dinner'] }}</td>
+                <td class="text-center">{{ total_fat['Dinner'] }}</td>
+                <td class="text-center">{{ total_carbs['Dinner'] }}</td>
             </tr>
         </table>
-        <table class="table table-bordered">
+
+        <br/>
+
+        <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 30%">Snacks</th>
-                    <th class="text-center">kcal</th>
-                    <th class="text-center">Protein</th>
-                    <th class="text-center">Fat</th>
-                    <th class="text-center">Carbs</th>
+                    <th style="width: 40%">Snacks</th>
+                    <th style="width: 10%" class="text-center">Count</th>
+                    <th style="width: 10%" class="text-center">kcal</th>
+                    <th style="width: 10%" class="text-center">Protein</th>
+                    <th style="width: 10%" class="text-center">Fat</th>
+                    <th style="width: 10%" class="text-center">Carbs</th>
                     <th class="text-center">Remove</th>
                 </tr>
             </thead>
             {% for food in foods %}
             {% if food.meal == "Snacks" %}
             <tr>
-                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name }}</a></td>
+                <td><a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a></td>
+                <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
                 <td class="text-center">{{ food.protein }}</td>
                 <td class="text-center">{{ food.fat }}</td>
@@ -137,26 +170,38 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: right;">Total</td>
+                <td style="text-align: center;"></td>
+                <td></td>
+                <td class="text-center">{{ total_cals['Snacks'] }}</td>
+                <td class="text-center">{{ total_protein['Snacks'] }}</td>
+                <td class="text-center">{{ total_fat['Snacks'] }}</td>
+                <td class="text-center">{{ total_carbs['Snacks'] }}</td>
             </tr>
         </table>
-        <table class="table">
+
+        <br/>
+
+        <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th style="width: 30%">Totals</th>
-                    <th class="text-center">kcal</th>
-                    <th class="text-center">Protein</th>
-                    <th class="text-center">Fat</th>
-                    <th class="text-center">Carbs</th>
+                    <th style="width: 40%">Totals</th>
+                    <th style="width: 10%"></th>
+                    <th style="width: 10%" class="text-center">kcal</th>
+                    <th style="width: 10%" class="text-center">Protein</th>
+                    <th style="width: 10%" class="text-center">Fat</th>
+                    <th style="width: 10%" class="text-center">Carbs</th>
                     <th></th>
                 </tr>
             </thead>
             <tr>
                 <td></td>
-                <td class="text-center">{{ total_cals }}</td>
-                <td class="text-center">{{ total_protein }}</td>
-                <td class="text-center">{{ total_fat }}</td>
-                <td class="text-center">{{ total_carbs }}</td>
+                <td></td>
+                <td class="text-center">{{ total_cals['total'] }}</td>
+                <td class="text-center">{{ total_protein['total'] }}</td>
+                <td class="text-center">{{ total_fat['total'] }}</td>
+                <td class="text-center">{{ total_carbs['total'] }}</td>
+                <td></td>
+                <td></td>
                 <td></td>
             </tr>
         </table>

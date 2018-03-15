@@ -23,12 +23,14 @@ class User(UserMixin, db.Model):
 class Food(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     food_name = db.Column(db.String(140))
-    kcal = db.Column(db.Integer())
-    protein = db.Column(db.Integer())
-    fat = db.Column(db.Integer())
-    carbs = db.Column(db.Integer())
-    meal = db.Column(db.Integer())
+    kcal = db.Column(db.Numeric(10,0))
+    protein = db.Column(db.Numeric(10,0))
+    fat = db.Column(db.Numeric(10,0))
+    carbs = db.Column(db.Numeric(10,0))
+    meal = db.Column(db.String(64))
     ndbno = db.Column(db.String(64))
+    unit = db.Column(db.String(64))
+    count = db.Column(db.Numeric(10,0))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
