@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class='text-center'>Profile</h1>
+        <br/>
+        <h3>Edit Profile</h3>
+        <a href="{{ url_for('macros_percent') }}">- Set macros by percent</a><br/>
+        <a href="#">- Set macros by gram</a>
+    </div>
+</div>
+
+{% endblock %}

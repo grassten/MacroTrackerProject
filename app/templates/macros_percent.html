@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class='text-center'>Food Diary</h1>
+        <div class="text-center">
+            <form class="text-left" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.calories.label }}:
+                    {{ form.calories }}
+                </p>
+                <p>
+                    {{ form.protein.label }}:
+                    {{ form.protein }}
+                    {{ protein_grams }}
+                </p>
+                <p>
+                    {{ form.fat.label }}:
+                    {{ form.fat }}
+                    {{ fat_grams }}
+                </p>
+                <p>
+                    {{ form.carbs.label }}:
+                    {{ form.carbs }}
+                    {{ carb_grams}}
+                </p>
+                <p>
+                    {{ form.change_macros }}
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

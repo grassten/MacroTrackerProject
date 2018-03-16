@@ -9,6 +9,13 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    calories_goal = db.Column(db.Integer(), default=2000)
+    carb_goal = db.Column(db.Numeric(), default=.55)
+    fat_goal = db.Column(db.Numeric(), default=.25)
+    protein_goal = db.Column(db.Numeric(), default=.2)
+    carbs_grams = db.Column(db.Integer(), default=275)
+    fat_grams = db.Column(db.Integer(), default=55)
+    protein_grams = db.Column(db.Integer(), default=100)
     food = db.relationship('Food', backref='user', lazy='dynamic')
 
     def set_password(self, password):

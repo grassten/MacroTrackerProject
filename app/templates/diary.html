@@ -1,10 +1,5 @@
 {% extends 'base.html' %}
 
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-{% endblock %}
-
 {% block content %}
 <div class="container">
     <div class="jumbotron">
@@ -203,12 +198,34 @@
                 </tr>
             </thead>
             <tr>
+                <td class="text-right">Start Macros</td>
                 <td></td>
+                <td class="text-center">{{ user.calories_goal }}</td>
+                <td class="text-center">{{ user.protein_grams }}</td>
+                <td class="text-center">{{ user.fat_grams }}</td>
+                <td class="text-center">{{ user.carbs_grams }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-right">Consumed</td>
                 <td></td>
                 <td class="text-center">{{ total_cals['total'] }}</td>
                 <td class="text-center">{{ total_protein['total'] }}</td>
                 <td class="text-center">{{ total_fat['total'] }}</td>
                 <td class="text-center">{{ total_carbs['total'] }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-right">Remaining</td>
+                <td></td>
+                <td class="text-center">{{ user.calories_goal - total_cals['total'] }}</td>
+                <td class="text-center">{{ user.protein_grams - total_protein['total'] }}</td>
+                <td class="text-center">{{ user.fat_grams - total_fat['total'] }}</td>
+                <td class="text-center">{{ user.carbs_grams - total_carbs['total'] }}</td>
                 <td></td>
                 <td></td>
                 <td></td>

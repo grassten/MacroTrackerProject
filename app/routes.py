@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 from app import app, db
 import requests
 from jinja2 import Template
-from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood, DiaryDatePicker
+from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood, DiaryDatePicker, SetMacroForm
 from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
 from app.models import User, Food
@@ -11,7 +11,10 @@ from datetime import datetime, timedelta
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if current_user.is_authenticated:
+        return render_template('index.html')
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -114,11 +117,12 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
     form2.date.data = date_pick
 
     foods = Food.query.filter_by(user_id=current_user.get_id(), date=date_pick)
+    user = User.query.filter_by(id=current_user.get_id()).first()
 
     if request.method == 'POST':
         if form.remove.data and form.validate():
             remove_id = form.entry_id.data
-            user_id_for_row = Food.query.filter_by(id=remove_id)[0].user_id
+            user_id_for_row = Food.query.filter_by(id=remove_id).first().user_id
             if str(user_id_for_row) == current_user.get_id():
                 Food.query.filter_by(id=remove_id).delete()
                 db.session.commit()
@@ -151,7 +155,7 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 total_protein[meal] = total_protein[meal] + food.protein
                 total_fat[meal] = total_fat[meal] + food.fat
 
-    return render_template('diary.html', foods=foods, form=form, form2=form2, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein)
+    return render_template('diary.html', foods=foods, user=user, form=form, form2=form2, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -170,6 +174,44 @@ def login():
             next_page = url_for('home')
         return redirect(next_page)
     return render_template('login.html', form=form)
+
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+
+@app.route('/profile/macrospercent', methods=['GET', 'POST'])
+def macros_percent():
+    if current_user.is_authenticated:
+        user = User.query.filter_by(id=current_user.get_id()).first()
+        form = SetMacroForm(calories=user.calories_goal, fat=float(user.fat_goal), carbs=float(user.carb_goal), protein=float(user.protein_goal))
+
+        if request.method == 'GET':
+            protein_grams = str("%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
+            fat_grams = str("%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
+            carb_grams = str("%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
+            return render_template('macros_percent.html', user=user, form=form, protein_grams=protein_grams, fat_grams=fat_grams, carb_grams=carb_grams)
+
+        if request.method == 'POST':
+            sum_macro_percents = float(form.protein.data) + float(form.fat.data) + float(form.carbs.data)
+            if sum_macro_percents == 1.00:
+                user.protein_goal = form.protein.data
+                user.fat_goal = form.fat.data
+                user.carb_goal = form.carbs.data
+                user.calories_goal = int(form.calories.data)
+                user.protein_grams = int("%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
+                user.fat_grams = int("%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
+                user.carbs_grams = int("%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
+                db.session.commit()
+                flash("Macro targets updated.")
+                return redirect(url_for('macros_percent'))
+            else:
+                flash("Values did not add up to 100%: try again! Lol.")
+                return redirect(url_for('macros_percent'))
+
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['GET', 'POST'])

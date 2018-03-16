@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, PasswordField, HiddenField, SelectField, DateField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField, HiddenField, SelectField, DateField, IntegerField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
 from markupsafe import Markup
@@ -18,6 +18,33 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+class SetMacroForm(FlaskForm):
+    PERCENT_CHOICES = [(.05, "5%"),
+                       (.1, "10%"),
+                       (.15, "15%"),
+                       (.2, "20%"),
+                       (.25, "25%"),
+                       (.3, "30%"),
+                       (.35, "35%"),
+                       (.4, "40%"),
+                       (.45, "45%"),
+                       (.5, "50%"),
+                       (.55, "55%"),
+                       (.6, "60%"),
+                       (.65, "65%"),
+                       (.7, "70%"),
+                       (.75, "75%"),
+                       (.8, "80%"),
+                       (.85, "85%"),
+                       (.9, "90%")]
+
+    calories = IntegerField('Calories', validators=[DataRequired()])
+    protein = SelectField('Protein', choices=PERCENT_CHOICES, validators=[DataRequired()], default=.1)
+    fat = SelectField('Fat', choices=PERCENT_CHOICES, validators=[DataRequired()])
+    carbs = SelectField('Carbs', choices=PERCENT_CHOICES, validators=[DataRequired()])
+    change_macros = SubmitField('Update')
+
+
 class AddToDiaryForm(FlaskForm):
     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"), ("Dinner", "Dinner"), ("Snacks", "Snacks")]
     QUANTITY_CHOICES = [("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5")]
@@ -33,7 +60,7 @@ class DiaryDatePicker(FlaskForm):
 
 
 class RemoveFood(FlaskForm):
-    remove = SubmitField('Remove')
+    remove = SubmitField('X')
     entry_id = HiddenField('', validators=[DataRequired()])
 
 
