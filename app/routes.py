@@ -10,7 +10,6 @@ from datetime import datetime, timedelta
 
 
 @app.route('/')
-@login_required
 def home():
     return render_template('index.html')
 
@@ -55,6 +54,7 @@ def search():
 
 
 @app.route('/<string:ndbno>', methods=['GET', 'POST'])
+@login_required
 def get_nutrition(ndbno):
 
     form1 = AddToDiaryForm()
@@ -103,6 +103,7 @@ def get_nutrition(ndbno):
 
 @app.route('/diary', methods=['GET', 'POST'])
 @app.route('/diary/<string:date_pick>', methods=['GET', 'POST'])
+@login_required
 def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
 
     form = RemoveFood()
