@@ -96,9 +96,15 @@ def get_nutrition(ndbno):
 
         if request.method == 'POST':
             meal_choice = form1.meal.data
-            quant_choice = int(form1.quantity.data)
-
-            food = Food(food_name=food_name, count=int(quant_choice), kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+            try:
+                quant_choice = float(form1.quantity.data)
+            except:
+                flash("Please enter valid values.")
+                return redirect(url_for('get_nutrition', ndbno=ndbno))
+            if quant_choice > 10000 or meal_choice not in ("Breakfast", "Lunch", "Dinner", "Snacks"):
+                flash("Please enter valid values.")
+                return redirect(url_for('get_nutrition', ndbno=ndbno))
+            food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
             db.session.add(food)
             db.session.commit()
             return redirect(url_for('diary'))
@@ -183,35 +189,51 @@ def profile():
 
 @app.route('/profile/macrospercent', methods=['GET', 'POST'])
 def macros_percent():
-    if current_user.is_authenticated:
+    if current_user.is_authenticated == False:
+        return redirect(url_for('login'))
+    else:
         user = User.query.filter_by(id=current_user.get_id()).first()
         form = SetMacroForm(calories=user.calories_goal, fat=float(user.fat_goal), carbs=float(user.carb_goal), protein=float(user.protein_goal))
 
         if request.method == 'GET':
-            protein_grams = str("%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
-            fat_grams = str("%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
-            carb_grams = str("%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
-            return render_template('macros_percent.html', user=user, form=form, protein_grams=protein_grams, fat_grams=fat_grams, carb_grams=carb_grams)
+            return render_template('macros_percent.html', user=user, form=form)
 
         if request.method == 'POST':
-            sum_macro_percents = float(form.protein.data) + float(form.fat.data) + float(form.carbs.data)
-            if sum_macro_percents == 1.00:
+            try:
+                # server-side input validation
+                # check form values convert to float successfully
+                # check macros add up to 100% of calories
+                # check macro percentages chosen are among available
+                sum_macro_percents = float(form.protein.data) + float(form.fat.data) + float(form.carbs.data)
+                valid_percents = [.05, .1, .15, .2, .25,
+                                  .3, .35, .4, .45, .5, .55, .6,
+                                  .65, .7, .75, .8, .85, .9]
+                if not (float(form.protein.data) in valid_percents and float(form.fat.data) in valid_percents and float(form.carbs.data) in valid_percents):
+                    flash("Error: Please enter valid values.")
+                    return redirect(url_for('macros_percent'))
+                if sum_macro_percents != 1.00:
+                    flash("Values did not add up to 100%: try again!")
+                    return redirect(url_for('macros_percent'))
+            except:
+                flash("Error: Please enter valid values.")
+                return redirect(url_for('macros_percent'))
+            else:
+                # update db values
+                try:
+                    user.calories_goal = int(form.calories.data)
+                except:
+                    flash('Please enter valid calorie value.')
+                    return redirect(url_for('macros_percent'))
                 user.protein_goal = form.protein.data
                 user.fat_goal = form.fat.data
                 user.carb_goal = form.carbs.data
-                user.calories_goal = int(form.calories.data)
                 user.protein_grams = int("%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
                 user.fat_grams = int("%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
                 user.carbs_grams = int("%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
                 db.session.commit()
+
                 flash("Macro targets updated.")
                 return redirect(url_for('macros_percent'))
-            else:
-                flash("Values did not add up to 100%: try again! Lol.")
-                return redirect(url_for('macros_percent'))
-
-    else:
-        return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['GET', 'POST'])

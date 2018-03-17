@@ -47,10 +47,9 @@ class SetMacroForm(FlaskForm):
 
 class AddToDiaryForm(FlaskForm):
     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"), ("Dinner", "Dinner"), ("Snacks", "Snacks")]
-    QUANTITY_CHOICES = [("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5")]
     add = SubmitField('Add to Diary')
     meal = SelectField(label='Select Meal', choices=MEAL_CHOICES, validators=[DataRequired()])
-    quantity = SelectField(label='Select Quantity', choices=QUANTITY_CHOICES, validators=[DataRequired()])
+    quantity = StringField(label='Quantity', default="1", validators=[DataRequired()])
 
 
 class DiaryDatePicker(FlaskForm):
