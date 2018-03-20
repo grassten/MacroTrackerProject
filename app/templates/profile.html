@@ -2,13 +2,11 @@
 
 {% block content %}
 <div class="container">
-    <div class="jumbotron">
-        <h1 class='text-center'>Profile</h1>
-        <br/>
-        <h3>Edit Profile</h3>
-        <a href="{{ url_for('macros_percent') }}">- Set macros by percent</a><br/>
-        <a href="#">- Set macros by gram</a>
-    </div>
+    <h2 class='text-center'>Profile</h2>
+    <hr><br/>
+    <h3>Edit Profile</h3>
+    <a href="{{ url_for('macros_percent') }}">- Set macros by percent</a><br/>
+    <a href="{{ url_for('macros_grams') }}">- Set macros by gram</a>
 </div>
 
 {% endblock %}

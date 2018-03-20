@@ -2,21 +2,22 @@
 
 {% block content %}
 <div class="container">
-    <div class="jumbotron">
-        <h1 class='text-center'>Food Diary</h1>
+    <h2 class='text-center'>Food Diary</h2>
+    <hr/><br/>
+    <div class="col-md-10 col-md-offset-1">
         <form class="text-center" method="post">
             {{ form.hidden_tag() }}
-            <p>
-                {{ form2.back }}
-                {{ form2.date(size=25, readonly=true, class="text-center") }}
-                {{ form2.forward }}
-            </p>
+            <div class="form-group row col-md-6 col-md-offset-3">
+                <div class="col-md-3">{{ form2.back(class="btn btn-primary mb-2") }}</div>
+                <div class="col-md-6">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
+                <div class="col-md-3">{{ form2.forward(class="btn btn-primary mb-2") }}</div>
+            </div>
         </form>
-        <br/>
+        <div class="clearfix"></div><br/>
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 40%">Breakfast</th>
+                    <th style="width: 40%">Breakfast | <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food.</a></th>
                     <th style="width: 10%" class="text-center">Count</th>
                     <th style="width: 10%" class="text-center">kcal</th>
                     <th style="width: 10%" class="text-center">Protein</th>
@@ -45,7 +46,7 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: center;"></td>
+                <td></td>
                 <td></td>
                 <td class="text-center">{{ total_cals['Breakfast'] }}</td>
                 <td class="text-center">{{ total_protein['Breakfast'] }}</td>
@@ -59,7 +60,7 @@
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 40%">Lunch</th>
+                    <th style="width: 40%">Lunch | <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food.</a></th>
                     <th style="width: 10%" class="text-center">Count</th>
                     <th style="width: 10%" class="text-center">kcal</th>
                     <th style="width: 10%" class="text-center">Protein</th>
@@ -88,7 +89,7 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: center;"></td>
+                <td></td>
                 <td></td>
                 <td class="text-center">{{ total_cals['Lunch'] }}</td>
                 <td class="text-center">{{ total_protein['Lunch'] }}</td>
@@ -102,7 +103,7 @@
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 40%">Dinner</th>
+                    <th style="width: 40%">Dinner | <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food.</a></th>
                     <th style="width: 10%" class="text-center">Count</th>
                     <th style="width: 10%" class="text-center">kcal</th>
                     <th style="width: 10%" class="text-center">Protein</th>
@@ -131,7 +132,7 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: center;"></td>
+                <td></td>
                 <td></td>
                 <td class="text-center">{{ total_cals['Dinner'] }}</td>
                 <td class="text-center">{{ total_protein['Dinner'] }}</td>
@@ -145,7 +146,7 @@
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>
-                    <th style="width: 40%">Snacks</th>
+                    <th style="width: 40%">Snacks | <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food.</a></th>
                     <th style="width: 10%" class="text-center">Count</th>
                     <th style="width: 10%" class="text-center">kcal</th>
                     <th style="width: 10%" class="text-center">Protein</th>
@@ -174,7 +175,7 @@
             {% endif %}
             {% endfor %}
             <tr>
-                <td style="text-align: center;"></td>
+                <td></td>
                 <td></td>
                 <td class="text-center">{{ total_cals['Snacks'] }}</td>
                 <td class="text-center">{{ total_protein['Snacks'] }}</td>

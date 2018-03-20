@@ -2,44 +2,74 @@
 
 {% block content %}
 <div class="container">
-	<div class="jumbotron">
-		<h1>Nutrition Info:</h1>
 
-		<span id="results">Results: </span><br />
+	<h2 class="text-center">Nutrition Info</h2>
+	<hr/><br/>
 
-		<span id="food_name">Name:</span>
-		<span id="food_name_result">{{ food_name }}</span>
-		<br />
+	{% block styles %}
+	{{super()}}
+	<link rel="stylesheet" href="{{url_for('.static', filename='nutrition.css')}}">
+	{% endblock %}
 
-		<span id="food_measure">Measure:</span>
-		<span id="food_measure_result">{{ food_measure }}</span>
-		<br />
-
-		<span id="food_calories">Calories:</span>
-		<span id="food_calories_result">{{ food_cals }}</span>
-		<br />
-
-		<span id="food_protein">Protein</span>
-		<span id="food_protein_result">{{ food_protein }}</span>
-		<br />
-
-		<span id="food_fat">Fat</span>
-		<span id="food_fat_result">{{ food_fat }}</span>
-		<br />
-
-		<span id="food_carbs">Carbs</span>
-		<span id="food_carbs_result">{{ food_carbs }}</span>
-		<br />
-
-		<form method='post'>
-			{{ form1.hidden_tag() }}
-			<p>
-				{{ form1.meal() }}
-				{{ form1.quantity() }}
-				{{ form1.add() }}
-			</p>
-		</form>
-
+	<h3 class="text-center">{{ food_name }}</h3>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-4">
+			<div class="performance-facts">
+				<header class="performance-facts__header">
+				    <h1 class="performance-facts__title">Nutrition Facts</h1>
+				    <p>Serving Size {{ food_measure }}</p>
+				</header>
+				<table class="performance-facts__table">
+				    <thead>
+				      	<tr>
+				        	<th colspan="3" class="small-info">
+				          		Amount Per Serving
+				        	</th>
+				      	</tr>
+				    </thead>
+				    <tbody>
+				      	<tr>
+				        	<th class="lines" colspan="3">
+				          		<b>Calories</b>
+				          		{{ food_cals }}
+				        	</th>
+				      	</tr>
+				      	<tr>
+				        	<th class="lines" colspan="3">
+				          		<b>Total Fat</b>
+				          		{{ food_fat }}
+				        	</th>
+				      	</tr>
+				      	<tr>
+				        	<th class="lines" colspan="3">
+				          		<b>Total Carbohydrate</b>
+				          		{{ food_carbs }}
+				        	</th>
+				      	</tr>
+				      	<tr class="thick-end">
+				        	<th colspan="3">
+				          	<b>Protein</b>
+				          	{{ food_protein }}
+				        	</th>
+				      	</tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
 	</div>
+	<!--end nutrition block-->
+
+	<form class='text-center' method='post'>
+		{{ form1.hidden_tag() }}
+		<div class="form-group row col-md-6 col-md-offset-3">
+			<div class="col-md-3">{{ form1.quantity(class="form-control") }}</div>
+			<div class="col-md-6">
+				{% if meal is none %}
+					{{ form1.meal(class="form-control") }}
+				{% endif %}
+			</div>
+			<div class="col-md-3">{{ form1.add(class="btn btn-primary mb-2") }}</div>
+		</p>
+	</form>
 </div>
 {% endblock %}

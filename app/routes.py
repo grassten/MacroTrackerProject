@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 from app import app, db
 import requests
 from jinja2 import Template
-from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood, DiaryDatePicker, SetMacroForm
+from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood, DiaryDatePicker, SetMacroForm, SetMacroGrams
 from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
 from app.models import User, Food
@@ -11,15 +11,13 @@ from datetime import datetime, timedelta
 
 @app.route('/')
 def home():
-    if current_user.is_authenticated:
-        return render_template('index.html')
-    else:
-        return redirect(url_for('login'))
+    return render_template('index.html')
 
 
 @app.route('/search', methods=['GET', 'POST'])
+@app.route('/search/<string:date>/<string:meal>', methods=['GET', 'POST'])
 @login_required
-def search():
+def search(date=None, meal=None):
     form = SearchForm()
     if request.method == 'GET':
         return render_template('search.html', form=form)
@@ -53,12 +51,13 @@ def search():
                 food_list_clean.append((i['name'], i['ndbno']))
 
             # return list of food to web page
-            return render_template('search.html', food_list_clean=food_list_clean, form=form)
+            return render_template('search.html', date=date, meal=meal, food_list_clean=food_list_clean, form=form)
 
 
 @app.route('/<string:ndbno>', methods=['GET', 'POST'])
+@app.route('/<string:date>/<string:meal>/<string:ndbno>', methods=['GET', 'POST'])
 @login_required
-def get_nutrition(ndbno):
+def get_nutrition(ndbno, meal=None, date=None):
 
     form1 = AddToDiaryForm()
 
@@ -84,6 +83,8 @@ def get_nutrition(ndbno):
 
         if request.method == 'GET':
             return render_template('nutrition.html',
+                                   meal=meal,
+                                   date=date,
                                    food_name=food_name,
                                    food_measure=food_measure,
                                    food_cals=food_cals,
@@ -95,19 +96,25 @@ def get_nutrition(ndbno):
                                    )
 
         if request.method == 'POST':
-            meal_choice = form1.meal.data
+            if meal is None:
+                meal_choice = form1.meal.data
+            else:
+                meal_choice = meal
             try:
                 quant_choice = float(form1.quantity.data)
             except:
                 flash("Please enter valid values.")
-                return redirect(url_for('get_nutrition', ndbno=ndbno))
+                return redirect(url_for('get_nutrition', ndbno=ndbno, meal=meal, date=date))
             if quant_choice > 10000 or meal_choice not in ("Breakfast", "Lunch", "Dinner", "Snacks"):
                 flash("Please enter valid values.")
-                return redirect(url_for('get_nutrition', ndbno=ndbno))
-            food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+                return redirect(url_for('get_nutrition', ndbno=ndbno, meal=meal, date=date))
+            if date is None:
+                food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+            else:
+                food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, date=date, ndbno=ndbno, user_id=current_user.get_id())
             db.session.add(food)
             db.session.commit()
-            return redirect(url_for('diary'))
+            return redirect(url_for('diary', date_pick=date))
 
 
 @app.route('/diary', methods=['GET', 'POST'])
@@ -161,7 +168,7 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 total_protein[meal] = total_protein[meal] + food.protein
                 total_fat[meal] = total_fat[meal] + food.fat
 
-    return render_template('diary.html', foods=foods, user=user, form=form, form2=form2, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein)
+    return render_template('diary.html', foods=foods, user=user, form=form, form2=form2, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein, date_pick=date_pick)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -185,6 +192,27 @@ def login():
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+
+
+@app.route('/profile/macrosgrams', methods=['GET', 'POST'])
+def macros_grams():
+    if current_user.is_authenticated == False:
+        return redirect(url_for('login'))
+    else:
+        user = User.query.filter_by(id=current_user.get_id()).first()
+        form = SetMacroGrams(calories=user.calories_goal)
+
+        if request.method == 'GET':
+            return render_template('macros_grams.html', user=user, form=form)
+
+        if request.method == 'POST':
+            user.carbs_grams = form.carbs.data
+            user.fat_grams = form.fat.data
+            user.protein_grams = form.protein.data
+            user.calories_goal = (form.carbs.data * 4) + (form.fat.data * 9) + (form.protein.data * 4)
+            db.session.commit()
+            flash("Macros updated.")
+            return redirect(url_for('macros_grams'))
 
 
 @app.route('/profile/macrospercent', methods=['GET', 'POST'])

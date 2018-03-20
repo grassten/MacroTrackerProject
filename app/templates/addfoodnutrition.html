@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="jumbotron">
+		<h1>Nutrition Info:</h1>
+
+		<span id="results">Results: </span><br />
+
+		<span id="food_name">Name:</span>
+		<span id="food_name_result">{{ food_name }}</span>
+		<br />
+
+		<span id="food_measure">Measure:</span>
+		<span id="food_measure_result">{{ food_measure }}</span>
+		<br />
+
+		<span id="food_calories">Calories:</span>
+		<span id="food_calories_result">{{ food_cals }}</span>
+		<br />
+
+		<span id="food_protein">Protein</span>
+		<span id="food_protein_result">{{ food_protein }}</span>
+		<br />
+
+		<span id="food_fat">Fat</span>
+		<span id="food_fat_result">{{ food_fat }}</span>
+		<br />
+
+		<span id="food_carbs">Carbs</span>
+		<span id="food_carbs_result">{{ food_carbs }}</span>
+		<br />
+
+		<form method='post'>
+			{{ form1.hidden_tag() }}
+			<p>
+				{{ form1.quantity() }}
+				{{ form1.add() }}
+			</p>
+		</form>
+
+	</div>
+</div>
+{% endblock %}
