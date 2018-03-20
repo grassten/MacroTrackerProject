@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block app_content %}
 <div class="container">
 
 	<h2 class="text-center">Nutrition Info</h2>
@@ -11,64 +11,83 @@
 	<link rel="stylesheet" href="{{url_for('.static', filename='nutrition.css')}}">
 	{% endblock %}
 
-	<h3 class="text-center">{{ food_name }}</h3>
-	<div class="row">
-		<div class="col-md-2 col-md-offset-4">
-			<div class="performance-facts">
-				<header class="performance-facts__header">
-				    <h1 class="performance-facts__title">Nutrition Facts</h1>
-				    <p>Serving Size {{ food_measure }}</p>
-				</header>
-				<table class="performance-facts__table">
-				    <thead>
-				      	<tr>
-				        	<th colspan="3" class="small-info">
-				          		Amount Per Serving
-				        	</th>
-				      	</tr>
-				    </thead>
-				    <tbody>
-				      	<tr>
-				        	<th class="lines" colspan="3">
-				          		<b>Calories</b>
-				          		{{ food_cals }}
-				        	</th>
-				      	</tr>
-				      	<tr>
-				        	<th class="lines" colspan="3">
-				          		<b>Total Fat</b>
-				          		{{ food_fat }}
-				        	</th>
-				      	</tr>
-				      	<tr>
-				        	<th class="lines" colspan="3">
-				          		<b>Total Carbohydrate</b>
-				          		{{ food_carbs }}
-				        	</th>
-				      	</tr>
-				      	<tr class="thick-end">
-				        	<th colspan="3">
-				          	<b>Protein</b>
-				          	{{ food_protein }}
-				        	</th>
-				      	</tr>
-				    </tbody>
-				</table>
-			</div>
-		</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<h3 class="text-center">{{ food_name }}</h3>
+	</div>
+
+	<!-- nutrition block -->
+	<div class="col-sm-4 col-sm-offset-4">
+		<section class="performance-facts">
+			  <header class="performance-facts__header">
+			    	<h1 class="performance-facts__title">Nutrition Facts</h1>
+			    	<p class="nutrition-p">Serving Size {{ food_measure }}</p>
+			  </header>
+
+			  <table class="tabletest performance-facts__table">
+			    <thead>
+				    <tr>
+				        <th colspan="3" class="nutrition-rows small-info">
+				          	<b>Amount Per Serving</b>
+				        </th>
+				    </tr>
+			    </thead>
+			    <tbody>
+			      	<tr>
+			        	<th class="nutrition-rows" colspan="3">
+			          		<b>Calories</b>
+			          		{{ food_cals}} kcal
+			        	</th>
+			      	</tr>
+			      	<tr class="thick-row">
+			        	<td colspan="3" class="small-info">
+			        	</td>
+			      	</tr>
+			      	<tr>
+			        	<th class="nutrition-rows" colspan="3">
+			          		<b>Total Fat</b>
+			          		{{ food_fat }} g
+			        	</th>
+			      	</tr>
+			      	<tr>
+			        	<th class="nutrition-rows" colspan="3">
+			          		<b>Total Carbohydrate</b>
+			          		{{ food_carbs }} g
+			        	</th>
+			      	</tr>
+			    	<tr class="thick-end">
+			        	<th class="nutrition-rows" colspan="3">
+			          		<b>Protein</b>
+			          		{{ food_protein }} g
+			        	</th>
+			      	</tr>
+			    </tbody>
+			</table>
+
+			<p class="nutrition-p small-info"><b>
+				Calories per gram:
+			</b></p>
+			<p class="nutrition-p small-info text-center"><b>
+				Fat 9
+				&bull;
+				Carbohydrate 4
+				&bull;
+				Protein 4
+			</b></p>
+
+		</section>
 	</div>
 	<!--end nutrition block-->
 
 	<form class='text-center' method='post'>
 		{{ form1.hidden_tag() }}
-		<div class="form-group row col-md-6 col-md-offset-3">
-			<div class="col-md-3">{{ form1.quantity(class="form-control") }}</div>
-			<div class="col-md-6">
+		<div class="form-group row col-sm-4 col-sm-offset-4">
+			<div class="col-sm-4">{{ form1.quantity(class="form-control", placeholder="Quantity") }}</div>
+			<div class="col-sm-5">
 				{% if meal is none %}
 					{{ form1.meal(class="form-control") }}
 				{% endif %}
 			</div>
-			<div class="col-md-3">{{ form1.add(class="btn btn-primary mb-2") }}</div>
+			<div class="col-sm-3">{{ form1.add(class="btn btn-primary mb-2") }}</div>
 		</p>
 	</form>
 </div>

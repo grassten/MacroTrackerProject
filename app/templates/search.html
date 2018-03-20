@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block app_content %}
 <div class="container">
 	<h2 class="text-center">Food Search</h2>
 	<hr/><br/>
@@ -8,7 +8,7 @@
 		{{ form.hidden_tag() }}
         <div class="form-group row col-md-8 col-md-offset-4">
         	<div class="col-md-4">
-				{{ form.search(class="form-control") }}
+				{{ form.search(class="form-control", placeholder="Enter food name...") }}
 			</div>
 			<div class="col-md-8">
 				{{ form.submit(class="btn btn-primary mb-2") }}

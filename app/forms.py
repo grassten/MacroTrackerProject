@@ -57,7 +57,7 @@ class AddToDiaryForm(FlaskForm):
   MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"), ("Dinner", "Dinner"), ("Snacks", "Snacks")]
   add = SubmitField('Add to Diary')
   meal = SelectField(label='Select Meal', choices=MEAL_CHOICES, validators=[DataRequired()])
-  quantity = StringField(label='Quantity', default="1", validators=[DataRequired()])
+  quantity = StringField(label='Quantity', validators=[DataRequired()])
 
 
 class DiaryDatePicker(FlaskForm):

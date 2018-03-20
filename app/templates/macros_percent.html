@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block app_content %}
 
 <div class="container">
     <h2 class='text-center'>Set macros by percent</h2>
@@ -13,7 +13,7 @@
                     {{ form.calories.label }}:
                 </div>
                 <div class="col-md-4">
-                    {{ form.calories(readonly=true, class="form-control") }}
+                    {{ form.calories(class="form-control") }}
                 </div>
             </div>
             <div class="form-group row">
