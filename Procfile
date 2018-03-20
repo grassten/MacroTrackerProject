@@ -1,2 +1,2 @@
 web: gunicorn app:app
-release: python macroapp.py db upgrade
+release: python app/__init__.py db upgrade
