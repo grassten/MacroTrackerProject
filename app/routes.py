@@ -76,14 +76,14 @@ def get_nutrition(ndbno, meal=None, date=None):
 
     form1 = AddToDiaryForm()
 
-    url = "https://api.nal.usda.gov/ndb/nutrients/?format=json"
+    search_url = "https://api.nal.usda.gov/ndb/nutrients/?format=json"
     params = dict(
         api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe",
         nutrients=["205", "204", "208", "203"],
         ndbno=ndbno
     )
 
-    resp = requests.get(url=url, params=params)
+    resp = requests.get(url=search_url, params=params)
 
     if "No food" in str(resp.json()):
         flash("No foods found.")
@@ -163,6 +163,15 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
     user = User.query.filter_by(id=current_user.get_id()).first()
 
     if request.method == 'POST':
+        # if user clicks an "X" button to remove food from diary,
+            # get the Food table row id for selected food
+            # get the user ID from the Food table for the selected row
+            # if the selected row user ID matches the user executing action
+                # remove row from Food table
+                # commit changes
+            # else
+                # do not allow user to make changes
+            # redirect to diary with date pick parameter
         if form.remove.data and form.validate():
             remove_id = form.entry_id.data
             user_id_for_row = Food.query.filter_by(
@@ -172,25 +181,42 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 db.session.commit()
             else:
                 flash("Diary entry not found.")
-            return redirect(url_for('diary', date_pick=date_pick))
+
+        # if the user clicks back, subtract one from date to get previous date,
+        # redirect to diary with date as parameter
         if form2.back.data and form2.validate():
-            date_pick = (datetime.strptime(
-                form2.date.data, '%B %d, %Y') - timedelta(days=1)).strftime('%B %d, %Y')
-            return redirect(url_for('diary', date_pick=date_pick))
+            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
+                         timedelta(days=1)).strftime('%B %d, %Y')
+
+        # if the user clicks forward, add one to date to get next date
+        # redirect to diary with date as parameter
         if form2.forward.data and form2.validate():
-            date_pick = (datetime.strptime(
-                form2.date.data, '%B %d, %Y') + timedelta(days=1)).strftime('%B %d, %Y')
-            return redirect(url_for('diary', date_pick=date_pick))
+            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
+                         timedelta(days=1)).strftime('%B %d, %Y')
+
+        return redirect(url_for('diary', date_pick=date_pick))
 
     meals = ['Breakfast', 'Lunch', 'Dinner', 'Snacks']
-    total_cals = {'Breakfast': 0, 'Lunch': 0,
-                  'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_carbs = {'Breakfast': 0, 'Lunch': 0,
-                   'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_protein = {'Breakfast': 0, 'Lunch': 0,
-                     'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_fat = {'Breakfast': 0, 'Lunch': 0,
-                 'Dinner': 0, 'Snacks': 0, 'total': 0}
+    total_cals = {'Breakfast': 0,
+                  'Lunch': 0,
+                  'Dinner': 0,
+                  'Snacks': 0,
+                  'total': 0}
+    total_carbs = {'Breakfast': 0,
+                   'Lunch': 0,
+                   'Dinner': 0,
+                   'Snacks': 0,
+                   'total': 0}
+    total_protein = {'Breakfast': 0,
+                     'Lunch': 0,
+                     'Dinner': 0,
+                     'Snacks': 0,
+                     'total': 0}
+    total_fat = {'Breakfast': 0,
+                 'Lunch': 0,
+                 'Dinner': 0,
+                 'Snacks': 0,
+                 'total': 0}
 
     for food in foods:
         total_cals['total'] = total_cals['total'] + food.kcal
