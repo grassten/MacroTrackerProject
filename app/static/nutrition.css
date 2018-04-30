@@ -1,0 +1,28 @@
+section.performance-facts {
+  border: 1px solid black;
+}
+
+section.performance-facts .performance-facts__table th.nutrition-rows {
+  border-top: 1px solid black;
+}
+
+table.tabletest.performance-facts__table{
+  .thick-row {
+    th, td {
+      border-top-width: 5px;
+    }
+  }
+}
+.small-info {
+  font-size: 1.1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
