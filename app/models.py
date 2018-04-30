@@ -39,7 +39,8 @@ class Food(db.Model):
     ndbno = db.Column(db.String(64))
     unit = db.Column(db.String(64))
     count = db.Column(db.Numeric(10, 2))
-    date = db.Column(db.String(64), index=True, default=datetime.utcnow().strftime('%B %d, %Y'))
+    date = db.Column(db.String(64), index=True,
+                     default=datetime.utcnow().strftime('%B %d, %Y'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):

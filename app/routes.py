@@ -1,11 +1,24 @@
-from flask import Flask, render_template, request, url_for, flash, redirect, session
 from app import app, db
+from flask import (Flask,
+                   render_template,
+                   request,
+                   url_for,
+                   flash,
+                   redirect,
+                   session)
+from app.forms import (SearchForm,
+                       LoginForm,
+                       RegistrationForm,
+                       AddToDiaryForm,
+                       RemoveFood,
+                       DiaryDatePicker,
+                       SetMacroForm,
+                       SetMacroGrams)
+from app.models import User, Food
 import requests
 from jinja2 import Template
-from app.forms import SearchForm, LoginForm, RegistrationForm, AddToDiaryForm, RemoveFood, DiaryDatePicker, SetMacroForm, SetMacroGrams
 from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
-from app.models import User, Food
 from datetime import datetime, timedelta
 
 
@@ -51,11 +64,13 @@ def search(date=None, meal=None):
                 food_list_clean.append((i['name'], i['ndbno']))
 
             # return list of food to web page
-            return render_template('search.html', date=date, meal=meal, food_list_clean=food_list_clean, form=form)
+            return render_template('search.html', date=date, meal=meal,
+                                   food_list_clean=food_list_clean, form=form)
 
 
 @app.route('/<string:ndbno>', methods=['GET', 'POST'])
-@app.route('/<string:date>/<string:meal>/<string:ndbno>', methods=['GET', 'POST'])
+@app.route('/<string:date>/<string:meal>/<string:ndbno>',
+           methods=['GET', 'POST'])
 @login_required
 def get_nutrition(ndbno, meal=None, date=None):
 
@@ -77,7 +92,8 @@ def get_nutrition(ndbno, meal=None, date=None):
         food_name = resp.json()['report']['foods'][0]['name']
         food_measure = resp.json()['report']['foods'][0]['measure']
         food_cals = resp.json()['report']['foods'][0]['nutrients'][0]['value']
-        food_protein = resp.json()['report']['foods'][0]['nutrients'][1]['value']
+        food_protein = resp.json(
+        )['report']['foods'][0]['nutrients'][1]['value']
         food_fat = resp.json()['report']['foods'][0]['nutrients'][2]['value']
         food_carbs = resp.json()['report']['foods'][0]['nutrients'][3]['value']
 
@@ -102,16 +118,30 @@ def get_nutrition(ndbno, meal=None, date=None):
                 meal_choice = meal
             try:
                 quant_choice = float(form1.quantity.data)
-            except:
+            except TypeError:
                 flash("Please enter valid values.")
-                return redirect(url_for('get_nutrition', ndbno=ndbno, meal=meal, date=date))
+                return redirect(url_for('get_nutrition', ndbno=ndbno,
+                                        meal=meal, date=date))
             if quant_choice > 10000 or meal_choice not in ("Breakfast", "Lunch", "Dinner", "Snacks"):
                 flash("Please enter valid values.")
-                return redirect(url_for('get_nutrition', ndbno=ndbno, meal=meal, date=date))
+                return redirect(url_for('get_nutrition', ndbno=ndbno,
+                                        meal=meal, date=date))
             if date is None:
-                food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, ndbno=ndbno, user_id=current_user.get_id())
+                food = Food(food_name=food_name, count=quant_choice,
+                            kcal=quant_choice * float(food_cals),
+                            protein=quant_choice * float(food_protein),
+                            fat=quant_choice * float(food_fat),
+                            carbs=quant_choice * float(food_carbs),
+                            unit=food_measure, meal=meal_choice,
+                            ndbno=ndbno, user_id=current_user.get_id())
             else:
-                food = Food(food_name=food_name, count=quant_choice, kcal=quant_choice * float(food_cals), protein=quant_choice * float(food_protein), fat=quant_choice * float(food_fat), carbs=quant_choice * float(food_carbs), unit=food_measure, meal=meal_choice, date=date, ndbno=ndbno, user_id=current_user.get_id())
+                food = Food(food_name=food_name, count=quant_choice,
+                            kcal=quant_choice * float(food_cals),
+                            protein=quant_choice * float(food_protein),
+                            fat=quant_choice * float(food_fat),
+                            carbs=quant_choice * float(food_carbs),
+                            unit=food_measure, meal=meal_choice,
+                            date=date, ndbno=ndbno, user_id=current_user.get_id())
             db.session.add(food)
             db.session.commit()
             return redirect(url_for('diary', date_pick=date))
@@ -135,7 +165,8 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
     if request.method == 'POST':
         if form.remove.data and form.validate():
             remove_id = form.entry_id.data
-            user_id_for_row = Food.query.filter_by(id=remove_id).first().user_id
+            user_id_for_row = Food.query.filter_by(
+                id=remove_id).first().user_id
             if str(user_id_for_row) == current_user.get_id():
                 Food.query.filter_by(id=remove_id).delete()
                 db.session.commit()
@@ -143,17 +174,23 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 flash("Diary entry not found.")
             return redirect(url_for('diary', date_pick=date_pick))
         if form2.back.data and form2.validate():
-            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') - timedelta(days=1)).strftime('%B %d, %Y')
+            date_pick = (datetime.strptime(
+                form2.date.data, '%B %d, %Y') - timedelta(days=1)).strftime('%B %d, %Y')
             return redirect(url_for('diary', date_pick=date_pick))
         if form2.forward.data and form2.validate():
-            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') + timedelta(days=1)).strftime('%B %d, %Y')
+            date_pick = (datetime.strptime(
+                form2.date.data, '%B %d, %Y') + timedelta(days=1)).strftime('%B %d, %Y')
             return redirect(url_for('diary', date_pick=date_pick))
 
     meals = ['Breakfast', 'Lunch', 'Dinner', 'Snacks']
-    total_cals = {'Breakfast': 0, 'Lunch': 0, 'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_carbs = {'Breakfast': 0, 'Lunch': 0, 'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_protein = {'Breakfast': 0, 'Lunch': 0, 'Dinner': 0, 'Snacks': 0, 'total': 0}
-    total_fat = {'Breakfast': 0, 'Lunch': 0, 'Dinner': 0, 'Snacks': 0, 'total': 0}
+    total_cals = {'Breakfast': 0, 'Lunch': 0,
+                  'Dinner': 0, 'Snacks': 0, 'total': 0}
+    total_carbs = {'Breakfast': 0, 'Lunch': 0,
+                   'Dinner': 0, 'Snacks': 0, 'total': 0}
+    total_protein = {'Breakfast': 0, 'Lunch': 0,
+                     'Dinner': 0, 'Snacks': 0, 'total': 0}
+    total_fat = {'Breakfast': 0, 'Lunch': 0,
+                 'Dinner': 0, 'Snacks': 0, 'total': 0}
 
     for food in foods:
         total_cals['total'] = total_cals['total'] + food.kcal
@@ -168,7 +205,10 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 total_protein[meal] = total_protein[meal] + food.protein
                 total_fat[meal] = total_fat[meal] + food.fat
 
-    return render_template('diary.html', foods=foods, user=user, form=form, form2=form2, total_fat=total_fat, total_cals=total_cals, total_carbs=total_carbs, total_protein=total_protein, date_pick=date_pick)
+    return render_template('diary.html', foods=foods, user=user, form=form,
+                           form2=form2, total_fat=total_fat,
+                           total_cals=total_cals, total_carbs=total_carbs,
+                           total_protein=total_protein, date_pick=date_pick)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -209,7 +249,8 @@ def macros_grams():
             user.carbs_grams = form.carbs.data
             user.fat_grams = form.fat.data
             user.protein_grams = form.protein.data
-            user.calories_goal = (form.carbs.data * 4) + (form.fat.data * 9) + (form.protein.data * 4)
+            user.calories_goal = (form.carbs.data * 4) + \
+                (form.fat.data * 9) + (form.protein.data * 4)
             db.session.commit()
             flash("Macros updated.")
             return redirect(url_for('macros_grams'))
@@ -221,7 +262,10 @@ def macros_percent():
         return redirect(url_for('login'))
     else:
         user = User.query.filter_by(id=current_user.get_id()).first()
-        form = SetMacroForm(calories=user.calories_goal, fat=float(user.fat_goal), carbs=float(user.carb_goal), protein=float(user.protein_goal))
+        form = SetMacroForm(calories=user.calories_goal,
+                            fat=float(user.fat_goal),
+                            carbs=float(user.carb_goal),
+                            protein=float(user.protein_goal))
 
         if request.method == 'GET':
             return render_template('macros_percent.html', user=user, form=form)
@@ -232,32 +276,39 @@ def macros_percent():
                 # check form values convert to float successfully
                 # check macros add up to 100% of calories
                 # check macro percentages chosen are among available
-                sum_macro_percents = float(form.protein.data) + float(form.fat.data) + float(form.carbs.data)
+                sum_macro_percents = (float(form.protein.data) +
+                                      float(form.fat.data) +
+                                      float(form.carbs.data))
                 valid_percents = [.05, .1, .15, .2, .25,
                                   .3, .35, .4, .45, .5, .55, .6,
                                   .65, .7, .75, .8, .85, .9]
-                if not (float(form.protein.data) in valid_percents and float(form.fat.data) in valid_percents and float(form.carbs.data) in valid_percents):
+                if not (float(form.protein.data) in valid_percents
+                        and float(form.fat.data) in valid_percents
+                        and float(form.carbs.data) in valid_percents):
                     flash("Error: Please enter valid values.")
                     return redirect(url_for('macros_percent'))
                 if sum_macro_percents != 1.00:
                     flash("Values did not add up to 100%: try again!")
                     return redirect(url_for('macros_percent'))
-            except:
+            except TypeError:
                 flash("Error: Please enter valid values.")
                 return redirect(url_for('macros_percent'))
             else:
                 # update db values
                 try:
                     user.calories_goal = int(form.calories.data)
-                except:
+                except TypeError:
                     flash('Please enter valid calorie value.')
                     return redirect(url_for('macros_percent'))
                 user.protein_goal = form.protein.data
                 user.fat_goal = form.fat.data
                 user.carb_goal = form.carbs.data
-                user.protein_grams = int("%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
-                user.fat_grams = int("%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
-                user.carbs_grams = int("%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
+                user.protein_grams = int(
+                    "%.0f" % ((float(user.calories_goal) * float(user.protein_goal)) / 4))
+                user.fat_grams = int(
+                    "%.0f" % ((float(user.calories_goal) * float(user.fat_goal)) / 9))
+                user.carbs_grams = int(
+                    "%.0f" % ((float(user.calories_goal) * float(user.carb_goal)) / 4))
                 db.session.commit()
 
                 flash("Macro targets updated.")
