@@ -20,14 +20,7 @@ h1.performance-facts__title {
   margin: 0 0 0.25rem 0;
 }
 
-header.performance-facts__header {
-  border-bottom: 10px solid black;
-  padding: 0 0 0.25rem 0;
-  margin: 0 0 0.5rem 0;
-  p {
-    margin: 0;
-  }
-}
+
 
 section.performance-facts .performance-facts__table th.nutrition-rows {
   font-weight: normal;
