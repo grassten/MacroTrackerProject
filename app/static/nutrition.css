@@ -8,8 +8,6 @@ p.nutrition-p {
 
 section.performance-facts {
   border: 1px solid black;
-  margin: 20px;
-  float: left;
   width: 100%;
   padding: 0.5rem;
   table {
