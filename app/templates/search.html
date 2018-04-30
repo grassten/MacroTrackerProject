@@ -1,24 +1,26 @@
-{% extends 'base.html' %}
-
-{% block app_content %}
+{% extends 'base.html' %} {% block app_content %}
 <div class="container">
 	<h2 class="text-center">Food Search</h2>
-	<hr/><br/>
+	<hr/>
+	<br/>
 	<form method='post'>
 		{{ form.hidden_tag() }}
-        <div class="form-group row col-md-8 col-md-offset-4">
-        	<div class="col-md-4">
+		<div class="form-group row col-sm-8 col-sm-offset-4">
+			<div class="col-sm-4">
 				{{ form.search(class="form-control", placeholder="Enter food name...") }}
 			</div>
-			<div class="col-md-8">
+			<div class="col-sm-8">
 				{{ form.submit(class="btn btn-primary mb-2") }}
 			</div>
 		</div>
 	</form>
-	<div class="clearfix"></div></br>
+	<div class="clearfix"></div>
+	</br>
 	<ul class="list-group">
 		{% for food_name in food_list_clean %}
-			<li class="list-group-item"><a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a></li>
+		<li class="list-group-item">
+			<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
+		</li>
 		{% endfor %}
 	</ul>
 </div>
