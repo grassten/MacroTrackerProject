@@ -171,7 +171,6 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
                 # commit changes
             # else
                 # do not allow user to make changes
-            # redirect to diary with date pick parameter
         if form.remove.data and form.validate():
             remove_id = form.entry_id.data
             user_id_for_row = Food.query.filter_by(
@@ -182,19 +181,21 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
             else:
                 flash("Diary entry not found.")
 
-        # if the user clicks back, subtract one from date to get previous date,
-        # redirect to diary with date as parameter
+        # if the user clicks back, subtract one from date to get previous date
         if form2.back.data and form2.validate():
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
                          timedelta(days=1)).strftime('%B %d, %Y')
 
         # if the user clicks forward, add one to date to get next date
-        # redirect to diary with date as parameter
         if form2.forward.data and form2.validate():
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
                          timedelta(days=1)).strftime('%B %d, %Y')
 
-        return redirect(url_for('diary', date_pick=date_pick))
+        todays_date = datetime.strptime(form2.date.data, '%B %d, %Y')
+        if date_pick == todays_date:
+            return redirect(url_for('diary'))
+        else:
+            return redirect(url_for('diary', date_pick=date_pick))
 
     meals = ['Breakfast', 'Lunch', 'Dinner', 'Snacks']
     total_cals = {'Breakfast': 0,
