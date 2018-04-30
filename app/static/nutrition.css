@@ -8,30 +8,19 @@ p.nutrition-p {
 
 section.performance-facts {
   border: 1px solid black;
-  width: 100%;
   table {
     border-collapse: collapse;
   }
 }
 
-h1.performance-facts__title {
-  font-weight: bold;
-  font-size: 2rem;
-  margin: 0 0 0.25rem 0;
-}
-
-
-
 section.performance-facts .performance-facts__table th.nutrition-rows {
   font-weight: normal;
   text-align: left;
-  padding: 0.25rem 0;
   border-top: 1px solid black;
   white-space: nowrap;
 }
 
 table.tabletest.performance-facts__table{
-  width: 100%;
 
   .blank-cell {
     width: 1rem;
