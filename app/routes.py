@@ -118,7 +118,7 @@ def get_nutrition(ndbno, meal=None, date=None):
                 meal_choice = meal
             try:
                 quant_choice = float(form1.quantity.data)
-            except TypeError:
+            except ValueError:
                 flash("Please enter valid values.")
                 return redirect(url_for('get_nutrition', ndbno=ndbno,
                                         meal=meal, date=date))
@@ -316,14 +316,14 @@ def macros_percent():
                 if sum_macro_percents != 1.00:
                     flash("Values did not add up to 100%: try again!")
                     return redirect(url_for('macros_percent'))
-            except TypeError:
+            except ValueError:
                 flash("Error: Please enter valid values.")
                 return redirect(url_for('macros_percent'))
             else:
                 # update db values
                 try:
                     user.calories_goal = int(form.calories.data)
-                except TypeError:
+                except ValueError:
                     flash('Please enter valid calorie value.')
                     return redirect(url_for('macros_percent'))
                 user.protein_goal = form.protein.data
