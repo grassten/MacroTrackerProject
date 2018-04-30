@@ -14,7 +14,7 @@
 
 	<!-- nutrition block -->
 	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4 col-xs-12">
+		<div class="col-sm-4 col-sm-offset-4 col-xs-10">
 			<section class="performance-facts">
 				<header class="performance-facts__header">
 					<h1 class="performance-facts__title">Nutrition Facts</h1>
@@ -80,8 +80,8 @@
 	<form class='text-center' method='post'>
 		{{ form1.hidden_tag() }}
 		<div class="form-group row col-sm-4 col-sm-offset-4">
-			<div class="col-sm-4 col-xs-3">{{ form1.quantity(class="form-control", placeholder="Quantity") }}</div>
-			<div class="col-sm-5 col-xs-6">
+			<div class="col-sm-4 col-xs-4">{{ form1.quantity(class="form-control", placeholder="Quantity") }}</div>
+			<div class="col-sm-5 col-xs-5">
 				{% if meal is none %} {{ form1.meal(class="form-control") }} {% endif %}
 			</div>
 			<div class="col-sm-3 col-xs-3">{{ form1.add(class="btn btn-primary mb-2") }}</div>
