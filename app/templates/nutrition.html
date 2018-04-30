@@ -76,9 +76,9 @@
 	</div>
 	<!--end nutrition block-->
 	</br>
-	<form class="form-inline" method='post'>
+	<form method='post'>
 		{{ form1.hidden_tag() }}
-		<div class="form-group row col-xs-12 col-sm-6 col-sm-offset-3">
+		<div class="form-row col-xs-12 col-sm-6 col-sm-offset-3">
 			<div class="col">{{ form1.quantity(class="form-control", placeholder="Quantity") }}</div>
 			<div class="col">
 				{% if meal is none %} {{ form1.meal(class="form-control") }} {% endif %}
