@@ -45,7 +45,7 @@ def search(date=None, meal=None):
         params = dict(
             q=food_search,
             sort="r",
-            max="10",
+            max="100",
             offset="0",
             api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe"
         )
@@ -150,7 +150,7 @@ def get_nutrition(ndbno, meal=None, date=None):
 @app.route('/diary', methods=['GET', 'POST'])
 @app.route('/diary/<string:date_pick>', methods=['GET', 'POST'])
 @login_required
-def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
+def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
 
     form = RemoveFood()
     form2 = DiaryDatePicker()
@@ -162,6 +162,7 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
     foods = Food.query.filter_by(user_id=current_user.get_id(), date=date_pick)
     user = User.query.filter_by(id=current_user.get_id()).first()
 
+    # this only called if user clicks forward, backward, or tries to remove
     if request.method == 'POST':
         # if user clicks an "X" button to remove food from diary,
             # get the Food table row id for selected food
@@ -191,6 +192,7 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
                          timedelta(days=1)).strftime('%B %d, %Y')
 
+        # redirect back to diary; if date is today, exclude ugliness from URL
         todays_date = datetime.now().strftime('%B %d, %Y')
         if date_pick == todays_date:
             return redirect(url_for('diary'))
