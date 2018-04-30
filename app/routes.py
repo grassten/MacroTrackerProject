@@ -191,7 +191,7 @@ def diary(date_pick=datetime.utcnow().strftime('%B %d, %Y')):
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
                          timedelta(days=1)).strftime('%B %d, %Y')
 
-        todays_date = datetime.strptime(form2.date.data, '%B %d, %Y')
+        todays_date = datetime.datetime.now().strftime('%B %d, %Y')
         if date_pick == todays_date:
             return redirect(url_for('diary'))
         else:
