@@ -6,10 +6,10 @@
     <form class="text-center" method="post">
         {{ form.hidden_tag() }}
         <div class="row">
-            <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2">
-                <div class="col-xs-3">{{ form2.back(class="btn btn-block btn-primary mb-2") }}</div>
-                <div class="col-xs-6">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
-                <div class="col-xs-3">{{ form2.forward(class="btn btn-block btn-primary mb-2") }}</div>
+            <div class="form-group col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="col-xs-2">{{ form2.back(class="btn btn-block btn-primary mb-2") }}</div>
+                <div class="col-xs-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
+                <div class="col-xs-2">{{ form2.forward(class="btn btn-block btn-primary mb-2") }}</div>
             </div>
         </div>
     </form>
