@@ -64,7 +64,7 @@ class SetMacroGrams(FlaskForm):
 class AddToDiaryForm(FlaskForm):
     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"),
                     ("Dinner", "Dinner"), ("Snacks", "Snacks")]
-    add = SubmitField('Add to Diary')
+    add = SubmitField('Add')
     meal = SelectField(label='Select Meal',
                        choices=MEAL_CHOICES, validators=[DataRequired()])
     quantity = StringField(label='Quantity', validators=[DataRequired()])
