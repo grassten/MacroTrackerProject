@@ -6,12 +6,10 @@
     <br/>
     <form class=" form-inline text-center" method="post">
         {{ form.hidden_tag() }}
-        <div class=" form-group row">
-            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                <div id="left-date-click" class="col-xs-3 col-sm-2">{{ form2.back(class="text-center btn btn-block btn-primary mb-2") }}</div>
-                <div class="col-xs-6 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
-                <div id="right-date-click" class="col-xs-3 col-sm-2">{{ form2.forward(class="text-center btn btn-block btn-primary mb-2") }}</div>
-            </div>
+        <div class="form-group row">
+            <div class="col-xs-3 col-sm-2">{{ form2.back(class="text-center btn btn-block btn-primary mb-2") }}</div>
+            <div class="col-xs-6 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
+            <div class="col-xs-3 col-sm-2">{{ form2.forward(class="text-center btn btn-block btn-primary mb-2") }}</div>
         </div>
     </form>
     <div class="clearfix"></div>
