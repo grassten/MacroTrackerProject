@@ -66,9 +66,9 @@
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
                 <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center">Protein</th>
-                <th style="width: 10%" class="text-center">Fat</th>
-                <th style="width: 10%" class="text-center">Carbs</th>
+                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
+                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
+                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
                 <th class="text-center">Remove</th>
             </tr>
         </thead>
@@ -79,9 +79,9 @@
             </td>
             <td class="text-center">{{ food.count }}</td>
             <td class="text-center">{{ food.kcal }}</td>
-            <td class="text-center">{{ food.protein }}</td>
-            <td class="text-center">{{ food.fat }}</td>
-            <td class="text-center">{{ food.carbs }}</td>
+            <td class="text-center hidden-xs">{{ food.protein }}</td>
+            <td class="text-center hidden-xs">{{ food.fat }}</td>
+            <td class="text-center hidden-xs">{{ food.carbs }}</td>
             <td class="text-center">
                 <form method='post'>
                     {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }} {{ form.remove() }}
@@ -92,10 +92,10 @@
         <tr>
             <td></td>
             <td></td>
-            <td class="text-center">{{ total_cals['Lunch'] }}</td>
-            <td class="text-center">{{ total_protein['Lunch'] }}</td>
-            <td class="text-center">{{ total_fat['Lunch'] }}</td>
-            <td class="text-center">{{ total_carbs['Lunch'] }}</td>
+            <td class="text-center hidden-xs">{{ total_cals['Lunch'] }}</td>
+            <td class="text-center hidden-xs">{{ total_protein['Lunch'] }}</td>
+            <td class="text-center hidden-xs">{{ total_fat['Lunch'] }}</td>
+            <td class="text-center hidden-xs">{{ total_carbs['Lunch'] }}</td>
         </tr>
     </table>
 
@@ -109,9 +109,9 @@
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
                 <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center">Protein</th>
-                <th style="width: 10%" class="text-center">Fat</th>
-                <th style="width: 10%" class="text-center">Carbs</th>
+                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
+                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
+                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
                 <th class="text-center">Remove</th>
             </tr>
         </thead>
@@ -122,9 +122,9 @@
             </td>
             <td class="text-center">{{ food.count }}</td>
             <td class="text-center">{{ food.kcal }}</td>
-            <td class="text-center">{{ food.protein }}</td>
-            <td class="text-center">{{ food.fat }}</td>
-            <td class="text-center">{{ food.carbs }}</td>
+            <td class="text-center hidden-xs">{{ food.protein }}</td>
+            <td class="text-center hidden-xs">{{ food.fat }}</td>
+            <td class="text-center hidden-xs">{{ food.carbs }}</td>
             <td class="text-center">
                 <form method='post'>
                     {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }} {{ form.remove() }}
@@ -135,10 +135,10 @@
         <tr>
             <td></td>
             <td></td>
-            <td class="text-center">{{ total_cals['Dinner'] }}</td>
-            <td class="text-center">{{ total_protein['Dinner'] }}</td>
-            <td class="text-center">{{ total_fat['Dinner'] }}</td>
-            <td class="text-center">{{ total_carbs['Dinner'] }}</td>
+            <td class="text-center hidden-xs">{{ total_cals['Dinner'] }}</td>
+            <td class="text-center hidden-xs">{{ total_protein['Dinner'] }}</td>
+            <td class="text-center hidden-xs">{{ total_fat['Dinner'] }}</td>
+            <td class="text-center hidden-xs">{{ total_carbs['Dinner'] }}</td>
         </tr>
     </table>
 
@@ -152,9 +152,9 @@
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
                 <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center">Protein</th>
-                <th style="width: 10%" class="text-center">Fat</th>
-                <th style="width: 10%" class="text-center">Carbs</th>
+                <th style="width: 10% hidden-xs" class="text-center">Protein</th>
+                <th style="width: 10% hidden-xs" class="text-center">Fat</th>
+                <th style="width: 10% hidden-xs" class="text-center">Carbs</th>
                 <th class="text-center">Remove</th>
             </tr>
         </thead>
@@ -165,9 +165,9 @@
             </td>
             <td class="text-center">{{ food.count }}</td>
             <td class="text-center">{{ food.kcal }}</td>
-            <td class="text-center">{{ food.protein }}</td>
-            <td class="text-center">{{ food.fat }}</td>
-            <td class="text-center">{{ food.carbs }}</td>
+            <td class="text-center hidden-xs">{{ food.protein }}</td>
+            <td class="text-center hidden-xs">{{ food.fat }}</td>
+            <td class="text-center hidden-xs">{{ food.carbs }}</td>
             <td class="text-center">
                 <form method='post'>
                     {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }} {{ form.remove() }}
@@ -178,10 +178,10 @@
         <tr>
             <td></td>
             <td></td>
-            <td class="text-center">{{ total_cals['Snacks'] }}</td>
-            <td class="text-center">{{ total_protein['Snacks'] }}</td>
-            <td class="text-center">{{ total_fat['Snacks'] }}</td>
-            <td class="text-center">{{ total_carbs['Snacks'] }}</td>
+            <td class="text-center hidden-xs">{{ total_cals['Snacks'] }}</td>
+            <td class="text-center hidden-xs">{{ total_protein['Snacks'] }}</td>
+            <td class="text-center hidden-xs">{{ total_fat['Snacks'] }}</td>
+            <td class="text-center hidden-xs">{{ total_carbs['Snacks'] }}</td>
         </tr>
     </table>
 
