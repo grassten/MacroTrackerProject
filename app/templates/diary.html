@@ -186,36 +186,36 @@
 
     <br/>
 
-    <table style="width: 90%" class="table table-condensed table-bordered">
+    <table style="width: 50%" class="table table-condensed table-bordered">
         <thead>
             <tr class="active">
-                <th>Totals</th>
-                <th style="width: 10%"></th>
-                <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center">Protein</th>
-                <th style="width: 10%" class="text-center">Fat</th>
-                <th style="width: 10%" class="text-center">Carbs</th>
+                <th></th>
+                <th style="width: 12%">Totals</th>
+                <th style="width: 12%" class="text-center">kcal</th>
+                <th style="width: 12%" class="text-center">Protein</th>
+                <th style="width: 12%" class="text-center">Fat</th>
+                <th style="width: 12%" class="text-center">Carbs</th>
             </tr>
         </thead>
         <tr>
-            <td class="text-right">Start Macros</td>
             <td></td>
+            <td class="text-right">Start Macros</td>
             <td class="text-center">{{ user.calories_goal }}</td>
             <td class="text-center">{{ user.protein_grams }}</td>
             <td class="text-center">{{ user.fat_grams }}</td>
             <td class="text-center">{{ user.carbs_grams }}</td>
         </tr>
         <tr>
-            <td class="text-right">Consumed</td>
             <td></td>
+            <td class="text-right">Consumed</td>
             <td class="text-center">{{ total_cals['total'] }}</td>
             <td class="text-center">{{ total_protein['total'] }}</td>
             <td class="text-center">{{ total_fat['total'] }}</td>
             <td class="text-center">{{ total_carbs['total'] }}</td>
         </tr>
         <tr>
-            <td class="text-right">Remaining</td>
             <td></td>
+            <td class="text-right">Remaining</td>
             <td class="text-center">{{ user.calories_goal - total_cals['total'] }}</td>
             <td class="text-center">{{ user.protein_grams - total_protein['total'] }}</td>
             <td class="text-center">{{ user.fat_grams - total_fat['total'] }}</td>
