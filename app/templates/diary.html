@@ -23,9 +23,9 @@
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
                 <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center">Protein</th>
-                <th style="width: 10%" class="text-center">Fat</th>
-                <th style="width: 10%" class="text-center">Carbs</th>
+                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
+                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
+                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
                 <th class="text-center">Remove</th>
             </tr>
         </thead>
@@ -36,9 +36,9 @@
             </td>
             <td class="text-center">{{ food.count }}</td>
             <td class="text-center">{{ food.kcal }}</td>
-            <td class="text-center">{{ food.protein }}</td>
-            <td class="text-center">{{ food.fat }}</td>
-            <td class="text-center">{{ food.carbs }}</td>
+            <td class="text-center hidden-xs">{{ food.protein }}</td>
+            <td class="text-center hidden-xs">{{ food.fat }}</td>
+            <td class="text-center hidden-xs">{{ food.carbs }}</td>
             <td class="text-center">
                 <form method='post'>
                     {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }} {{ form.remove() }}
@@ -49,10 +49,10 @@
         <tr>
             <td></td>
             <td></td>
-            <td class="text-center">{{ total_cals['Breakfast'] }}</td>
-            <td class="text-center">{{ total_protein['Breakfast'] }}</td>
-            <td class="text-center">{{ total_fat['Breakfast'] }}</td>
-            <td class="text-center">{{ total_carbs['Breakfast'] }}</td>
+            <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
+            <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
+            <td class="text-center hidden-xs">{{ total_fat['Breakfast'] }}</td>
+            <td class="text-center hidden-xs">{{ total_carbs['Breakfast'] }}</td>
         </tr>
     </table>
 
