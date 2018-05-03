@@ -18,7 +18,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th style="width: 40%">Breakfast |
+                <th>Breakfast |
                     <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food.</a>
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
@@ -26,7 +26,7 @@
                 <th style="width: 10%" class="text-center hidden-xs">Protein</th>
                 <th style="width: 10%" class="text-center hidden-xs">Fat</th>
                 <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th class="text-center">Remove</th>
+                <th style="width: 10%" class="text-center">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Breakfast" %}
@@ -61,7 +61,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th style="width: 40%">Lunch |
+                <th>Lunch |
                     <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food.</a>
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
@@ -69,7 +69,7 @@
                 <th style="width: 10%" class="text-center hidden-xs">Protein</th>
                 <th style="width: 10%" class="text-center hidden-xs">Fat</th>
                 <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th class="text-center">Remove</th>
+                <th style="width: 10%" class="text-center">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Lunch" %}
@@ -104,7 +104,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th style="width: 40%">Dinner |
+                <th>Dinner |
                     <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food.</a>
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
@@ -112,7 +112,7 @@
                 <th style="width: 10%" class="text-center hidden-xs">Protein</th>
                 <th style="width: 10%" class="text-center hidden-xs">Fat</th>
                 <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th class="text-center">Remove</th>
+                <th style="width: 10%" class="text-center">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Dinner" %}
@@ -147,7 +147,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th style="width: 40%">Snacks |
+                <th>Snacks |
                     <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food.</a>
                 </th>
                 <th style="width: 10%" class="text-center">Count</th>
@@ -155,7 +155,7 @@
                 <th style="width: 10%" class="text-center hidden-xs">Protein</th>
                 <th style="width: 10%" class="text-center hidden-xs">Fat</th>
                 <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th class="text-center">Remove</th>
+                <th style="width: 10%" class="text-center">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Snacks" %}
