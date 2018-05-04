@@ -44,7 +44,6 @@ def search(date=None, meal=None):
         search_url = "https://api.nal.usda.gov/ndb/search/?format=json"
         params = dict(
             q=food_search,
-            ds="Standard Reference"
             sort="r",
             max="100",
             offset="0",
