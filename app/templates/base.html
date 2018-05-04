@@ -1,4 +1,6 @@
-{% extends 'bootstrap/base.html' %} {% block title %} Steven's Macro Counter App {% endblock %} {% block navbar %}
+{% extends 'bootstrap/base.html' %} {% block title %} Steven's Macro Counter App {% endblock %} {% block navbar %} {% block
+styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='mobile_styles.css')}}">{% endblock %}
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
