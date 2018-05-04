@@ -172,7 +172,7 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
                 # commit changes
             # else
                 # do not allow user to make changes
-        if form.remove.data and form.validate():
+        if request.form["action"] == "remove":
             remove_id = form.entry_id.data
             user_id_for_row = Food.query.filter_by(
                 id=remove_id).first().user_id

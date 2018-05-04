@@ -76,7 +76,6 @@ class DiaryDatePicker(FlaskForm):
 
 
 class RemoveFood(FlaskForm):
-    remove = SubmitField('X')
     entry_id = HiddenField('', validators=[DataRequired()])
 
 
