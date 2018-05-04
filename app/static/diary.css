@@ -1,3 +1,8 @@
 .custom_buttons{
+    border: none;
     background: none;
+}
+
+.form-inline .form-group {
+    display: inline-block;
 }
