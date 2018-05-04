@@ -183,12 +183,12 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
                 flash("Diary entry not found.")
 
         # if the user clicks back, subtract one from date to get previous date
-        if request.form['name'] == "back":
+        if request.form["action"] == "back":
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
                          timedelta(days=1)).strftime('%B %d, %Y')
 
         # if the user clicks forward, add one to date to get next date
-        if request.form['name'] == "forward":
+        if request.form["action"] == "forward":
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
                          timedelta(days=1)).strftime('%B %d, %Y')
 
