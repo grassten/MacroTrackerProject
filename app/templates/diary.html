@@ -6,17 +6,13 @@
     <form class="form-inline text-center" method="post">
         {{ form.hidden_tag() }}
         <div class="form-group">
-            <div class="text-right col-xs-2 col-sm-2">
-                <button type="submit" class="btn" name="action" value="back">
-                    <i class="fas fa-arrow-circle-left fa-lg"></i>
-                </button>
-            </div>
-            <div class="text-center col-xs-8 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
-            <div class="text-left col-xs-2 col-sm-2">
-                <button type="submit" class="btn" name="action" value="forward">
-                    <i class="fas fa-arrow-circle-right fa-lg"></i>
-                </button>
-            </div>
+            <button type="submit" class="btn" name="action" value="back">
+                <i class="fas fa-arrow-circle-left fa-lg"></i>
+            </button>
+            {{ form2.date(size=25, readonly=true, class="text-center form-control") }}
+            <button type="submit" class="btn" name="action" value="forward">
+                <i class="fas fa-arrow-circle-right fa-lg"></i>
+            </button>
         </div>
     </form>
     <div class="clearfix"></div>
