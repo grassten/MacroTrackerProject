@@ -21,7 +21,7 @@
     </div>
     <div class="clearfix"></div>
     <br/>
-    <table class="table table-condensed table-bordered">
+    <table class="table table-condensed table-bordered table-custom-mobile">
         <thead>
             <tr>
                 <th class="col-xs-6">Breakfast</th>
@@ -67,27 +67,25 @@
                     <span>Copy To</span>
                 </td>
             </div>
-            <div class="mobile">
+            <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                <a class="text-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
                 <div class="dropdown">
-                    <td class="hidden-sm hidden-md hidden-lg" colspan=4>
-                        <a class="text-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                        <button class="btn btn-primary dropdown-toggle text-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Tools
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
-                            <li>
-                                <a class="dropdown-item" href="#">Quick Add</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Copy To</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <button class="btn btn-primary dropdown-toggle text-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Tools
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item" href="#">Quick Add</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Copy To</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
