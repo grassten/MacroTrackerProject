@@ -1,7 +1,6 @@
 .custom_buttons{
     border: none;
     background: none;
-    display: inline-block;
 }
 .form-inline .form-control {
     width:auto;
