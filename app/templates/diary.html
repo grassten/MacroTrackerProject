@@ -56,8 +56,8 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td>
-                <div class="text-center hidden-xs">
+            <div class="text-center hidden-xs">
+                <td>
                     <span>Quick Add</span>
                     <span> | </span>
                     <span>
@@ -65,8 +65,10 @@
                     </span>
                     <span> | </span>
                     <span>Copy To</span>
-                </div>
-                <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
+                </td>
+            </div>
+            <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
+                <td colspan=4>
                     <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
@@ -85,8 +87,8 @@
                             <a class="dropdown-item" href="#">Copy To</a>
                         </li>
                     </ul>
-                </div>
-            </td>
+                </td>
+            </div>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
