@@ -58,9 +58,6 @@ def search(date=None, meal=None):
             flash("No results found.")
             return redirect(url_for('search'))
         else:
-            if food_list = resp.json()['list'] == []:
-                flash("Error...")
-                return redirect(url_for('search'))
             food_list = resp.json()['list']['item']
             food_list_clean = []
 
