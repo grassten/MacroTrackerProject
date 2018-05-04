@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block app_content %} {% block styles %} {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='nutrition.css')}}"> {% endblock %}
+{% extends 'base.html' %} {% block app_content %}
 <div class="container">
     <h2 class='text-center'>Food Diary</h2>
     <hr/>
@@ -7,7 +6,7 @@
     <form class="form-inline text-center" method="post">
         {{ form.hidden_tag() }}
         <div class="form-group row">
-            <div class="col-xs-2 col-sm-2">{{ form2.back(class="text-center btn btn-primary mb-2") }}</div>
+            <div class="col-xs-2 col-sm-2">{{ form2.back(class="arrow-circle-left text-center btn btn-primary mb-2") }}</div>
             <div class="col-xs-8 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
             <div class="col-xs-2 col-sm-2">{{ form2.forward(class="text-center btn btn-primary mb-2") }}</div>
         </div>
