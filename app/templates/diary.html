@@ -21,77 +21,78 @@
     </div>
     <div class="clearfix"></div>
     <br/>
-    <table class="table table-condensed table-bordered table-custom-mobile">
-        <thead>
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered table-custom-mobile">
+            <thead>
+                <tr>
+                    <th class="col-xs-6">Breakfast</th>
+                    <th class="text-center col-sm-1 col-xs-2">Count</th>
+                    <th class="text-center col-sm-1 col-xs-2">kcal</th>
+                    <th class="text-center hidden-xs col-sm-1">Protein</th>
+                    <th class="text-center hidden-xs col-sm-1">Fat</th>
+                    <th class="text-center hidden-xs col-sm-1">Carbs</th>
+                    <th class="text-center col-sm-1 col-xs-2">Remove</th>
+                </tr>
+            </thead>
+            {% for food in foods %} {% if food.meal == "Breakfast" %}
             <tr>
-                <th class="col-xs-6">Breakfast</th>
-                <th class="text-center col-sm-1 col-xs-2">Count</th>
-                <th class="text-center col-sm-1 col-xs-2">kcal</th>
-                <th class="text-center hidden-xs col-sm-1">Protein</th>
-                <th class="text-center hidden-xs col-sm-1">Fat</th>
-                <th class="text-center hidden-xs col-sm-1">Carbs</th>
-                <th class="text-center col-sm-1 col-xs-2">Remove</th>
+                <td>
+                    <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
+                        {{ food.food_name + ", " + food.unit}}
+                    </a>
+                </td>
+                <td class="text-center">{{ food.count }}</td>
+                <td class="text-center">{{ food.kcal }}</td>
+                <td class="text-center hidden-xs">{{ food.protein }}</td>
+                <td class="text-center hidden-xs">{{ food.fat }}</td>
+                <td class="text-center hidden-xs">{{ food.carbs }}</td>
+                <td class="text-center">
+                    <form method='post'>
+                        {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
+                        <button type="submit" class="btn btn-light custom_buttons" name="action" value="remove">
+                            <i style="color:red" class="fa fa-times fa-lg"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
-        </thead>
-        {% for food in foods %} {% if food.meal == "Breakfast" %}
-        <tr>
-            <td>
-                <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
-                    {{ food.food_name + ", " + food.unit}}
-                </a>
-            </td>
-            <td class="text-center">{{ food.count }}</td>
-            <td class="text-center">{{ food.kcal }}</td>
-            <td class="text-center hidden-xs">{{ food.protein }}</td>
-            <td class="text-center hidden-xs">{{ food.fat }}</td>
-            <td class="text-center hidden-xs">{{ food.carbs }}</td>
-            <td class="text-center">
-                <form method='post'>
-                    {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
-                    <button type="submit" class="btn btn-light custom_buttons" name="action" value="remove">
-                        <i style="color:red" class="fa fa-times fa-lg"></i>
-                    </button>
-                </form>
-            </td>
-        </tr>
-        {% endif %} {% endfor %}
-        <tr class="active">
-            <td class="hidden-xs">
-                <span>Quick Add</span>
-                <span> | </span>
-                <span>
-                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                </span>
-                <span> | </span>
-                <span>Copy To</span>
-            </td>
-            <td class="hidden-sm hidden-md hidden-lg" colspan=4>
-                <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                <div class="dropdown pull-right">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Tools
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <a class="dropdown-item" href="#">Quick Add</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a class="dropdown-item" href="#">Copy To</a>
-                        </li>
-                    </ul>
-                </div>
-            </td>
-            <td class="text-center hidden-xs"></td>
-            <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
-            <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
-            <td class="text-center hidden-xs">{{ total_fat['Breakfast'] }}</td>
-            <td class="text-center hidden-xs">{{ total_carbs['Breakfast'] }}</td>
-        </tr>
-    </table>
-
+            {% endif %} {% endfor %}
+            <tr class="active">
+                <td class="hidden-xs">
+                    <span>Quick Add</span>
+                    <span> | </span>
+                    <span>
+                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                    </span>
+                    <span> | </span>
+                    <span>Copy To</span>
+                </td>
+                <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                    <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Tools
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <a class="dropdown-item" href="#">Quick Add</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Copy To</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td class="text-center hidden-xs"></td>
+                <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
+                <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
+                <td class="text-center hidden-xs">{{ total_fat['Breakfast'] }}</td>
+                <td class="text-center hidden-xs">{{ total_carbs['Breakfast'] }}</td>
+            </tr>
+        </table>
+    </div>
     <br/>
 
     <table class="table table-condensed table-bordered">
