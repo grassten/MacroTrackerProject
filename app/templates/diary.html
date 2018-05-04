@@ -8,11 +8,11 @@
         {{ form.hidden_tag() }}
         <div class="form-group">
             <button type="submit" class="custom_buttons" name="action" value="back">
-                <i class="fas fa-arrow-circle-left fa-lg"></i>
+                <i style="color:dodgerblue" class="fas fa-arrow-circle-left fa-2x"></i>
             </button>
-            {{ form2.date(size=25, readonly=true, class="text-center form-control") }}
+            {{ form2.date(readonly=true, class="text-center form-control") }}
             <button type="submit" class="custom_buttons" name="action" value="forward">
-                <i class="fas fa-arrow-circle-right fa-lg"></i>
+                <i style="color:dodgerblue" class="fas fa-arrow-circle-right fa-2x"></i>
             </button>
         </div>
     </form>
