@@ -1,5 +1,6 @@
 .custom_buttons{
-    background: dodgerblue;
+    background: none;
+    border: none;
 }
 .form-inline .form-control {
     width:auto;
