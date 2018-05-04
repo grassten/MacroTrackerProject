@@ -17,15 +17,15 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th>Breakfast |
+                <th class="col-xs-6">Breakfast |
                     <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food.</a>
                 </th>
-                <th style="width: 10%" class="text-center">Count</th>
-                <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
-                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
-                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th style="width: 10%" class="text-center">Remove</th>
+                <th class="text-center col-sm-1 col-xs-2">Count</th>
+                <th class="text-center col-sm-1 col-xs-2">kcal</th>
+                <th class="text-center hidden-xs col-sm-1">Protein</th>
+                <th class="text-center hidden-xs col-sm-1">Fat</th>
+                <th class="text-center hidden-xs col-sm-1">Carbs</th>
+                <th class="text-center col-sm-1 col-xs-2">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Breakfast" %}
@@ -60,15 +60,15 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th>Lunch |
+                <th class="col-xs-6">Lunch |
                     <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food.</a>
                 </th>
-                <th style="width: 10%" class="text-center">Count</th>
-                <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
-                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
-                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th style="width: 10%" class="text-center">Remove</th>
+                <th class="text-center col-sm-1 col-xs-2">Count</th>
+                <th class="text-center col-sm-1 col-xs-2">kcal</th>
+                <th class="text-center hidden-xs col-sm-1">Protein</th>
+                <th class="text-center hidden-xs col-sm-1">Fat</th>
+                <th class="text-center hidden-xs col-sm-1">Carbs</th>
+                <th class="text-center col-sm-1 col-xs-2">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Lunch" %}
@@ -146,15 +146,15 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th>Snacks |
+                <th class="col-xs-6">Snacks |
                     <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food.</a>
                 </th>
-                <th style="width: 10%" class="text-center">Count</th>
-                <th style="width: 10%" class="text-center">kcal</th>
-                <th style="width: 10%" class="text-center hidden-xs">Protein</th>
-                <th style="width: 10%" class="text-center hidden-xs">Fat</th>
-                <th style="width: 10%" class="text-center hidden-xs">Carbs</th>
-                <th style="width: 10%" class="text-center">Remove</th>
+                <th class="text-center col-sm-1 col-xs-2">Count</th>
+                <th class="text-center col-sm-1 col-xs-2">kcal</th>
+                <th class="text-center hidden-xs col-sm-1">Protein</th>
+                <th class="text-center hidden-xs col-sm-1">Fat</th>
+                <th class="text-center hidden-xs col-sm-1">Carbs</th>
+                <th class="text-center col-sm-1 col-xs-2">Remove</th>
             </tr>
         </thead>
         {% for food in foods %} {% if food.meal == "Snacks" %}
