@@ -8,12 +8,16 @@
         <div class="form-group row">
             <i class="fas fa-arrow-circle-left"></i>
             <div class="col-xs-2 col-sm-2">
-                <button type="submit" name="back">
-                    <i class="fas fa-arrow-circle-left"></i>
-                </button>
+                <input type="submit" name="back">
+                <i class="fas fa-arrow-circle-left"></i>
+                </input>
             </div>
             <div class="col-xs-8 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
-            <div class="col-xs-2 col-sm-2">{{ form2.forward(class="text-center btn btn-primary mb-2") }}</div>
+            <div class="col-xs-2 col-sm-2">
+                <input type="submit" name="forward">
+                <i class="fas fa-arrow-circle-right"></i>
+                </input>
+            </div>
         </div>
     </form>
     <div class="clearfix"></div>
