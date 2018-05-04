@@ -55,8 +55,8 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-center">
-                <div class="hidden-xs">
+            <td>
+                <div class="text-center hidden-xs">
                     <span>Quick Add</span>
                     <span> | </span>
                     <span>
@@ -65,19 +65,21 @@
                     <span> | </span>
                     <span>Copy To</span>
                 </div>
-                <div class="dropdown hidden-sm hidden-md hidden-lg">
+                <div class="text-right dropdown hidden-sm hidden-md hidden-lg">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>>
+                        <li>
                             <a class="dropdown-item" href="#">Quick Add</a>
                         </li>
+                        <li role="separator" class="divider"></li>
                         <li>
                             <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
                         </li>
+                        <li role="separator" class="divider"></li>
                         <li>
                             <a class="dropdown-item" href="#">Copy To</a>
                         </li>
@@ -127,8 +129,8 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-center">
-                <div class="hidden-xs">
+            <td>
+                <div class="text-center hidden-xs">
                     <span>Quick Add</span>
                     <span> | </span>
                     <span>
@@ -137,16 +139,25 @@
                     <span> | </span>
                     <span>Copy To</span>
                 </div>
-                <div class="hidden-sm hidden-md hidden-lg dropdown">
+                <div class="text-right dropdown hidden-sm hidden-md hidden-lg">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
+                        <span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Quick Add</a>
-                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                        <a class="dropdown-item" href="#">Copy To</a>
-                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item" href="#">Quick Add</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Copy To</a>
+                        </li>
+                    </ul>
                 </div>
             </td>
             <td class="text-center hidden-xs"></td>
@@ -192,8 +203,8 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-center">
-                <div class="hidden-xs">
+            <td>
+                <div class="text-center hidden-xs">
                     <span>Quick Add</span>
                     <span> | </span>
                     <span>
@@ -202,16 +213,25 @@
                     <span> | </span>
                     <span>Copy To</span>
                 </div>
-                <div class="hidden-sm hidden-md hidden-lg dropdown">
+                <div class="text-right dropdown hidden-sm hidden-md hidden-lg">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
+                        <span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Quick Add</a>
-                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                        <a class="dropdown-item" href="#">Copy To</a>
-                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item" href="#">Quick Add</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Copy To</a>
+                        </li>
+                    </ul>
                 </div>
             </td>
             <td class="text-center hidden-xs"></td>
@@ -257,8 +277,8 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-center">
-                <div class="hidden-xs">
+            <td>
+                <div class="text-center hidden-xs">
                     <span>Quick Add</span>
                     <span> | </span>
                     <span>
@@ -267,16 +287,25 @@
                     <span> | </span>
                     <span>Copy To</span>
                 </div>
-                <div class="hidden-sm hidden-md hidden-lg dropdown">
+                <div class="text-right dropdown hidden-sm hidden-md hidden-lg">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
+                        <span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Quick Add</a>
-                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                        <a class="dropdown-item" href="#">Copy To</a>
-                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <a class="dropdown-item" href="#">Quick Add</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Copy To</a>
+                        </li>
+                    </ul>
                 </div>
             </td>
             <td class="text-center hidden-xs"></td>
