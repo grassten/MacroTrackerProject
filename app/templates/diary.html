@@ -23,9 +23,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th class="col-xs-6">Breakfast |
-                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food.</a>
-                </th>
+                <th class="col-xs-6">Breakfast</th>
                 <th class="text-center col-sm-1 col-xs-2">Count</th>
                 <th class="text-center col-sm-1 col-xs-2">kcal</th>
                 <th class="text-center hidden-xs col-sm-1">Protein</th>
@@ -57,7 +55,13 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-right hidden-xs">Meal Totals</td>
+            <td class="text-center">
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                </span>
+                <span> | </span>
+            </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
@@ -71,9 +75,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th class="col-xs-6">Lunch |
-                    <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food.</a>
-                </th>
+                <th class="col-xs-6">Lunch</th>
                 <th class="text-center col-sm-1 col-xs-2">Count</th>
                 <th class="text-center col-sm-1 col-xs-2">kcal</th>
                 <th class="text-center hidden-xs col-sm-1">Protein</th>
@@ -103,7 +105,13 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-right hidden-xs">Meal Totals</td>
+            <td class="text-center">
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
+                </span>
+                <span> | </span>
+            </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Lunch'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Lunch'] }}</td>
@@ -117,9 +125,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th class="col-xs-6">Dinner |
-                    <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food.</a>
-                </th>
+                <th class="col-xs-6">Dinner</th>
                 <th class="text-center col-sm-1 col-xs-2">Count</th>
                 <th class="text-center col-sm-1 col-xs-2">kcal</th>
                 <th class="text-center hidden-xs col-sm-1">Protein</th>
@@ -149,7 +155,13 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-right hidden-xs">Meal Totals</td>
+            <td class="text-center">
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
+                </span>
+                <span> | </span>
+            </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Dinner'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Dinner'] }}</td>
@@ -163,9 +175,7 @@
     <table class="table table-condensed table-bordered">
         <thead>
             <tr>
-                <th class="col-xs-6">Snacks |
-                    <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food.</a>
-                </th>
+                <th class="col-xs-6">Snacks</th>
                 <th class="text-center col-sm-1 col-xs-2">Count</th>
                 <th class="text-center col-sm-1 col-xs-2">kcal</th>
                 <th class="text-center hidden-xs col-sm-1">Protein</th>
@@ -195,7 +205,13 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td class="text-right hidden-xs">Meal Totals</td>
+            <td class="text-center">
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
+                </span>
+                <span> | </span>
+            </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Snacks'] }}</td>
             <td class="text-center hidden-xs">{{ total_protein['Snacks'] }}</td>
