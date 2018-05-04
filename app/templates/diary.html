@@ -185,43 +185,40 @@
     </table>
 
     <br/>
-
-    <div class="row">
-        <div class="col-sm-6 col-sm-offset-5">
-            <table class="table table-condensed table-bordered">
-                <thead>
-                    <tr class="active">
-                        <th class="text-right col-sm-4">Totals</th>
-                        <th class="text-center col-sm-2">kcal</th>
-                        <th class="text-center col-sm-2">Protein</th>
-                        <th class="text-center col-sm-2">Fat</th>
-                        <th class="text-center col-sm-2">Carbs</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <td class="text-right">Start Macros</td>
-                    <td class="text-center">{{ user.calories_goal }}</td>
-                    <td class="text-center">{{ user.protein_grams }}</td>
-                    <td class="text-center">{{ user.fat_grams }}</td>
-                    <td class="text-center">{{ user.carbs_grams }}</td>
+    <div class="col-sm-6 col-sm-offset-5">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr class="active">
+                    <th class="text-right col-sm-4">Totals</th>
+                    <th class="text-center col-sm-2">kcal</th>
+                    <th class="text-center col-sm-2">Protein</th>
+                    <th class="text-center col-sm-2">Fat</th>
+                    <th class="text-center col-sm-2">Carbs</th>
                 </tr>
-                <tr>
-                    <td class="text-right">Consumed</td>
-                    <td class="text-center">{{ total_cals['total'] }}</td>
-                    <td class="text-center">{{ total_protein['total'] }}</td>
-                    <td class="text-center">{{ total_fat['total'] }}</td>
-                    <td class="text-center">{{ total_carbs['total'] }}</td>
-                </tr>
-                <tr>
-                    <td class="text-right">Remaining</td>
-                    <td class="text-center">{{ user.calories_goal - total_cals['total'] }}</td>
-                    <td class="text-center">{{ user.protein_grams - total_protein['total'] }}</td>
-                    <td class="text-center">{{ user.fat_grams - total_fat['total'] }}</td>
-                    <td class="text-center">{{ user.carbs_grams - total_carbs['total'] }}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="col-sm-1">testlol</div>
+            </thead>
+            <tr>
+                <td class="text-right">Start Macros</td>
+                <td class="text-center">{{ user.calories_goal }}</td>
+                <td class="text-center">{{ user.protein_grams }}</td>
+                <td class="text-center">{{ user.fat_grams }}</td>
+                <td class="text-center">{{ user.carbs_grams }}</td>
+            </tr>
+            <tr>
+                <td class="text-right">Consumed</td>
+                <td class="text-center">{{ total_cals['total'] }}</td>
+                <td class="text-center">{{ total_protein['total'] }}</td>
+                <td class="text-center">{{ total_fat['total'] }}</td>
+                <td class="text-center">{{ total_carbs['total'] }}</td>
+            </tr>
+            <tr>
+                <td class="text-right">Remaining</td>
+                <td class="text-center">{{ user.calories_goal - total_cals['total'] }}</td>
+                <td class="text-center">{{ user.protein_grams - total_protein['total'] }}</td>
+                <td class="text-center">{{ user.fat_grams - total_fat['total'] }}</td>
+                <td class="text-center">{{ user.carbs_grams - total_carbs['total'] }}</td>
+            </tr>
+        </table>
     </div>
+    <div class="col-sm-1">testlol</div>
 </div>
 {% endblock %}
