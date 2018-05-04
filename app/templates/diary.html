@@ -7,7 +7,11 @@
         {{ form.hidden_tag() }}
         <div class="form-group row">
             <i class="fas fa-arrow-circle-left"></i>
-            <div class="col-xs-2 col-sm-2">{{ form2.back(class="fas fa-arrow-circle-left text-center") }}</div>
+            <div class="col-xs-2 col-sm-2">
+                <button type="submit" name="back">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </button>
+            </div>
             <div class="col-xs-8 col-sm-8">{{ form2.date(size=25, readonly=true, class="text-center form-control") }}</div>
             <div class="col-xs-2 col-sm-2">{{ form2.forward(class="text-center btn btn-primary mb-2") }}</div>
         </div>
