@@ -67,27 +67,28 @@
                     <span>Copy To</span>
                 </td>
             </div>
-            <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
-                <td class="hidden-sm hidden-md hidden-lg" colspan=4>
-                    <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Tools
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <a class="dropdown-item" href="#">Quick Add</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a class="dropdown-item" href="#">Copy To</a>
-                        </li>
-                    </ul>
-                </td>
+            <div class="mobile">
+                <div class="text-left">
+                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                </div>
+                <div class="dropdown text-right">
+                    <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Tools
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <a class="dropdown-item" href="#">Quick Add</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Copy To</a>
+                            </li>
+                        </ul>
+                    </td>
+                </div>
             </div>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
