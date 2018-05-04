@@ -4,18 +4,20 @@
     <h2 class='text-center'>Food Diary</h2>
     <hr/>
     <br/>
-    <form class="form-inline text-center" method="post">
-        <div class="form-group">
-            {{ form.hidden_tag() }}
-            <button type="submit" class="custom_buttons" name="action" value="back">
-                <i style="color:dodgerblue" class="fas fa-arrow-circle-left fa-2x"></i>
-            </button>
-            {{ form2.date(readonly=true, class="text-center form-control") }}
-            <button type="submit" class="custom_buttons" name="action" value="forward">
-                <i style="color:dodgerblue" class="fas fa-arrow-circle-right fa-2x"></i>
-            </button>
-        </div>
-    </form>
+    <div class="row">
+        <form class="form-inline text-center" method="post">
+            <div class="form-group">
+                {{ form.hidden_tag() }}
+                <button type="submit" class="custom_buttons" name="action" value="back">
+                    <i style="color:dodgerblue" class="fas fa-arrow-circle-left fa-2x"></i>
+                </button>
+                {{ form2.date(readonly=true, class="text-center form-control") }}
+                <button type="submit" class="custom_buttons" name="action" value="forward">
+                    <i style="color:dodgerblue" class="fas fa-arrow-circle-right fa-2x"></i>
+                </button>
+            </div>
+        </form>
+    </div>
     <div class="clearfix"></div>
     <br/>
     <table class="table table-condensed table-bordered">
