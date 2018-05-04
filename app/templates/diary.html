@@ -56,17 +56,15 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <div class="text-center hidden-xs">
-                <td class="hidden-xs">
-                    <span>Quick Add</span>
-                    <span> | </span>
-                    <span>
-                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                    </span>
-                    <span> | </span>
-                    <span>Copy To</span>
-                </td>
-            </div>
+            <td class="hidden-xs">
+                <span>Quick Add</span>
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                </span>
+                <span> | </span>
+                <span>Copy To</span>
+            </td>
             <td class="hidden-sm hidden-md hidden-lg" colspan=4>
                 <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
                 <div class="dropdown pull-right">
@@ -129,29 +127,26 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td>
-                <div class="text-center hidden-xs">
-                    <span>Quick Add</span>
-                    <span> | </span>
-                    <span>
-                        <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
-                    </span>
-                    <span> | </span>
-                    <span>Copy To</span>
-                </div>
-                <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
-                    <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            <td class="hidden-xs">
+                <span>Quick Add</span>
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
+                </span>
+                <span> | </span>
+                <span>Copy To</span>
+            </td>
+            <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
+                <div class="dropdown pull-right">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                         <li>
                             <a class="dropdown-item" href="#">Quick Add</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
@@ -203,29 +198,26 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td>
-                <div class="text-center hidden-xs">
-                    <span>Quick Add</span>
-                    <span> | </span>
-                    <span>
-                        <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
-                    </span>
-                    <span> | </span>
-                    <span>Copy To</span>
-                </div>
-                <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
-                    <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            <td class="hidden-xs">
+                <span>Quick Add</span>
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
+                </span>
+                <span> | </span>
+                <span>Copy To</span>
+            </td>
+            <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
+                <div class="dropdown pull-right">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                         <li>
                             <a class="dropdown-item" href="#">Quick Add</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
@@ -277,29 +269,26 @@
         </tr>
         {% endif %} {% endfor %}
         <tr class="active">
-            <td>
-                <div class="text-center hidden-xs">
-                    <span>Quick Add</span>
-                    <span> | </span>
-                    <span>
-                        <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
-                    </span>
-                    <span> | </span>
-                    <span>Copy To</span>
-                </div>
-                <div class="text-left dropdown hidden-sm hidden-md hidden-lg">
-                    <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            <td class="hidden-xs">
+                <span>Quick Add</span>
+                <span> | </span>
+                <span>
+                    <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
+                </span>
+                <span> | </span>
+                <span>Copy To</span>
+            </td>
+            <td class="hidden-sm hidden-md hidden-lg" colspan=4>
+                <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
+                <div class="dropdown pull-right">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Tools
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                         <li>
                             <a class="dropdown-item" href="#">Quick Add</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
