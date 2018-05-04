@@ -47,6 +47,7 @@ def search(date=None, meal=None):
             sort="r",
             max="100",
             offset="0",
+            ds="sr"
             api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe"
         )
 
