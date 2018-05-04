@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block app_content %}
+{% extends 'base.html' %} {% block app_content %} {% block styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='nutrition.css')}}"> {% endblock %}
 <div class="container">
     <h2 class='text-center'>Food Diary</h2>
     <hr/>
@@ -30,7 +31,9 @@
         {% for food in foods %} {% if food.meal == "Breakfast" %}
         <tr>
             <td>
-                <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit}}</a>
+                <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
+                    {{ food.food_name + ", " + food.unit}}
+                </a>
             </td>
             <td class="text-center">{{ food.count }}</td>
             <td class="text-center">{{ food.kcal }}</td>
