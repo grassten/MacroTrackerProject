@@ -1,5 +1,10 @@
 .custom_buttons{
     border: none;
     background: none;
-    vertical-align: center;
+}
+.form-inline .form-control {
+    width:auto;
+}
+.form-inline .form-group {
+    display: inline-block;
 }
