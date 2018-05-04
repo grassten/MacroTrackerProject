@@ -73,8 +73,6 @@ class AddToDiaryForm(FlaskForm):
 class DiaryDatePicker(FlaskForm):
     date = StringField(default=datetime.utcnow().strftime(
         '%B %d, %Y'), validators=[DataRequired()])
-    back = SubmitField('<')
-    forward = SubmitField('>')
 
 
 class RemoveFood(FlaskForm):
