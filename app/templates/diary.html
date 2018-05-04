@@ -56,13 +56,18 @@
         {% endif %} {% endfor %}
         <tr class="active">
             <td class="text-center">
-                <span>Quick Add</span>
-                <span> | </span>
-                <span>
-                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                </span>
-                <span> | </span>
-                <span>Copy to</span>
+                <div class="hidden-xs">
+                    <span>Quick Add</span>
+                    <span> | </span>
+                    <span>
+                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                    </span>
+                    <span> | </span>
+                    <span>Copy to</span>
+                </div>
+                <div class="hidden-sm hidden-md hidden-lg">
+                    <span>Tools</span>
+                </div>
             </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
@@ -108,13 +113,18 @@
         {% endif %} {% endfor %}
         <tr class="active">
             <td class="text-center">
-                <span>Quick Add</span>
-                <span> | </span>
-                <span>
-                    <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
-                </span>
-                <span> | </span>
-                <span>Copy to</span>
+                <div class="hidden-xs">
+                    <span>Quick Add</span>
+                    <span> | </span>
+                    <span>
+                        <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
+                    </span>
+                    <span> | </span>
+                    <span>Copy to</span>
+                </div>
+                <div class="hidden-sm hidden-md hidden-lg">
+                    <span>Tools</span>
+                </div>
             </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Lunch'] }}</td>
@@ -160,13 +170,18 @@
         {% endif %} {% endfor %}
         <tr class="active">
             <td class="text-center">
-                <span>Quick Add</span>
-                <span> | </span>
-                <span>
-                    <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
-                </span>
-                <span> | </span>
-                <span>Copy to</span>
+                <div class="hidden-xs">
+                    <span>Quick Add</span>
+                    <span> | </span>
+                    <span>
+                        <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
+                    </span>
+                    <span> | </span>
+                    <span>Copy to</span>
+                </div>
+                <div class="hidden-sm hidden-md hidden-lg">
+                    <span>Tools</span>
+                </div>
             </td>
             <td class="text-center hidden-xs"></td>
             <td class="text-center hidden-xs">{{ total_cals['Dinner'] }}</td>
