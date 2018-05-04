@@ -68,17 +68,15 @@
                 </td>
             </div>
             <div class="mobile">
-                <div class="text-left">
-                    <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
-                </div>
-                <div class="dropdown text-right">
+                <div class="dropdown">
                     <td class="hidden-sm hidden-md hidden-lg" colspan=4>
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        <a class="text-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
+                        <button class="btn btn-primary dropdown-toggle text-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Tools
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <a class="dropdown-item" href="#">Quick Add</a>
                             </li>
