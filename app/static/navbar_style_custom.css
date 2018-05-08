@@ -3,14 +3,12 @@ body {
     background-color: #222;
 }
 
-.navbar-brand {
-    color: white;
-    background-color: #E74C3C;
-}
-
 @media(min-width:1024px) {
     body {
         margin-top: 50px;
+    }
+    .navbar-brand {
+        width: 225px;
     }
 }
 
@@ -59,7 +57,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: white;
 }
 
 .top-nav>li>a:hover,
