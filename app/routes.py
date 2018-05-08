@@ -153,16 +153,16 @@ def get_nutrition(ndbno, meal=None, date=None):
 @login_required
 def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
 
+    form = RemoveFood()
+    form2 = DiaryDatePicker()
+
+    session.pop('_flashes', None)
+
     try:
         datetime.strptime(date_pick, '%B %d, %Y')
     except ValueError:
         flash("Please select a valid date.")
         return redirect(url_for('diary'))
-
-    form = RemoveFood()
-    form2 = DiaryDatePicker()
-
-    session.pop('_flashes', None)
 
     form2.date.data = date_pick
 
