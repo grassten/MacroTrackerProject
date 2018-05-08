@@ -5,6 +5,7 @@ body {
 
 .navbar-brand {
     background-color: #E74C3C;
+    color: white;
 }
 
 @media(min-width:1024px) {
@@ -69,7 +70,7 @@ body {
 .top-nav>.open>a,
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
-    color: #fff;
+    color: white;
     background-color: #000;
 }
 
@@ -127,5 +128,5 @@ body {
 }
 
 .side-nav>li>ul>li>a:hover {
-    color: #fff;
+    color: white;
 }
