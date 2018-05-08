@@ -12,7 +12,8 @@ Daily food log to track calories/macronutrients against set goals.
 - Add pagination on search page
 - ~~Add 404 not found and 500 pages (minimal until after redesign)~~ (4-7-18)
 - ~~Add recent food to search page~~ (4-7-18)
-- Add check-boxes to recent foods for multi-add convenience
+- ~~Add check-boxes to recent foods for multi-add convenience~~ (4-8-18)
+- Distinct values in recent foods on search page
 - Consider how search results should be sorted
     - Consider switching to local USDA DB for more control
     - Possibly switch to openfoodfacts database
