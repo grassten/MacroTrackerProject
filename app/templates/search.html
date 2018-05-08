@@ -19,21 +19,19 @@
 			<tr>
 				<th colspan="2">
 					<span class="pull-left">Recent Foods</span>
-					<span class="pull-right">
-						<div class="form-inline">
-							{% if meal == None %}
-							<div>
-								<select class="form-control" id="sel1">
-									<option>Breakfast</option>
-									<option>Lunch</option>
-									<option>Dinner</option>
-									<option>Snacks</option>
-								</select>
-							</div>
-							{% endif %}
-							<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
+					<div class="form-inline text-right">
+						{% if meal == None %}
+						<div>
+							<select class="form-control" id="sel1">
+								<option>Breakfast</option>
+								<option>Lunch</option>
+								<option>Dinner</option>
+								<option>Snacks</option>
+							</select>
 						</div>
-					</span>
+						{% endif %}
+						<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
+					</div>
 				</th>
 			</tr>
 			{% endif %} {% for food_name in food_list_clean %}
