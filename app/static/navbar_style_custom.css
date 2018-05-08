@@ -1,6 +1,6 @@
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #ECF0F1;
 }
 
 .navbar-default .navbar-brand {
@@ -102,7 +102,7 @@ body {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #222;
+        background-color: #ECF0F1;
     }
 
     .side-nav>li>a {
