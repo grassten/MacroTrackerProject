@@ -33,7 +33,14 @@ def home():
 def search(date=None, meal=None):
     form = SearchForm()
     if request.method == 'GET':
-        return render_template('search.html', form=form)
+        current_userid = User.query.filter_by(id=current_user.get_id()).first()
+        recent_foods = Food.query.filter_by(user_id=current_userid)
+
+        food_list_clean = []
+        for food in recent_foods:
+            food_list_clean.append((food.food_name, food.ndbno))
+
+        return render_template('search.html', form=form, food_list_clean=food_list_clean)
 
     if request.method == 'POST':
 
