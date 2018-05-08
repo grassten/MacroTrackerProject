@@ -1,9 +1,9 @@
 {% extends 'bootstrap/base.html' %} {% block title %} Steven's Macro Counter App {% endblock %} {% block navbar %} {% block
 styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='mobile_styles.css')}}">
-<link rel="stylesheet" href="{{url_for('.static', filename='navbar-fixed-left.css')}}">{% endblock %}
+<link rel="stylesheet" href="{{url_for('.static', filename='navbar_style_custom.css')}}">{% endblock %}
 <div id="wrapper">
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 			 aria-controls="navbar">
@@ -31,7 +31,7 @@ styles %} {{super()}}
 				</ul>
 			</li>
 		</ul>
-		<div class="navbar-collapse collapse navbar-fixed-left">
+		<div class="navbar-collapse collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
 				<li>
 					<a href="{{ url_for('diary') }}">Search</a>
