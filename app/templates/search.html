@@ -15,13 +15,15 @@
 	<table class="table table-condensed table-bordered">
 		{% if recent_list == True %}
 		<tr>
-			<th>Recent Foods</li>
+			<th colspan="2">Recent Foods</li>
 		</tr>
 		{% endif %} {% for food_name in food_list_clean %}
 		<tr>
+			{% if recent_list == True %}
 			<td>
 				<input type="checkbox" name="selected" value="{{ food_name[1] }}">
 			</td>
+			{% endif %}
 			<td>
 				<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
 			</td>
