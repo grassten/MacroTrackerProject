@@ -43,7 +43,8 @@ def search(date=None, meal=None):
         for food in recent_foods:
             food_list_clean.append((food.food_name, food.ndbno))
 
-        return render_template('search.html', form=form, food_list_clean=food_list_clean, recent_list=recent_list)
+        return render_template('search.html', form=form, food_list_clean=food_list_clean,
+                               recent_list=recent_list, date=date, meal=meal)
 
     if request.method == 'POST':
 

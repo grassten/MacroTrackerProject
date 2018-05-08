@@ -10,7 +10,7 @@ Daily food log to track calories/macronutrients against set goals.
 
 ### Additional functionality
 - Add pagination on search page
-- Build a 404 not found page (minimal until after redesign)
+- ~~Add 404 not found and 500 pages (minimal until after redesign)~~
 - ~~Add recent food to search page~~ (4-7-18)
 - Consider how search results should be sorted
     - Consider switching to local USDA DB for more control
