@@ -5,7 +5,7 @@ Daily food log to track calories/macronutrients against set goals.
 
 ### Bug Fixes
 - ~~Fix formatting for mobile devices~~ (5-4-18)
-- Fix date change bug on diary
+- ~~Fix date change bug on diary~~ (5-7-18)
 - Fix macros by gram bug
 
 ### Additional functionality

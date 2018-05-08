@@ -160,10 +160,9 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
     try:
         datetime.strptime(date_pick, '%B %d, %Y')
     except ValueError:
-        flash("Please select a valid date.")
         return redirect(url_for('diary'))
-    else:
-        session.pop('_flashes', None)
+
+    session.pop('_flashes', None)
 
     form2.date.data = date_pick
 
@@ -284,13 +283,22 @@ def macros_grams():
             return render_template('macros_grams.html', user=user, form=form)
 
         if request.method == 'POST':
-            user.carbs_grams = form.carbs.data
-            user.fat_grams = form.fat.data
-            user.protein_grams = form.protein.data
-            user.calories_goal = (form.carbs.data * 4) + \
-                (form.fat.data * 9) + (form.protein.data * 4)
-            db.session.commit()
-            flash("Macros updated.")
+            try:
+                carb_holder = float(form.carbs.data)
+                fat_holder = float(form.fat.data)
+                protein_holder = float(form.protein.data)
+            except TypeError:
+                flash("Please enter valid numbers.")
+            except ValueError:
+                flash("Please enter valid numbers.")
+            else:
+                user.carbs_grams = form.carbs.data
+                user.fat_grams = form.fat.data
+                user.protein_grams = form.protein.data
+                user.calories_goal = (form.carbs.data * 4) + \
+                    (form.fat.data * 9) + (form.protein.data * 4)
+                db.session.commit()
+                flash("Macros updated.")
             return redirect(url_for('macros_grams'))
 
 
