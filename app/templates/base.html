@@ -1,7 +1,8 @@
 {% extends 'bootstrap/base.html' %} {% block title %} Steven's Macro Counter App {% endblock %} {% block navbar %} {% block
 styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='mobile_styles.css')}}">
-<link rel="stylesheet" href="{{url_for('.static', filename='navbar-fixed-left.css')}}">{% endblock %}
+<link rel="stylesheet" href="{{url_for('.static', filename='navbar-fixed-left.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='navbar_style_custom.css')}}">{% endblock %}
 <nav class="navbar navbar-inverse bg-primary navbar-fixed-left">
 	<div class="container">
 		<div class="navbar-header">
