@@ -1,6 +1,6 @@
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #3c7de7;
     height: 100vh;
 }
 
@@ -120,7 +120,7 @@ ul.alert-dropdown {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #222;
+        background-color: #3c7de7;
     }
 
     .side-nav>li>a {
