@@ -162,6 +162,8 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
     except ValueError:
         flash("Please select a valid date.")
         return redirect(url_for('diary'))
+    else:
+        session.pop('_flashes', None)
 
     form2.date.data = date_pick
 
@@ -170,8 +172,6 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
 
     # this only called if user clicks forward, backward, or tries to remove
     if request.method == 'POST':
-
-        session.pop('_flashes', None)
 
         # if user clicks an "X" button to remove food from diary,
         # get the Food table row id for selected food
