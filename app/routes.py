@@ -50,11 +50,11 @@ def search(date=None, meal=None):
 
         if request.form["action"] == "multiadd":
             food_ids = request.form.getlist("selected")
-            current_userid = User.query.filter_by(
+            current_user = User.query.filter_by(
                 id=current_user.get_id()).first()
             for i in food_ids:
-                food = Food.query.filter_by(id=int(i)).first()
-                if food.user_id == current_userid:
+                food = Food.query.filter_by(id=i).first()
+                if food.user_id == current_user.id:
                     food = Food(food_name=food.food_name, count=food.count,
                                 kcal=food.kcal,
                                 protein=food.protein,
