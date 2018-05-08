@@ -123,3 +123,7 @@ body {
     color: #fff;
 }
 
+.navbar-brand {
+    color: white;
+    background-color: #E74C3C;
+}
