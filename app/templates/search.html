@@ -21,29 +21,14 @@
 					<span class="pull-left">Recent Foods</span>
 					<span class="pull-right">
 						{% if meal == None %}
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-							 aria-expanded="true">
-								Select Meal
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li>
-									<a href="#">Breakfast</a>
-								</li>
-								<li role="separator" class="divider"></li>
-								<li>
-									<a href="#">Lunch</a>
-								</li>
-								<li role="separator" class="divider"></li>
-								<li>
-									<a href="#">Dinner</a>
-								</li>
-								<li role="separator" class="divider"></li>
-								<li>
-									<a href="#">Snacks</a>
-								</li>
-							</ul>
+						<div>
+							<label for="sel1">Select meal:</label>
+							<select class="form-control" id="sel1">
+								<option>Breakfast</option>
+								<option>Lunch</option>
+								<option>Dinner</option>
+								<option>Snacks</option>
+							</select>
 						</div>
 						{% endif %}
 						<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
