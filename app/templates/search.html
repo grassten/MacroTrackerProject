@@ -7,7 +7,8 @@
 	<form method='post'>
 		{{ form.hidden_tag() }}
 		<div class="form-inline">
-			{{ form.search(class="form-control", placeholder="Enter food name...") }} {{ form.submit(class="btn btn-primary mb-2") }}
+			{{ form.search(class="form-control", placeholder="Enter food name...") }} {{ form.submit(class="btn btn-primary mb-2" name="action"
+			value="search") }}
 		</div>
 	</form>
 	<div class="clearfix"></div>
