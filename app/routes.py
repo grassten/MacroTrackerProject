@@ -48,6 +48,12 @@ def search(date=None, meal=None):
 
     if request.method == 'POST':
 
+        if request.form["action"] == "multiadd":
+            food_ids = request.form.getlist("selected")
+            for i in food_ids:
+                print(i)
+            return redirect(url_for('search'))
+
         recent_list = False
 
         # get user input from search bar
