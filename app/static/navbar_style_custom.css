@@ -1,6 +1,6 @@
 body {
     margin-top: 100px;
-    background-color: #ECF0F1;
+    background-color: #2C3E50;
 }
 
 .navbar-default .navbar-brand {
@@ -71,7 +71,6 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: white;
-    background-color: #000;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -102,7 +101,7 @@ body {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #ECF0F1;
+        background-color: #2C3E50;
     }
 
     .side-nav>li>a {
@@ -112,7 +111,6 @@ body {
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
-        background-color: #000 !important;
     }
 }
 
