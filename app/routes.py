@@ -61,7 +61,8 @@ def search(date=None, meal=None):
                                     protein=food.protein,
                                     fat=food.fat,
                                     carbs=food.carbs,
-                                    unit=food.unit, meal=meal,
+                                    unit=food.unit, meal=request.form.get(
+                                        'mealselect'),
                                     ndbno=food.ndbno, user_id=current_user.get_id())
                     else:
                         food = Food(food_name=food.food_name, count=food.count,
