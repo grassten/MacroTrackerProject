@@ -19,6 +19,7 @@ body {
 
 #page-wrapper {
     width: 100%;
+    height: 100vh;
     padding: 0;
     background-color: #fff;
 }
@@ -118,7 +119,7 @@ ul.alert-dropdown {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: white;
+        background-color: #222;
     }
 
     .side-nav>li>a {
