@@ -1,8 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
-    <h1>File Not Found</h1>
-    <p>
-        <a href="{{ url_for('home') }}">Back</a>
-    </p>
-    {% endblock %}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <h1>File Not Found</h1>
+        <p>
+            <a href="{{ url_for('home') }}">Back</a>
+        </p>
+        {% endblock %}
+    </div>
 </div>
