@@ -3,6 +3,10 @@ body {
     background-color: #222;
 }
 
+.navbar-brand {
+    background-color: #E74C3C;
+}
+
 @media(min-width:1024px) {
     body {
         margin-top: 50px;
