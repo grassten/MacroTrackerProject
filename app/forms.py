@@ -13,7 +13,6 @@ from datetime import datetime
 
 class SearchForm(FlaskForm):
     search = StringField('Search', validators=[DataRequired()])
-    submit = SubmitField('Search')
 
 
 class LoginForm(FlaskForm):
