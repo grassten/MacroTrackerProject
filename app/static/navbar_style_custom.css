@@ -1,6 +1,6 @@
 body {
     margin-top: 100px;
-    background-color: #3c7de7;
+    background-color: #222;
 }
 
 @media(min-width:1024px) {
@@ -146,3 +146,4 @@ ul.alert-dropdown {
 .side-nav>li>ul>li>a:hover {
     color: #fff;
 }
+
