@@ -52,7 +52,7 @@ def search(date=None, meal=None):
             food_ids = request.form.getlist("selected")
             current_userid = User.query.filter_by(
                 id=current_user.get_id()).first()
-            for i in food_ids:
+            for int(i) in food_ids:
                 food = Food.query.filter_by(id=i).first()
                 if food.user_id == current_userid:
                     food = Food(food_name=food.food_name, count=food.count,
