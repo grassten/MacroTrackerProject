@@ -35,8 +35,8 @@ def search(date=None, meal=None):
     form = SearchForm()
     if request.method == 'GET':
         current_userid = User.query.filter_by(id=current_user.get_id()).first()
-        recent_foods = Food.query.distinct(Food.food_name).filter_by(
-            user_id=current_userid.id).order_by(desc(Food.id))
+        recent_foods = Food.query.filter_by(
+            user_id=current_userid.id).order_by(desc(Food.id)).distinct()
 
         food_list_clean = []
         recent_list = True
