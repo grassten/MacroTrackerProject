@@ -3,17 +3,14 @@ body {
     background-color: #193441;
 }
 
-.navbar-default .navbar-brand {
-    background-color: #3E606F;
-    color: white;
-}
-
 @media(min-width:1024px) {
     body {
         margin-top: 50px;
     }
-    .navbar-brand {
+    .navbar-default .navbar-brand {
         width: 225px;
+        background-color: #3E606F;
+        color: white;
     }
 }
 

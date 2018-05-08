@@ -38,22 +38,19 @@ styles %} {{super()}}
 			</li>
 			{% endif %}
 		</ul>
-		<div class="navbar-collapse collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav side-nav">
-				{% if current_user.is_anonymous %} {% else %}
-				<li>
-					<a href="{{ url_for('search') }}">Search</a>
-				</li>
-				<li>
-					<a href="{{ url_for('diary')}}">Diary</a>
-				</li>
-				<li>
-					<a href="{{ url_for('profile') }}">Profile</a>
-				</li>
-				{% endif %}
-			</ul>
-
-		</div>
+		<ul class="nav navbar-nav side-nav">
+			{% if current_user.is_anonymous %} {% else %}
+			<li>
+				<a href="{{ url_for('search') }}">Search</a>
+			</li>
+			<li>
+				<a href="{{ url_for('diary')}}">Diary</a>
+			</li>
+			<li>
+				<a href="{{ url_for('profile') }}">Profile</a>
+			</li>
+			{% endif %}
+		</ul>
 	</nav>
 	{% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages
 	%}
