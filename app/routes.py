@@ -64,43 +64,43 @@ def search(date=None, meal=None):
                                 ndbno=food.ndbno, user_id=current_user.get_id())
                     db.session.add(food)
                     db.session.commit()
-            flash("Foods added.")
             return redirect(url_for('diary'))
 
-        recent_list = False
-
-        # get user input from search bar
-        food_search = form.search.data
-        if food_search == "":
-            return redirect(url_for('search', date=date, meal=meal))
-
-        # build API URL to search for food
-        search_url = "https://api.nal.usda.gov/ndb/search/?format=json"
-        params = dict(
-            q=food_search,
-            sort="r",
-            max="100",
-            offset="0",
-            ds="Standard Reference",
-            api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe"
-        )
-
-        # build list of tuples w/ name of food and associated ndbno (unique ID)
-        resp = requests.get(url=search_url, params=params)
-
-        if "zero results" in str(resp.json()):
-            flash("No results found.")
-            return redirect(url_for('search'))
         else:
-            food_list = resp.json()['list']['item']
-            food_list_clean = []
+            recent_list = False
 
-            for i in food_list:
-                food_list_clean.append((i['name'], i['ndbno']))
+            # get user input from search bar
+            food_search = form.search.data
+            if food_search == "":
+                return redirect(url_for('search', date=date, meal=meal))
 
-            # return list of food to web page
-            return render_template('search.html', date=date, meal=meal,
-                                   food_list_clean=food_list_clean, form=form, recent_list=recent_list)
+            # build API URL to search for food
+            search_url = "https://api.nal.usda.gov/ndb/search/?format=json"
+            params = dict(
+                q=food_search,
+                sort="r",
+                max="100",
+                offset="0",
+                ds="Standard Reference",
+                api_key="ozs0jISJX6KiGzDWdXI7h9hCFBwYvk3m11HKkKbe"
+            )
+
+            # build list of tuples w/ name of food and associated ndbno (unique ID)
+            resp = requests.get(url=search_url, params=params)
+
+            if "zero results" in str(resp.json()):
+                flash("No results found.")
+                return redirect(url_for('search'))
+            else:
+                food_list = resp.json()['list']['item']
+                food_list_clean = []
+
+                for i in food_list:
+                    food_list_clean.append((i['name'], i['ndbno']))
+
+                # return list of food to web page
+                return render_template('search.html', date=date, meal=meal,
+                                       food_list_clean=food_list_clean, form=form, recent_list=recent_list)
 
 
 @app.route('/food/<string:ndbno>', methods=['GET', 'POST'])
