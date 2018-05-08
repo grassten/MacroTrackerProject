@@ -49,6 +49,8 @@ def search(date=None, meal=None):
 
         # get user input from search bar
         food_search = form.search.data
+        if food_search == "":
+            return redirect(url_for('search', date=date, meal=meal))
 
         # build API URL to search for food
         search_url = "https://api.nal.usda.gov/ndb/search/?format=json"
