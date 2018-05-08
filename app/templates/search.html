@@ -12,23 +12,31 @@
 	</form>
 	<div class="clearfix"></div>
 	</br>
-	<table class="table table-condensed table-bordered">
-		{% if recent_list == True %}
-		<tr>
-			<th colspan="2">Recent Foods</li>
-		</tr>
-		{% endif %} {% for food_name in food_list_clean %}
-		<tr>
+	<form action="" method=POST>
+		<table class="table table-condensed table-bordered">
 			{% if recent_list == True %}
-			<td>
-				<input type="checkbox" name="selected" value="{{ food_name[1] }}">
-			</td>
-			{% endif %}
-			<td>
-				<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
-			</td>
-		</tr>
-		{% endfor %}
-	</table>
+			<tr>
+				<th colspan="2">
+					<span class="floatleft">Recent Foods</span>
+					<span class="floatright">
+						<button type="submit" class="btn btn-primary">Add selected</button>
+					</span>
+				</th>
+
+			</tr>
+			{% endif %} {% for food_name in food_list_clean %}
+			<tr>
+				{% if recent_list == True %}
+				<td>
+					<input type="checkbox" name="selected" value="{{ food_name[2] }}">
+				</td>
+				{% endif %}
+				<td>
+					<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
 </div>
 {% endblock %}

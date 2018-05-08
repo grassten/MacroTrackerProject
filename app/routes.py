@@ -41,7 +41,7 @@ def search(date=None, meal=None):
         food_list_clean = []
         recent_list = True
         for food in recent_foods:
-            food_list_clean.append((food.food_name, food.ndbno))
+            food_list_clean.append((food.food_name, food.ndbno, food.id))
 
         return render_template('search.html', form=form, food_list_clean=food_list_clean,
                                recent_list=recent_list, date=date, meal=meal)
