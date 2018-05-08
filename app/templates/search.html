@@ -20,10 +20,27 @@
 				<th colspan="2">
 					<span class="pull-left">Recent Foods</span>
 					<span class="pull-right">
+						{% if meal == None %}
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="true">
+								Select Meal
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li>Breakfast</li>
+								<li role="separator" class="divider"></li>
+								<li>Lunch</li>
+								<li role="separator" class="divider"></li>
+								<li>Dinner</li>
+								<li role="separator" class="divider"></li>
+								<li>Snacks</li>
+							</ul>
+						</div>
+						{% endif %}
 						<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
 					</span>
 				</th>
-
 			</tr>
 			{% endif %} {% for food_name in food_list_clean %}
 			<tr>

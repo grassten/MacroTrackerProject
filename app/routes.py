@@ -55,13 +55,22 @@ def search(date=None, meal=None):
             for i in food_ids:
                 food = Food.query.filter_by(id=i).first()
                 if food.user_id == current_userid.id:
-                    food = Food(food_name=food.food_name, count=food.count,
-                                kcal=food.kcal,
-                                protein=food.protein,
-                                fat=food.fat,
-                                carbs=food.carbs,
-                                unit=food.unit, meal=food.meal,
-                                ndbno=food.ndbno, user_id=current_user.get_id())
+                    if meal == None:
+                        food = Food(food_name=food.food_name, count=food.count,
+                                    kcal=food.kcal,
+                                    protein=food.protein,
+                                    fat=food.fat,
+                                    carbs=food.carbs,
+                                    unit=food.unit, meal=meal,
+                                    ndbno=food.ndbno, user_id=current_user.get_id())
+                    else:
+                        food = Food(food_name=food.food_name, count=food.count,
+                                    kcal=food.kcal,
+                                    protein=food.protein,
+                                    fat=food.fat,
+                                    carbs=food.carbs,
+                                    unit=food.unit, meal=meal,
+                                    ndbno=food.ndbno, user_id=current_user.get_id())
                     db.session.add(food)
                     db.session.commit()
             return redirect(url_for('diary'))
