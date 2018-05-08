@@ -50,9 +50,22 @@ def search(date=None, meal=None):
 
         if request.form["action"] == "multiadd":
             food_ids = request.form.getlist("selected")
+            current_userid = User.query.filter_by(
+                id=current_user.get_id()).first()
             for i in food_ids:
-                print(i)
-            return redirect(url_for('search'))
+                food = Food.query.filter_by(Food.id=i).first()
+                if food.user_id == current_userid:
+                    food = Food(food_name=food.food_name, count=food.count,
+                                kcal=food.kcal,
+                                protein=food.protein,
+                                fat=food.fat,
+                                carbs=food.carbs,
+                                unit=food.unit, meal=food.meal,
+                                ndbno=food.ndbno, user_id=current_user.get_id())
+                    db.session.add(food)
+                    db.session.commit()
+            flash("Foods added.")
+            return redirect(url_for('diary'))
 
         recent_list = False
 
