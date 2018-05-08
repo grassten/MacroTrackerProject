@@ -156,8 +156,6 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
     form = RemoveFood()
     form2 = DiaryDatePicker()
 
-    # session.pop('_flashes', None)
-
     # make sure user didn't tamper with the date URL to throw an error
     try:
         datetime.strptime(date_pick, '%B %d, %Y')
@@ -172,14 +170,17 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
 
     # this only called if user clicks forward, backward, or tries to remove
     if request.method == 'POST':
+
+        session.pop('_flashes', None)
+
         # if user clicks an "X" button to remove food from diary,
-            # get the Food table row id for selected food
-            # get the user ID from the Food table for the selected row
-            # if the selected row user ID matches the user executing action
-                # remove row from Food table
-                # commit changes
-            # else
-                # do not allow user to make changes
+        # get the Food table row id for selected food
+        # get the user ID from the Food table for the selected row
+        # if the selected row user ID matches the user executing action
+        # remove row from Food table
+        # commit changes
+        # else
+        # do not allow user to make changes
         if request.form["action"] == "remove":
             remove_id = form.entry_id.data
             user_id_for_row = Food.query.filter_by(
