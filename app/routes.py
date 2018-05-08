@@ -41,7 +41,7 @@ def search(date=None, meal=None):
         for food in recent_foods:
             food_list_clean.append((food.food_name, food.ndbno))
 
-        return render_template('search.html', form=form, food_list_clean=food_list_clean, recent_list)
+        return render_template('search.html', form=form, food_list_clean=food_list_clean, recent_list=recent_list)
 
     if request.method == 'POST':
 
@@ -76,7 +76,7 @@ def search(date=None, meal=None):
 
             # return list of food to web page
             return render_template('search.html', date=date, meal=meal,
-                                   food_list_clean=food_list_clean, form=form, recent_list)
+                                   food_list_clean=food_list_clean, form=form, recent_list=recent_list)
 
 
 @app.route('/<string:ndbno>', methods=['GET', 'POST'])
