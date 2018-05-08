@@ -40,6 +40,7 @@ styles %} {{super()}}
 		</ul>
 		<div class="navbar-collapse collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
+				{% if current_user.is_anonymous %} {% else %}
 				<li>
 					<a href="{{ url_for('search') }}">Search</a>
 				</li>
@@ -49,7 +50,9 @@ styles %} {{super()}}
 				<li>
 					<a href="{{ url_for('profile') }}">Profile</a>
 				</li>
+				{% endif %}
 			</ul>
+
 		</div>
 	</nav>
 	{% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages
