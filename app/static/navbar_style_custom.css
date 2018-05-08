@@ -1,10 +1,10 @@
 body {
     margin-top: 100px;
-    background-color: #76A665;
+    background-color: #0DD8B3;
 }
 
 .navbar-default .navbar-brand {
-    background-color: #214154;
+    background-color: #4987D8;
     color: white;
 }
 
@@ -101,7 +101,7 @@ body {
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #76A665;
+        background-color: #0DD8B3;
     }
 
     .side-nav>li>a {
