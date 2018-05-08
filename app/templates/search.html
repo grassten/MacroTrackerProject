@@ -13,7 +13,9 @@
 	<div class="clearfix"></div>
 	</br>
 	<ul class="list-group">
-		{% for food_name in food_list_clean %}
+		{% if recent_list == True %}
+		<li class="list-group-item">Recent Foods</li>
+		{% endif %} {% for food_name in food_list_clean %}
 		<li class="list-group-item">
 			<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
 		</li>
