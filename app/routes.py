@@ -156,8 +156,9 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
     form = RemoveFood()
     form2 = DiaryDatePicker()
 
-    session.pop('_flashes', None)
+    # session.pop('_flashes', None)
 
+    # make sure user didn't tamper with the date URL to throw an error
     try:
         datetime.strptime(date_pick, '%B %d, %Y')
     except ValueError:
