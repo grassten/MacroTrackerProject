@@ -3,7 +3,7 @@ body {
     background-color: #222;
 }
 
-.navbar-brand {
+.navbar-default .navbar-brand {
     background-color: #E74C3C;
     color: white;
 }
