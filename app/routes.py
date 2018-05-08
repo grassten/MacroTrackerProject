@@ -36,7 +36,9 @@ def search(date=None, meal=None):
     if request.method == 'GET':
         current_userid = User.query.filter_by(id=current_user.get_id()).first()
         recent_foods = Food.query.distinct(Food.food_name).filter_by(
-            user_id=current_userid.id).order_by(Food.food_name, desc(Food.id))
+            user_id=current_userid.id).order_by(Food.food_name)
+
+        recent_foods = recent_foods.order_by(desc(Food.id))
 
         food_list_clean = []
         recent_list = True
