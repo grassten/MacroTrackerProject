@@ -28,7 +28,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/search/', methods=['GET', 'POST'])
+@app.route('/search', methods=['GET', 'POST'])
 @app.route('/search/<string:date>/<string:meal>', methods=['GET', 'POST'])
 @login_required
 def search(date=None, meal=None):
@@ -83,8 +83,8 @@ def search(date=None, meal=None):
                                    food_list_clean=food_list_clean, form=form, recent_list=recent_list)
 
 
-@app.route('/<string:ndbno>/', methods=['GET', 'POST'])
-@app.route('/<string:date>/<string:meal>/<string:ndbno>/',
+@app.route('/food/<string:ndbno>', methods=['GET', 'POST'])
+@app.route('/food/<string:date>/<string:meal>/<string:ndbno>',
            methods=['GET', 'POST'])
 @login_required
 def get_nutrition(ndbno, meal=None, date=None):
@@ -162,8 +162,8 @@ def get_nutrition(ndbno, meal=None, date=None):
             return redirect(url_for('diary', date_pick=date))
 
 
-@app.route('/diary/', methods=['GET', 'POST'])
-@app.route('/diary/<string:date_pick>/', methods=['GET', 'POST'])
+@app.route('/diary', methods=['GET', 'POST'])
+@app.route('/diary/<string:date_pick>', methods=['GET', 'POST'])
 @login_required
 def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
 
@@ -262,7 +262,7 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
                            total_protein=total_protein, date_pick=date_pick)
 
 
-@app.route('/login/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -280,12 +280,12 @@ def login():
     return render_template('login.html', form=form)
 
 
-@app.route('/profile/')
+@app.route('/profile')
 def profile():
     return render_template('profile.html')
 
 
-@app.route('/profile/macrosgrams/', methods=['GET', 'POST'])
+@app.route('/profile/macrosgrams', methods=['GET', 'POST'])
 def macros_grams():
     if current_user.is_authenticated == False:
         return redirect(url_for('login'))
@@ -316,7 +316,7 @@ def macros_grams():
             return redirect(url_for('macros_grams'))
 
 
-@app.route('/profile/macrospercent/', methods=['GET', 'POST'])
+@app.route('/profile/macrospercent', methods=['GET', 'POST'])
 def macros_percent():
     if current_user.is_authenticated == False:
         return redirect(url_for('login'))
@@ -375,7 +375,7 @@ def macros_percent():
                 return redirect(url_for('macros_percent'))
 
 
-@app.route('/register/', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -390,7 +390,7 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/logout/')
+@app.route('/logout')
 def logout():
     # logout_user is a flask_login function
     logout_user()
