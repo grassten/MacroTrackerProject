@@ -20,6 +20,7 @@ from jinja2 import Template
 from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
 from datetime import datetime, timedelta
+from sqlalchemy import desc
 
 
 @app.route('/')
@@ -35,7 +36,7 @@ def search(date=None, meal=None):
     if request.method == 'GET':
         current_userid = User.query.filter_by(id=current_user.get_id()).first()
         recent_foods = Food.query.filter_by(
-            user_id=current_userid.id).order_by(id.desc)
+            user_id=current_userid.id).order_by(desc(id))
 
         food_list_clean = []
         recent_list = True
