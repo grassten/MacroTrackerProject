@@ -15,7 +15,6 @@ Daily food log to track calories/macronutrients against set goals.
     - Add navbar link to access
 - Build a 404 not found page (minimal until after redesign)
 - Add recent food to search page
-    - Add check-boxes to recent foods for multi-add convenience
 - Get more nutrients with API and display them on a separate "Nutrition" page
 - Consider how search results should be sorted
     - Possibly switch to openfoodfacts database (download a local copy)
@@ -30,3 +29,4 @@ Daily food log to track calories/macronutrients against set goals.
     - Access from diary page link (or drop-down on mobile)
 - Implement copy-to functionality
     - Access from diary page link (or drop-down on mobile)
+- Add check-boxes to recent foods for multi-add convenience
