@@ -30,8 +30,3 @@
     padding: 0px;
 }
 
-@media(max-width: 767px) {
-    #page-wrapper {
-        padding-top: 10px;
-    }
-}
