@@ -134,10 +134,11 @@ body {
         margin: 0px;
         padding: 0px;
         text-align: center;
+        vertical-align: middle;
     }
 
     .side-nav>li>a>div {
-        vertical-align: middle
+        vertical-align: middle;
     }
 
     .side-nav>li>a>div>div {
