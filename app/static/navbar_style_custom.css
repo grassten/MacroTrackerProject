@@ -14,7 +14,7 @@ body {
     }
 }
 
-.navbar-default .navbar-nav > .active > a > div > div > div > i {
+.navbar-default .navbar-nav i {
     color: white; 
     margin-bottom: 10px;
 }
@@ -43,7 +43,7 @@ body {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus 
-.navbar-default .navbar-nav > .active > a > div > div > div > i{
+.navbar-default .navbar-nav > .active i{
     color: #3FC18B;
     background-color: #2E4154;
     -webkit-box-shadow: inset 5px 0px 0px 0px #3FC18B;
