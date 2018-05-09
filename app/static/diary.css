@@ -32,10 +32,6 @@
 
 @media(max-width:1023px) {
     .date-selectors {
-        margin-bottom: 20px;
-        margin-top: 10px;
-    }
-    .main-content-fluid {
-        padding-top: 10px;
+        margin-top: 50px;
     }
 }

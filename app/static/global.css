@@ -15,3 +15,10 @@
     width:auto;
     display: inline-block;
 }
+
+@media(max-width:1023px) {
+    .main-content-fluid {
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+}
