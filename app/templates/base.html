@@ -23,7 +23,7 @@ styles %} {{super()}}
 			</li>
 			{% else %}
 			<li class="dropdown hover-color-selector">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ session.username }}
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }}
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
