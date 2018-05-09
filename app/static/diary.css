@@ -5,5 +5,10 @@
 
 .container-fluid {
     background-color: white;
-    margin: 100px;
+}
+
+@media(min-width:1024px) {
+    .container-fluid {
+        margin: 50px;
+    }
 }
