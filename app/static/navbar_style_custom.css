@@ -14,6 +14,11 @@ body {
     }
 }
 
+.navbar-default {
+    background-color: #41D89E;
+    border-color: #41D89E;
+}
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
