@@ -32,21 +32,21 @@ body {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #EEF2F9;
-    background-color: #198CFF;
+    background-color: #2E4154;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: #EEF2F9;
-    background-color: #198CFF;
+    background-color: #2E4154;
 }
 
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: #EEF2F9;
-    background-color: #198CFF;
+    background-color: #2E4154;
 }
 
 #wrapper {
@@ -58,7 +58,7 @@ body {
     height: 100vh;
     padding: 0;
     background-color: #ECF0F1;
-    border-left: #198CFF;
+    border-left: 5px solid #2E4154;
 }
 
 .huge {
