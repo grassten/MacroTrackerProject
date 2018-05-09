@@ -57,6 +57,7 @@ body {
     height: 100vh;
     padding: 0;
     background-color: #ECF0F1;
+    border-left: #198CFF;
 }
 
 .huge {
