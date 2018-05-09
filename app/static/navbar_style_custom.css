@@ -21,7 +21,7 @@ body {
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: white;
+    color: #EEF2F9;
 }
 /* Link */
 .navbar-default .navbar-nav > li > a {
@@ -29,7 +29,7 @@ body {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: white;
+    color: #EEF2F9;
 }
 
 #wrapper {
@@ -85,7 +85,7 @@ body {
 .top-nav>.open>a,
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
-    color: white;
+    color: #EEF2F9;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -141,5 +141,5 @@ body {
 }
 
 .side-nav>li>ul>li>a:hover {
-    color: white;
+    color: #EEF2F9;
 }
