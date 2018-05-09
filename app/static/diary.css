@@ -13,6 +13,11 @@
     color: red;
 }
 
+.remove-buttons {
+    background: none;
+    color: white;
+}
+
 .input-group .form-control {
     height: 75px;
     line-height: 75px;
