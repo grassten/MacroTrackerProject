@@ -32,8 +32,9 @@
 
 @media(min-width:767px) {
     .date-selectors {
-        margin: 0px;
         padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
         margin-left: 10px;
         margin-right: 10px;
     }
