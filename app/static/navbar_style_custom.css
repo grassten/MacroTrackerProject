@@ -135,16 +135,10 @@ body {
         padding: 0px;
     }
 
-    .side-nav>li>a>i {
+    .side-nav>li>a>p {
         text-align: center;
         margin: 0px;
         padding: 0px;
-        line-height: 60px;
-    }
-    .side-nav>li>a>span {
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        line-height: 40px;
+        line-height: 100px;
     }
 }
