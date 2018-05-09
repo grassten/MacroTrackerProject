@@ -9,11 +9,12 @@
 .input-group .form-control {
     height: 75px;
     line-height: 75px;
+    font-size: 1.5em;
     border-radius: 0 !important;
 }
 
 .input-group {
-    width: 50%;
+    width: 40%;
 }
 
 .date-selectors {
