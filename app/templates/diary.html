@@ -4,13 +4,13 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <form class="form-inline col-xs-12" method="post">
+            <form class="form-inline" method="post">
                 {{ form.hidden_tag() }}
-                <button type="submit" class="btn btn-light custom_buttons col-xs-1" name="action" value="back">
+                <button type="submit" class="btn btn-light custom_buttons" name="action" value="back">
                     <i style="color: dodgerblue" class="fas fa-arrow-circle-left fa-2x"></i>
                 </button>
-                {{ form2.date(readonly=true, class="text-center col-xs-10 form-control") }}
-                <button type="submit" class="btn btn-light custom_buttons col-xs-1" name="action" value="forward">
+                {{ form2.date(readonly=true, class="text-center form-control") }}
+                <button type="submit" class="btn btn-light custom_buttons" name="action" value="forward">
                     <i style="color: dodgerblue" class="fas fa-arrow-circle-right fa-2x"></i>
                 </button>
             </form>
