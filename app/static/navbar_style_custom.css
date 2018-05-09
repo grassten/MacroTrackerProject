@@ -19,6 +19,19 @@ body {
     border-color: #41D89E;
 }
 
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+}
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
