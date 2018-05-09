@@ -25,11 +25,12 @@
     border-radius: 0 !important;
 }
 
-.date-selectors {
-    margin: 0px;
-    margin-top: 30px;
-    padding: 0px;
-    margin-left: 50px;
-    max-width: 1600px;
+@media(min-width:1024px) {
+    .date-selectors {
+        margin: 0px;
+        margin-top: 30px;
+        padding: 0px;
+        margin-left: 50px;
+        max-width: 1600px;
+    }
 }
-
