@@ -5,9 +5,6 @@
 
 @media(min-width:767px) {
     .main-content-fluid {
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
         padding-top: 30px;
         padding-bottom: 30px;
     }
@@ -34,6 +31,6 @@
 
 @media(min-width: 767px) {
     #page-wrapper {
-        padding: 15px;
+        padding: 20px;
     }
 }
