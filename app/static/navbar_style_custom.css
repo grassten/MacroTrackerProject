@@ -40,6 +40,8 @@ body {
 .navbar-default .navbar-nav > .active > a:focus {
     color: #EEF2F9;
     background-color: #2E4154;
+    -webkit-box-shadow: inset 5px 0px 0px 0px #3FC18B;
+    box-shadow: inset 5px 0px 0px 0px #3FC18B;
 }
 
 .navbar-default .navbar-nav > .open > a,
