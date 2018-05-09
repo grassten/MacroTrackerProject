@@ -5,14 +5,14 @@
 
 @media(min-width:1024px) {
     .main-content-fluid {
-        margin: 10px;
+        margin: 0px;
         padding-top: 30px;
         padding-bottom: 30px;
     }
 }
 
 .form-inline .form-control {
-    width:auto;
+    width: auto;
     display: inline-block;
 }
 
