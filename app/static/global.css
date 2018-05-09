@@ -29,7 +29,10 @@
 @media(max-width: 767px) {
     #page-wrapper {
         padding-top: 10px;
-        padding-left: 0px;
-        padding-right: 0px;
     }
+}
+
+#page-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
 }
