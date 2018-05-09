@@ -37,7 +37,7 @@
 }
 
 @media(max-width: 767px) {
-    .date-selectors {
-        margin-top: 100px;
+    #page-wrapper {
+        padding-top: 10px;
     }
 }
