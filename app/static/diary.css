@@ -11,7 +11,9 @@
 }
 
 .date-selectors {
-
+    -webkit-box-shadow:inset 0px 0px 0px 10px #3FC18B;
+    -moz-box-shadow:inset 0px 0px 0px 10px #3FC18B;
+    box-shadow:inset 0px 0px 0px 10px #3FC18B;
 }
 
 .input-group .form-control {
