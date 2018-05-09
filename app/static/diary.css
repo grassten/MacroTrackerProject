@@ -10,6 +10,7 @@
 
 .remove-buttons {
     background: none;
+    color: red;
 }
 
 .input-group .form-control {
