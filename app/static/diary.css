@@ -12,6 +12,7 @@
     margin-top: 5px;
 }
 
-.custom-input {
+.custom-input input[type="text"] {
     height: 50px;
+    line-height: 50px;
 }
