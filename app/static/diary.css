@@ -2,3 +2,7 @@
     background: none;
     border: none;
 }
+
+.container-fluid {
+    background-color: white;
+}
