@@ -28,6 +28,11 @@ body {
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
+
+ul li a .dropdown:hover,
+ul li a .dropdown:focus{
+    background-color: #41D89E;
+}
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #EEF2F9;
