@@ -43,7 +43,7 @@ body {
 .navbar-default .navbar-nav > .open > a:focus {
     color: #EEF2F9;
     background-color: #41D89E;
-
+}
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
