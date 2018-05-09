@@ -8,6 +8,10 @@
     color: white;
 }
 
+.custom_buttons:hover{
+    color: #3FC18B;
+}
+
 .remove-buttons {
     background: none;
     color: red;
@@ -25,10 +29,12 @@
     border-radius: 0 !important;
 }
 
-@media(min-width:1024px) {
+@media(min-width:767px) {
     .date-selectors {
         margin: 0px;
         padding: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
 
