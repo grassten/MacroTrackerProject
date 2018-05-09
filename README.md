@@ -9,6 +9,7 @@ Daily food log to track calories/macronutrients against set goals.
 - ~~Fix macros by gram bug~~ (5-7-18)
 
 ### Additional functionality
+- Improve workflow so that I don't have to push to heroku to see every change (hence 500 commits)
 - Add pagination on search page
 - ~~Add 404 not found and 500 pages (minimal until after redesign)~~ (4-7-18)
 - ~~Add recent food to search page~~ (4-7-18)
