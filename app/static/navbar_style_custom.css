@@ -137,14 +137,12 @@ body {
         vertical-align: middle;
     }
 
-    .side-nav>li>a>div {
+    .nav-center-vertically {
         position: relative;
         height: 100%;
-        margin: 0px;
-        padding: 0px;
     }
 
-    .side-nav>li>a>div>div {
+    .nav-center-vertically div {
         margin: 0px;
         padding: 0px;
     }

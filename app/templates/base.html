@@ -45,7 +45,7 @@ styles %} {{super()}}
 				{% if current_user.is_anonymous %} {% else %}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">
-						<div>
+						<div class="nav-center-vertically">
 							<div class="text-center">
 								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
 							</div>
@@ -55,7 +55,7 @@ styles %} {{super()}}
 				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
-						<div>
+						<div class="nav-center-vertically">
 							<div class="text-center">
 								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
 							</div>
@@ -65,7 +65,7 @@ styles %} {{super()}}
 				</li>
 				<li {% if 'profile' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">
-						<div>
+						<div class="nav-center-vertically">
 							<div class="text-center">
 								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
 							</div>
