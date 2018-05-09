@@ -1,6 +1,6 @@
 body {
     margin-top: 100px;
-    background-color: #34495E;
+    background-color: #ECF0F1;
 }
 
 @media(min-width:767px) {
@@ -130,6 +130,7 @@ body {
         border-radius: 0;
         overflow-y: auto;
         background-color: #34495E;
+        height: 100%;
     }
 
     .side-nav>li>a {
