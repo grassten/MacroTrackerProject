@@ -4,14 +4,12 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <form class="form-inline" method="post">
+            <form class="form-inline" method="post" style="width: 100%">
                 {{ form.hidden_tag() }}
                 <button type="submit" class="btn btn-light custom_buttons" name="action" value="back">
                     <i style="color: dodgerblue" class="fas fa-arrow-circle-left fa-2x"></i>
                 </button>
-                <div style="width: 100%">
-                    {{ form2.date(readonly=true, class="text-center form-control") }}
-                </div>
+                {{ form2.date(readonly=true, class="text-center form-control") }}
                 <button type="submit" class="btn btn-light custom_buttons" name="action" value="forward">
                     <i style="color: dodgerblue" class="fas fa-arrow-circle-right fa-2x"></i>
                 </button>
