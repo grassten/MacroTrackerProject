@@ -46,24 +46,30 @@ styles %} {{super()}}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">
 						<p>
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							<span>Search</span>
+							<div>
+								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+							</div>
+							<div>Search</div>
 						</p>
 					</a>
 				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
 						<p>
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							<span>Diary</span>
+							<div>
+								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+							</div>
+							<div>Diary</div>
 						</p>
 					</a>
 				</li>
 				<li {% if 'profile' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">
 						<p>
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							<span>Profile</span>
+							<div>
+								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+							</div>
+							<div>Profile</div>
 						</p>
 					</a>
 				</li>
