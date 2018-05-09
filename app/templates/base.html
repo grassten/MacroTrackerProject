@@ -42,13 +42,13 @@ styles %} {{super()}}
 			</ul>
 			<ul class="nav navbar-nav side-nav">
 				{% if current_user.is_anonymous %} {% else %}
-				<li>
+				<li {% if 'search' request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">Search</a>
 				</li>
-				<li>
+				<li {% if 'diary' request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">Diary</a>
 				</li>
-				<li>
+				<li {% if 'profile' request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">Profile</a>
 				</li>
 				{% endif %}
