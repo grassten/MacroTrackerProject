@@ -45,25 +45,37 @@ styles %} {{super()}}
 				{% if current_user.is_anonymous %} {% else %}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">
-						<div style="white-space: pre" class="sidenav-content">
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							Search
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+									Search
+								</div>
+							</div>
 						</div>
 					</a>
 				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
-						<div style="white-space: pre" class="sidenav-content">
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							Diary
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+									Diary
+								</div>
+							</div>
 						</div>
 					</a>
 				</li>
 				<li {% if 'profile' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">
-						<div style="white-space: pre" class="sidenav-content">
-							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							Profile
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+									Profile
+								</div>
+							</div>
 						</div>
 					</a>
 				</li>
