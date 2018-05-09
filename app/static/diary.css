@@ -2,3 +2,7 @@
     background: none;
     border: none;
 }
+
+.form-control{
+    width: auto;
+}
