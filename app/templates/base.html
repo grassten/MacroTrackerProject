@@ -3,7 +3,8 @@ styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='mobile_styles.css')}}">
 <link rel="stylesheet" href="{{url_for('.static', filename='navbar_style_custom.css')}}">
 <link rel="stylesheet" href="{{url_for('.static', filename='inline_form_fix.css')}}">
-<link rel="stylesheet" href="{{url_for('.static', filename='global.css')}}"> {% endblock %}
+<link rel="stylesheet" href="{{url_for('.static', filename='global.css')}}">
+<link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet"> {% endblock %}
 <div id="wrapper">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
@@ -44,17 +45,20 @@ styles %} {{super()}}
 				{% if current_user.is_anonymous %} {% else %}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">
-						<p>Search</p>
+						<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						<span>Search</span>
 					</a>
 				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
-						<p>Diary</p>
+						<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						<span>Diary</span>
 					</a>
 				</li>
 				<li {% if 'profile' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">
-						<p>Profile</p>
+						<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						<span>Profile</span>
 					</a>
 				</li>
 				{% endif %}
