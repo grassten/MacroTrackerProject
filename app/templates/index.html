@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block app_content %}
 <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="container-fluid main-content-fluid">
         {% if current_user.is_authenticated %}
         <h2 class="text-center">Welcome, {{ current_user.username }}!</h2>
         {% else %}
