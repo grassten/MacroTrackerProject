@@ -6,6 +6,8 @@
 @media(min-width:1024px) {
     .main-content-fluid {
         margin: 50px;
+        padding-top: 30px;
         padding-bottom: 30px;
     }
 }
+
