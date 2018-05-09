@@ -3,6 +3,7 @@
     border: none;
     height: 100px;
     width: 100px;
+    border-radius: 0 !important;
 }
 
 .form-control{
@@ -10,10 +11,10 @@
 }
 
 .date-selectors {
-    margin-top: 5px;
+
 }
 
-.custom-input input[type="text"] {
+.input-group .form-control {
     height: 50px;
     line-height: 50px;
 }
