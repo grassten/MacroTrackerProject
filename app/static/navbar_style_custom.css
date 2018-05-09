@@ -139,7 +139,6 @@ body {
     .side-nav>li>a>div {
         margin: 0px;
         padding: 0px;
-        line-height: 100px;
         display: inline-block;
     }
 }
