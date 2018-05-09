@@ -8,7 +8,7 @@ body {
         margin-top: 50px;
     }
     .navbar-default .navbar-brand {
-        width: 225px;
+        width: 175px;
         background-color: #3FC18B;
         color: white;
     }
@@ -62,7 +62,7 @@ body {
 
 @media(min-width:1024px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 175px;
     }
 
     #page-wrapper {
@@ -119,9 +119,9 @@ body {
     .side-nav {
         position: fixed;
         top: 51px;
-        left: 225px;
-        width: 225px;
-        margin-left: -225px;
+        left: 175px;
+        width: 175px;
+        margin-left: -175px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
@@ -129,7 +129,7 @@ body {
     }
 
     .side-nav>li>a {
-        width: 225px;
+        width: 175px;
     }
 
     .side-nav li a:hover,
