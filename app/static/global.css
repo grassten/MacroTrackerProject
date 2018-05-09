@@ -30,3 +30,7 @@
         padding-top: 10px;
     }
 }
+
+#page-wrapper {
+    max-width: 1600px;
+}
