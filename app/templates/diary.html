@@ -4,20 +4,20 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <form class="form-inline" method="post">
+            <form method="post">
                 <div class="input-group">
                     {{ form.hidden_tag() }}
-                    <div class="input-group-btn">
+                    <span class="input-group-btn">
                         <button type="submit" style="background-color: black;" class="btn btn-light custom_buttons" name="action" value="back">
                             <i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
                         </button>
-                    </div>
+                    </span>
                     {{ form2.date(readonly=true, class_="text-center form-control") }}
-                    <div class="input-group-btn">
+                    <span class="input-group-btn">
                         <button type="submit" style="background-color: black;" class="btn btn-light custom_buttons" name="action" value="forward">
                             <i style="color: dodgerblue;" class="fas fa-arrow-circle-right fa-2x"></i>
                         </button>
-                    </div>
+                    </span>
                 </div>
             </form>
         </div>
