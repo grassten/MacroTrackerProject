@@ -32,7 +32,7 @@ body {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #EEF2F9;
-    background-color: #41D89E;
+    background-color: #198CFF;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -41,11 +41,12 @@ body {
     color: #EEF2F9;
     background-color: #198CFF;
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: #EEF2F9;
-    background-color: #41D89E;
+    background-color: #198CFF;
 }
 
 #wrapper {
