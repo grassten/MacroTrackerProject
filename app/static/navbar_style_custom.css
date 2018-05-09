@@ -133,12 +133,13 @@ body {
         height: 100px;
         margin: 0px;
         padding: 0px;
+        text-align: center;
     }
 
-    .side-nav>li>a>p {
-        text-align: center;
+    .side-nav>li>a>div {
         margin: 0px;
         padding: 0px;
         line-height: 100px;
+        display: inline-block;
     }
 }

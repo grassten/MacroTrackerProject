@@ -45,32 +45,26 @@ styles %} {{super()}}
 				{% if current_user.is_anonymous %} {% else %}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('search') }}">
-						<p>
-							<div>
-								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							</div>
-							<div>Search</div>
-						</p>
+						<div>
+							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						</div>
+						<div>Search</div>
 					</a>
 				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
-						<p>
-							<div>
-								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							</div>
-							<div>Diary</div>
-						</p>
+						<div>
+							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						</div>
+						<div>Diary</div>
 					</a>
 				</li>
 				<li {% if 'profile' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('profile') }}">
-						<p>
-							<div>
-								<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
-							</div>
-							<div>Profile</div>
-						</p>
+						<div>
+							<i style="color: dodgerblue;" class="fas fa-arrow-circle-left fa-2x"></i>
+						</div>
+						<div>Profile</div>
 					</a>
 				</li>
 				{% endif %}
