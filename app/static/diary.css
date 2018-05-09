@@ -15,7 +15,7 @@
 
 .ellipsis_buttons {
     background: none;
-    color: white;
+    border: none;
 }
 
 .input-group .form-control {
