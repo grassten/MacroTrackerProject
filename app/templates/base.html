@@ -16,29 +16,29 @@ styles %} {{super()}}
 			<a class="navbar-brand text-center" href="{{ url_for('home') }}">Macro Tracker</a>
 		</div>
 		<!--top menu-->
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-right top-nav">
-				{% if current_user.is_anonymous %}
-				<li>
-					<a href="{{ url_for('login') }}">Login</a>
-				</li>
-				{% else %}
-				<li class="dropdown hover-color-selector">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }}
-						<b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="{{ url_for('profile') }}">Profile</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="{{ url_for('logout') }}">Log Out</a>
-						</li>
-					</ul>
-				</li>
-				{% endif %}
-			</ul>
+		<ul class="nav navbar-right top-nav">
+			{% if current_user.is_anonymous %}
+			<li>
+				<a href="{{ url_for('login') }}">Login</a>
+			</li>
+			{% else %}
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }}
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="{{ url_for('profile') }}">Profile</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="{{ url_for('logout') }}">Log Out</a>
+					</li>
+				</ul>
+			</li>
+			{% endif %}
+		</ul>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
 				{% if current_user.is_anonymous %} {% else %}
 				<li {% if 'search' in request.path %}class="active" {% endif %}>
