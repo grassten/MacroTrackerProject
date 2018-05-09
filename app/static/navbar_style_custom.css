@@ -29,10 +29,6 @@ body {
     color: white;
 }
 
-.dropdown .hover-color-selector:hover,
-.dropdown .hover-color-selector:focus{
-    background-color: #41D89E;
-}
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #EEF2F9;
@@ -105,6 +101,7 @@ body {
 .top-nav>.open>a,
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
+    background-color: #41D89E;
     color: #EEF2F9;
 }
 
