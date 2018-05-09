@@ -1,8 +1,17 @@
 .custom_buttons{
     background: none;
     border: none;
+    height: 50px;
 }
 
 .form-control{
     width: auto;
+}
+
+.date-selectors {
+    margin-top: 5px;
+}
+
+.custom-input {
+    height: 50px;
 }
