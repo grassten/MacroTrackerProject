@@ -46,10 +46,10 @@
                     </a>
                 </td>
                 <td class="text-center">{{ food.count }}</td>
-                <td class="text-center">{{ food.kcal }}</td>
-                <td class="text-center hidden-xs">{{ food.protein }}</td>
-                <td class="text-center hidden-xs">{{ food.fat }}</td>
-                <td class="text-center hidden-xs">{{ food.carbs }}</td>
+                <td class="text-center">{{ food.kcal }}kcal</td>
+                <td class="text-center hidden-xs">{{ food.protein }}g</td>
+                <td class="text-center hidden-xs">{{ food.fat }}g</td>
+                <td class="text-center hidden-xs">{{ food.carbs }}g</td>
                 <td class="text-center">
                     <form method='post'>
                         {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
@@ -89,10 +89,10 @@
                     </div>
                 </td>
                 <td class="text-center hidden-xs"></td>
-                <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}</td>
-                <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}</td>
-                <td class="text-center hidden-xs">{{ total_fat['Breakfast'] }}</td>
-                <td class="text-center hidden-xs">{{ total_carbs['Breakfast'] }}</td>
+                <td class="text-center hidden-xs">{{ total_cals['Breakfast'] }}kcal</td>
+                <td class="text-center hidden-xs">{{ total_protein['Breakfast'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_fat['Breakfast'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_carbs['Breakfast'] }}g</td>
             </tr>
         </table>
         <br/>
@@ -115,10 +115,10 @@
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
                 <td class="text-center">{{ food.count }}</td>
-                <td class="text-center">{{ food.kcal }}</td>
-                <td class="text-center hidden-xs">{{ food.protein }}</td>
-                <td class="text-center hidden-xs">{{ food.fat }}</td>
-                <td class="text-center hidden-xs">{{ food.carbs }}</td>
+                <td class="text-center">{{ food.kcal }}kcal</td>
+                <td class="text-center hidden-xs">{{ food.protein }}g</td>
+                <td class="text-center hidden-xs">{{ food.fat }}g</td>
+                <td class="text-center hidden-xs">{{ food.carbs }}g</td>
                 <td class="text-center">
                     <form method='post'>
                         {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
@@ -158,16 +158,16 @@
                     </div>
                 </td>
                 <td class="text-center hidden-xs"></td>
-                <td class="text-center hidden-xs">{{ total_cals['Lunch'] }}</td>
-                <td class="text-center hidden-xs">{{ total_protein['Lunch'] }}</td>
-                <td class="text-center hidden-xs">{{ total_fat['Lunch'] }}</td>
-                <td class="text-center hidden-xs">{{ total_carbs['Lunch'] }}</td>
+                <td class="text-center hidden-xs">{{ total_cals['Lunch'] }}kcal</td>
+                <td class="text-center hidden-xs">{{ total_protein['Lunch'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_fat['Lunch'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_carbs['Lunch'] }}g</td>
             </tr>
         </table>
 
         <br/>
 
-        <table class="table table-hover" style="border-spacing: 0px 3px;">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th class="col-xs-6">Dinner</th>
@@ -185,10 +185,10 @@
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
                 <td class="text-center">{{ food.count }}</td>
-                <td class="text-center">{{ food.kcal }}</td>
-                <td class="text-center hidden-xs">{{ food.protein }}</td>
-                <td class="text-center hidden-xs">{{ food.fat }}</td>
-                <td class="text-center hidden-xs">{{ food.carbs }}</td>
+                <td class="text-center">{{ food.kcal }}kcal</td>
+                <td class="text-center hidden-xs">{{ food.protein }}g</td>
+                <td class="text-center hidden-xs">{{ food.fat }}g</td>
+                <td class="text-center hidden-xs">{{ food.carbs }}g</td>
                 <td class="text-center">
                     <form method='post'>
                         {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
@@ -228,10 +228,10 @@
                     </div>
                 </td>
                 <td class="text-center hidden-xs"></td>
-                <td class="text-center hidden-xs">{{ total_cals['Dinner'] }}</td>
-                <td class="text-center hidden-xs">{{ total_protein['Dinner'] }}</td>
-                <td class="text-center hidden-xs">{{ total_fat['Dinner'] }}</td>
-                <td class="text-center hidden-xs">{{ total_carbs['Dinner'] }}</td>
+                <td class="text-center hidden-xs">{{ total_cals['Dinner'] }}kcal</td>
+                <td class="text-center hidden-xs">{{ total_protein['Dinner'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_fat['Dinner'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_carbs['Dinner'] }}g</td>
             </tr>
         </table>
 
@@ -255,10 +255,10 @@
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
                 <td class="text-center">{{ food.count }}</td>
-                <td class="text-center">{{ food.kcal }}</td>
-                <td class="text-center hidden-xs">{{ food.protein }}</td>
-                <td class="text-center hidden-xs">{{ food.fat }}</td>
-                <td class="text-center hidden-xs">{{ food.carbs }}</td>
+                <td class="text-center">{{ food.kcal }}kcal</td>
+                <td class="text-center hidden-xs">{{ food.protein }}g</td>
+                <td class="text-center hidden-xs">{{ food.fat }}g</td>
+                <td class="text-center hidden-xs">{{ food.carbs }}g</td>
                 <td class="text-center">
                     <form method='post'>
                         {{ form.entry_id(value=food.id) }} {{ form.hidden_tag() }}
@@ -298,10 +298,10 @@
                     </div>
                 </td>
                 <td class="text-center hidden-xs"></td>
-                <td class="text-center hidden-xs">{{ total_cals['Snacks'] }}</td>
-                <td class="text-center hidden-xs">{{ total_protein['Snacks'] }}</td>
-                <td class="text-center hidden-xs">{{ total_fat['Snacks'] }}</td>
-                <td class="text-center hidden-xs">{{ total_carbs['Snacks'] }}</td>
+                <td class="text-center hidden-xs">{{ total_cals['Snacks'] }}kcal</td>
+                <td class="text-center hidden-xs">{{ total_protein['Snacks'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_fat['Snacks'] }}g</td>
+                <td class="text-center hidden-xs">{{ total_carbs['Snacks'] }}g</td>
             </tr>
         </table>
 
