@@ -52,3 +52,8 @@
     outline: thin solid; 
     outline-color: #ECF0F1;
 }
+
+.meal-name-header {
+    line-height: 1.5em;
+    font-size: 1em;
+}
