@@ -54,7 +54,7 @@
 }
 
 .table .meal-name-header {
-    line-height: 2em;
+    height: 100px;
 }
 
 .table .meal-name-header span {
