@@ -29,9 +29,11 @@
             <thead>
                 <tr>
                     <th class="col-xs-6 meal-name-header">
-                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">
-                            <i class="far fa-plus-square fa-2x add-food-button"></i>
-                        </a>
+                        <span>
+                            <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">
+                                <i class="far fa-plus-square add-food-button"></i>
+                            </a>
+                        </span>
                         <span> Breakfast</span>
                     </th>
                     <th class="text-center col-sm-1 col-xs-2">Count</th>
