@@ -46,5 +46,6 @@
 .food-rows {
     outline: thin solid; 
     outline-color: #ECF0F1;
-    border-spacing: 3px;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
 }
