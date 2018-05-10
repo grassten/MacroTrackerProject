@@ -13,11 +13,6 @@
     color: #3FC18B;
 }
 
-.add-food-button {
-    color: white;
-    background-color: #3FC18B;
-}
-
 .remove-buttons {
     background: none;
     color: red;
@@ -59,6 +54,6 @@
     outline-color: #ECF0F1;
 }
 
-.table .meal-name-header .meal-name {
+.table .meal-name-header span{
     font-size: 1.5em;
 }
