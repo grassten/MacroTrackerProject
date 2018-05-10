@@ -60,6 +60,6 @@
     outline-color: #ECF0F1;
 }
 
-.table .meal-name-header span {
+.table .meal-name-header .meal-name {
     font-size: 1.5em;
 }
