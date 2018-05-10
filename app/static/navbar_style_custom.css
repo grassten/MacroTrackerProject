@@ -58,11 +58,6 @@ body {
     background-color: #ECF0F1;
 }
 
-.huge {
-    font-size: 50px;
-    line-height: normal;
-}
-
 @media(min-width:767px) {
     #wrapper {
         padding-left: 175px;
