@@ -52,3 +52,7 @@
     font-size: 1.5em;
     color: #2E4154;
 }
+
+.date-selectors {
+    max-width: 1500px;
+}

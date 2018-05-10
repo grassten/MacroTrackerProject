@@ -34,3 +34,7 @@
         padding: 25px;
     }
 }
+
+.main-content-fluid {
+    max-width: 1500px;
+}
