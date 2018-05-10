@@ -42,3 +42,8 @@
         margin-bottom: 10px;
     }
 }
+
+.food-rows {
+    outline: thin solid; 
+    outline-color: #ECF0F1;
+}

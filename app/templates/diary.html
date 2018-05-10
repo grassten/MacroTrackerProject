@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Breakfast" %}
-            <tr style="outline: thin solid; outline-color: #ECF0F1; padding-bottom: 3px;">
+            <tr class="food-rows">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
                         {{ food.food_name + ", " + food.unit}}
@@ -110,7 +110,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Lunch" %}
-            <tr>
+            <tr class="food-rows">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
@@ -180,7 +180,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Dinner" %}
-            <tr>
+            <tr class="food-rows">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
@@ -250,7 +250,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Snacks" %}
-            <tr>
+            <tr class="food-rows">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
                 </td>
