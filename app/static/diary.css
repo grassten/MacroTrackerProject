@@ -31,8 +31,8 @@
 .add-food-button {
     color: white;
     background-color: #3FC18B;
-    padding:2px;
-    margin:0px;
+    padding: 2px;
+    margin: 0px;
 }
 
 .input-group .form-control {
@@ -60,6 +60,6 @@
     outline-color: #ECF0F1;
 }
 
-.table .meal-name-header {
+.table .meal-name-header span {
     font-size: 1.5em;
 }
