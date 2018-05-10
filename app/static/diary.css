@@ -28,6 +28,11 @@
     border: none;
 }
 
+.add-food-button {
+    color: white;
+    background-color: #3FC18B;
+}
+
 .input-group .form-control {
     height: 75px;
     line-height: 75px;
