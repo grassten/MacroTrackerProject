@@ -13,6 +13,11 @@
     color: #3FC18B;
 }
 
+.add-food-button {
+    color: white;
+    background-color: #3FC18B;
+}
+
 .remove-buttons {
     background: none;
     color: red;

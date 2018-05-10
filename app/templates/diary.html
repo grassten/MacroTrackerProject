@@ -29,7 +29,12 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="col-xs-6">Breakfast</th>
+                    <th class="col-xs-6">
+                        <span>Breakfast </span>
+                        <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">
+                            <i class="far fa-plus-square add-food-button fa-2x"></i>
+                        </a>
+                    </th>
                     <th class="text-center col-sm-1 col-xs-2">Count</th>
                     <th class="text-center col-sm-1 col-xs-2">kcal</th>
                     <th class="text-center hidden-xs col-sm-1">Protein</th>
