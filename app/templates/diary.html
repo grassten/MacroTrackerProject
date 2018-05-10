@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Breakfast" %}
-            <tr style="outline: thin solid">
+            <tr style="outline: thin solid; outline-color: #ECF0F1; margin-bottom: 2px;">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
                         {{ food.food_name + ", " + food.unit}}
