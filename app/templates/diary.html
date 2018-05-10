@@ -28,7 +28,7 @@
     <div class="container-fluid main-content-fluid">
         <table class="table table-hover">
             <thead>
-                <tr style="outline: thin solid">
+                <tr>
                     <th class="col-xs-6">Breakfast</th>
                     <th class="text-center col-sm-1 col-xs-2">Count</th>
                     <th class="text-center col-sm-1 col-xs-2">kcal</th>
@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             {% for food in foods %} {% if food.meal == "Breakfast" %}
-            <tr>
+            <tr style="outline: thin solid">
                 <td>
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
                         {{ food.food_name + ", " + food.unit}}
