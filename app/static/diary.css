@@ -53,10 +53,6 @@
     outline-color: #ECF0F1;
 }
 
-.table .meal-name-header {
-    height: 100px;
-}
-
 .table .meal-name-header span {
     font-size: 1.5em;
 }
