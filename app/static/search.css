@@ -8,6 +8,7 @@ form .table-custom {
 
 table tr th {
     outline: none;
+    border: none;
 }
 
 table tr td {
