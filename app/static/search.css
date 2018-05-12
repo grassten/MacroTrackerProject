@@ -2,12 +2,8 @@ form .table-custom {
     margin: 0px;
 }
 
-.table-custom tr th {
+.table-custom th, .table-custom tr, .table-custom td {
     outline: none;
     border: none;
 }
 
-table tr td {
-    outline: thin solid; 
-    outline-color: #ECF0F1;
-}
