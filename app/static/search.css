@@ -10,4 +10,5 @@ table tr th {
 table tr td {
     outline: thin solid; 
     outline-color: #ECF0F1;
+    margin: 0px;
 }
