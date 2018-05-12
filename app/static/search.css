@@ -1,10 +1,8 @@
 .table-custom tr th {
     border: none !important;
-    margin: 0px !important;
 }
 
 .table-custom tr td {
     outline: thin solid; 
     outline-color: #ECF0F1;
-    margin: 0px !important;
 }
