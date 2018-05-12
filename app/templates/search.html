@@ -5,7 +5,7 @@
 		<h2 class="text-center">Food Search</h2>
 		<hr/>
 		<br/>
-		<div class="row search-box">
+		<div class="row">
 			<form method='post'>
 				{{ form.hidden_tag() }}
 				<div class="input-group">
@@ -23,16 +23,18 @@
 				{% if recent_list == True %}
 				<tr>
 					<th colspan="2">
-						<div class="form-inline">
-							{% if meal == None %}
-							<select name="mealselect" class="form-control" id="sel1">
-								<option>Breakfast</option>
-								<option>Lunch</option>
-								<option>Dinner</option>
-								<option>Snacks</option>
-							</select>
-							{% endif %}
-							<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
+						<div class="col-xs-12">
+							<div class="form-inline">
+								{% if meal == None %}
+								<select name="mealselect" class="form-control" id="sel1">
+									<option>Breakfast</option>
+									<option>Lunch</option>
+									<option>Dinner</option>
+									<option>Snacks</option>
+								</select>
+								{% endif %}
+								<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
+							</div>
 						</div>
 					</th>
 				</tr>
