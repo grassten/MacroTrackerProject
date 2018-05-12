@@ -8,11 +8,13 @@
 		<div class="row">
 			<form method='post'>
 				{{ form.hidden_tag() }}
-				<div class="input-group">
-					{{ form.search(class="form-control", placeholder="Enter food name...") }}
-					<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary mb-2" name="action" value="search">Search</button>
-					</span>
+				<div class="col-xs-12">
+					<div class="input-group">
+						{{ form.search(class="form-control", placeholder="Enter food name...") }}
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary mb-2" name="action" value="search">Search</button>
+						</span>
+					</div>
 				</div>
 			</form>
 		</div>
@@ -23,18 +25,16 @@
 				{% if recent_list == True %}
 				<tr>
 					<th colspan="2">
-						<div class="col-xs-12">
-							<div class="form-inline">
-								{% if meal == None %}
-								<select name="mealselect" class="form-control" id="sel1">
-									<option>Breakfast</option>
-									<option>Lunch</option>
-									<option>Dinner</option>
-									<option>Snacks</option>
-								</select>
-								{% endif %}
-								<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
-							</div>
+						<div class="form-inline">
+							{% if meal == None %}
+							<select name="mealselect" class="form-control" id="sel1">
+								<option>Breakfast</option>
+								<option>Lunch</option>
+								<option>Dinner</option>
+								<option>Snacks</option>
+							</select>
+							{% endif %}
+							<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add selected</button>
 						</div>
 					</th>
 				</tr>
