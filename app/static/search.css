@@ -3,7 +3,7 @@
     padding-left: 0px !important;
 }
 
-.table-custom tr {
+.table-custom .content-rows {
     outline: thin solid; 
     outline-color: #ECF0F1;
 }
