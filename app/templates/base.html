@@ -41,18 +41,6 @@ styles %} {{super()}}
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
 				{% if current_user.is_anonymous %} {% else %}
-				<li {% if 'search' in request.path %}class="active" {% endif %}>
-					<a href="{{ url_for('search') }}">
-						<div class="outer">
-							<div class="middle">
-								<div class="inner">
-									<i class="navbar-icons fas fa-search fa-3x"></i>
-									<br/>Search
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
 						<div class="outer">
@@ -60,6 +48,18 @@ styles %} {{super()}}
 								<div class="inner">
 									<i class="navbar-icons fas fa-utensils fa-3x"></i>
 									<br/>Diary
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li {% if 'search' in request.path %}class="active" {% endif %}>
+					<a href="{{ url_for('search') }}">
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i class="navbar-icons fas fa-search fa-3x"></i>
+									<br/>Search
 								</div>
 							</div>
 						</div>
