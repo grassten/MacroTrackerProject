@@ -1,5 +1,6 @@
 .table-custom tr th {
     border: none !important;
+    padding-left: 0px;
 }
 
 .table-custom tr td {
