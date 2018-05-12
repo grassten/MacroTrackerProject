@@ -23,10 +23,11 @@ styles %} {{super()}}
 			</li>
 			{% else %}
 			<li class="dropdown">
-				<span>
-					<i class="far fa-user"></i>
-				</span>
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }}
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span>
+						<i class="fas fa-user-circle"></i>
+					</span>
+					<span>{{ current_user.username }}</span>
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
