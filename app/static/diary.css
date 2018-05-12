@@ -46,6 +46,10 @@
     }
 }
 
+.date-selectors {
+    max-width: 1400px;
+}
+
 .food-rows {
     outline: thin solid; 
     outline-color: #ECF0F1;
