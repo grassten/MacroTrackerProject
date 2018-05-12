@@ -1,5 +1,5 @@
-form .table-custom {
-    margin: 0px;
+.table-custom {
+    margin: 0px !important;
 }
 
 .table-custom tr th {
