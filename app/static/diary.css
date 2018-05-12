@@ -33,6 +33,7 @@
 @media(min-width:767px) {
     #page-wrapper .date-selectors {
         margin-bottom:25px;
+        margin-left: 0px;
     }
 }
 
