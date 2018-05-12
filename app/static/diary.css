@@ -28,12 +28,14 @@
     line-height: 75px;
     font-size: 1.5em;
     border-radius: 0 !important;
+    margin: 0px !important;
 }
 
 @media(min-width:767px) {
     #page-wrapper .date-selectors {
         margin-bottom:25px;
-        margin-left: 0px !important;
+        margin: 0px !important;
+        padding: 0px !important;
     }
 }
 
