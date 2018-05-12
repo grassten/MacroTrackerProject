@@ -16,6 +16,11 @@
     }
 }
 
+.form-inline .form-control {
+    width: auto;
+    display: inline-block;
+}
+
 @media(max-width: 766px) {
     #page-wrapper {
         padding-top: 10px;
