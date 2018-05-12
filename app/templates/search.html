@@ -5,13 +5,17 @@
 		<h2 class="text-center">Food Search</h2>
 		<hr/>
 		<br/>
-		<form method='post'>
-			{{ form.hidden_tag() }}
-			<div class="form-inline">
-				{{ form.search(class="form-control", placeholder="Enter food name...") }}
-				<button type="submit" class="btn btn-primary mb-2" name="action" value="search">Search</button>
-			</div>
-		</form>
+		<div class="row">
+			<form method='post'>
+				{{ form.hidden_tag() }}
+				<div class="input-group">
+					{{ form.search(class="form-control", placeholder="Enter food name...") }}
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary mb-2" name="action" value="search">Search</button>
+					</span>
+				</div>
+			</form>
+		</div>
 		<div class="clearfix"></div>
 		</br>
 		<form action="" method=POST>
