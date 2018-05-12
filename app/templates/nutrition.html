@@ -76,14 +76,14 @@
 				</section>
 			</div>
 		</div>
+		<!--end nutrition block-->
+		</br>
+		<form method='post'>
+			{{ form1.hidden_tag() }}
+			<div class="form-inline text-center">
+				{{ form1.quantity(class="form-control", placeholder="Quantity") }} {% if meal is none %} {{ form1.meal(class="form-control")
+				}} {% endif %} {{ form1.add(class="btn btn-primary mb-2") }}
+			</div>
+		</form>
 	</div>
-	<!--end nutrition block-->
-	</br>
-	<form method='post'>
-		{{ form1.hidden_tag() }}
-		<div class="form-inline text-center">
-			{{ form1.quantity(class="form-control", placeholder="Quantity") }} {% if meal is none %} {{ form1.meal(class="form-control")
-			}} {% endif %} {{ form1.add(class="btn btn-primary mb-2") }}
-		</div>
-	</form>
-	{% endblock %}
+</div> {% endblock %}
