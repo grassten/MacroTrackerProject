@@ -5,3 +5,8 @@
 form .table-custom {
     margin: 0px;
 }
+
+table tr td {
+    outline: thin solid; 
+    outline-color: #ECF0F1;
+}
