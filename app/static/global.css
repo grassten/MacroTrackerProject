@@ -5,8 +5,7 @@
 
 @media(min-width:767px) {
     .main-content-fluid {
-        display: inline-block;
-        padding: 30px !important;
+        padding: 30px;
     }
 }
 
