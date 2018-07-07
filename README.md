@@ -20,9 +20,9 @@ Daily food log to track calories/macronutrients against set goals.
     - Possibly switch to openfoodfacts database
 
 ### Design
-- Redesign app
-    - Rough outline
-    - Choose prototyping tool
+- ~~Redesign app~~
+    - ~~Rough outline~~
+    - ~~Choose prototyping tool~~
 
 ### Ideas for future updates
 - Implement quick-add calories functionality
