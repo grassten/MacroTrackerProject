@@ -18,3 +18,5 @@ Daily food log to track calories/macronutrients against set goals.
 ### Ideas for future updates
 - Get more nutrients with API and display them on a separate "Nutrition" page
 - Add weight tracking module
+- Add barcode scanning
+- Research porting site to Android and iOS apps
