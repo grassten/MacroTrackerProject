@@ -4,10 +4,10 @@ Daily food log to track calories/macronutrients against set goals.
 # To Do:
 
 ### Bug Fixes
-- Fix adding recent foods to days other than current.
+- ~~Fix adding recent foods to days other than current.~~
 
 ### Additional functionality
-- Improve workflow so that I don't have to push to heroku to see every change
+- ~~Improve workflow so that I don't have to push to heroku to see every change~~
 - Add pagination on search page
 - Switch USDA API to openfood database
 - Implement quick-add calories functionality

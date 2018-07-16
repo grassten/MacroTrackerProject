@@ -33,13 +33,13 @@ def home():
 @login_required
 def search(date=None, meal=None):
     form = SearchForm()
+    
     if request.method == 'GET':
-        current_userid = User.query.filter_by(id=current_user.get_id()).first()
-        recent_foods = Food.query.distinct(Food.food_name).filter_by(
-            user_id=current_userid.id).from_self().order_by(desc(Food.id))
-
         food_list_clean = []
         recent_list = True
+        recent_foods = Food.query.filter_by(user_id=current_user.get_id()).order_by(
+            desc(Food.id)).group_by(Food.food_name)
+        
         for food in recent_foods:
             food_list_clean.append((food.food_name, food.ndbno, food.id))
 
@@ -47,34 +47,25 @@ def search(date=None, meal=None):
                                recent_list=recent_list, date=date, meal=meal)
 
     if request.method == 'POST':
-
         if request.form["action"] == "multiadd":
             food_ids = request.form.getlist("selected")
-            current_userid = User.query.filter_by(
-                id=current_user.get_id()).first()
-            for i in food_ids:
-                food = Food.query.filter_by(id=i).first()
-                if food.user_id == current_userid.id:
-                    if meal == None:
-                        food = Food(food_name=food.food_name, count=food.count,
-                                    kcal=food.kcal,
-                                    protein=food.protein,
-                                    fat=food.fat,
-                                    carbs=food.carbs,
-                                    unit=food.unit, meal=request.form.get(
-                                        'mealselect'),
-                                    ndbno=food.ndbno, user_id=current_user.get_id())
-                    else:
-                        food = Food(food_name=food.food_name, count=food.count,
-                                    kcal=food.kcal,
-                                    protein=food.protein,
-                                    fat=food.fat,
-                                    carbs=food.carbs,
-                                    unit=food.unit, meal=meal,
-                                    ndbno=food.ndbno, user_id=current_user.get_id())
-                    db.session.add(food)
-                    db.session.commit()
-            return redirect(url_for('diary'))
+            
+            if meal == None:
+                meal = request.form.get('mealselect')
+                
+            for food_id in food_ids:
+                food = Food.query.filter_by(id=food_id).first()
+                food = Food(food_name=food.food_name, count=food.count,
+                            kcal=food.kcal,
+                            protein=food.protein,
+                            fat=food.fat,
+                            carbs=food.carbs,
+                            unit=food.unit, meal=meal,
+                            ndbno=food.ndbno, date=date,
+                            user_id=current_user.get_id())
+                db.session.add(food)
+                db.session.commit()
+            return redirect(url_for('diary', date_pick = date))
 
         else:
             recent_list = False
@@ -97,7 +88,6 @@ def search(date=None, meal=None):
 
             # build list of tuples w/ name of food and associated ndbno (unique ID)
             resp = requests.get(url=search_url, params=params)
-
             if "zero results" in str(resp.json()):
                 flash("No results found.")
                 return redirect(url_for('search'))
@@ -328,9 +318,9 @@ def macros_grams():
 
         if request.method == 'POST':
             try:
-                carb_holder = float(form.carbs.data)
-                fat_holder = float(form.fat.data)
-                protein_holder = float(form.protein.data)
+                float(form.carbs.data)
+                float(form.fat.data)
+                float(form.protein.data)
             except TypeError:
                 flash("Please enter valid numbers.")
             except ValueError:
