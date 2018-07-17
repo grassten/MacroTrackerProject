@@ -107,7 +107,7 @@ def search(date=None, meal=None):
 @app.route('/food/<string:date>/<string:meal>/<string:ndbno>',
            methods=['GET', 'POST'])
 @login_required
-def get_nutrition(ndbno, meal=None, date=None):
+def get_nutrition(ndbno, meal=None, date=datetime.now()):
 
     form1 = AddToDiaryForm()
 
@@ -161,24 +161,17 @@ def get_nutrition(ndbno, meal=None, date=None):
                 flash("Please enter valid values.")
                 return redirect(url_for('get_nutrition', ndbno=ndbno,
                                         meal=meal, date=date))
-            if date is None:
-                food = Food(food_name=food_name, count=quant_choice,
-                            kcal=quant_choice * float(food_cals),
-                            protein=quant_choice * float(food_protein),
-                            fat=quant_choice * float(food_fat),
-                            carbs=quant_choice * float(food_carbs),
-                            unit=food_measure, meal=meal_choice,
-                            ndbno=ndbno, user_id=current_user.get_id())
-            else:
-                food = Food(food_name=food_name, count=quant_choice,
-                            kcal=quant_choice * float(food_cals),
-                            protein=quant_choice * float(food_protein),
-                            fat=quant_choice * float(food_fat),
-                            carbs=quant_choice * float(food_carbs),
-                            unit=food_measure, meal=meal_choice,
-                            date=date, ndbno=ndbno, user_id=current_user.get_id())
+            
+            food = Food(food_name=food_name, count=quant_choice,
+                        kcal=quant_choice * float(food_cals),
+                        protein=quant_choice * float(food_protein),
+                        fat=quant_choice * float(food_fat),
+                        carbs=quant_choice * float(food_carbs),
+                        unit=food_measure, meal=meal_choice,
+                        date=date, ndbno=ndbno, user_id=current_user.get_id())
             db.session.add(food)
             db.session.commit()
+            
             return redirect(url_for('diary', date_pick=date))
 
 
