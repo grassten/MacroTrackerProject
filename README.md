@@ -8,10 +8,10 @@ Daily food log to track calories/macronutrients against set goals.
 
 ### Additional functionality
 - ~~Improve workflow so that I don't have to push to heroku to see every change~~
-- Add pagination on search page
-- Implement quick-add calories functionality
+- ~~Implement quick-add calories functionality~~
 - Implement copy-to functionality
 - Switch USDA API to openfood database
+- Add pagination on search page
 - Add weight tracking module
 - Get more nutrients with API and display them on a separate "Nutrition" page
 - Add barcode scanning

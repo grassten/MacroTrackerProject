@@ -36,6 +36,7 @@
 					</th>
 				</tr>
 				{% endif %} {% for food_name in food_list_clean %}
+				{% if food_name[0] != 'Quick Add' %}
 				<tr class="content-rows">
 					{% if recent_list == True %}
 					<td class="text-center">
@@ -46,6 +47,7 @@
 						<a href="{{ url_for('get_nutrition', ndbno = food_name[1], meal=meal, date=date) }}">{{ food_name[0] }}</a>
 					</td>
 				</tr>
+				{% endif %}
 				{% endfor %}
 			</table>
 		</form>

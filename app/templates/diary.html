@@ -42,9 +42,11 @@
             {% for food in foods %} {% if food.meal == "Breakfast" %}
             <tr class="food-rows">
                 <td>
-                    <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">
-                        {{ food.food_name + ", " + food.unit}}
-                    </a>
+                    {% if food.food_name == "Quick Add" %}
+                    <span>{{ food.food_name }}</span>
+                    {% else %}
+                    <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
+                    {% endif %}
                 </td>
                 <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
@@ -63,7 +65,9 @@
             {% endif %} {% endfor %}
             <tr class="active">
                 <td class="hidden-xs">
-                    <span>Quick Add</span>
+                    <span>
+                        <a href="{{ url_for('quickadd', date=date_pick, meal='Breakfast') }}">Quick Add</a>
+                    </span>
                     <span> | </span>
                     <span>
                         <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
@@ -113,7 +117,11 @@
             {% for food in foods %} {% if food.meal == "Lunch" %}
             <tr class="food-rows">
                 <td>
+                    {% if food.food_name == "Quick Add" %}
+                    <span>{{ food.food_name }}</span>
+                    {% else %}
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
+                    {% endif %}
                 </td>
                 <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
@@ -132,7 +140,9 @@
             {% endif %} {% endfor %}
             <tr class="active">
                 <td class="hidden-xs">
-                    <span>Quick Add</span>
+                    <span>
+                        <a href="{{ url_for('quickadd', date=date_pick, meal='Lunch') }}">Quick Add</a>
+                    </span>
                     <span> | </span>
                     <span>
                         <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
@@ -183,7 +193,11 @@
             {% for food in foods %} {% if food.meal == "Dinner" %}
             <tr class="food-rows">
                 <td>
+                    {% if food.food_name == "Quick Add" %}
+                    <span>{{ food.food_name }}</span>
+                    {% else %}
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
+                    {% endif %}
                 </td>
                 <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
@@ -202,7 +216,9 @@
             {% endif %} {% endfor %}
             <tr class="active">
                 <td class="hidden-xs">
-                    <span>Quick Add</span>
+                    <span>
+                        <a href="{{ url_for('quickadd', date=date_pick, meal='Dinner') }}">Quick Add</a>
+                    </span>
                     <span> | </span>
                     <span>
                         <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
@@ -253,7 +269,11 @@
             {% for food in foods %} {% if food.meal == "Snacks" %}
             <tr class="food-rows">
                 <td>
+                    {% if food.food_name == "Quick Add" %}
+                    <span>{{ food.food_name }}</span>
+                    {% else %}
                     <a href="{{ url_for('get_nutrition', ndbno=food.ndbno) }}">{{ food.food_name + ", " + food.unit }}</a>
+                    {% endif %}
                 </td>
                 <td class="text-center">{{ food.count }}</td>
                 <td class="text-center">{{ food.kcal }}</td>
@@ -272,7 +292,9 @@
             {% endif %} {% endfor %}
             <tr class="active">
                 <td class="hidden-xs">
-                    <span>Quick Add</span>
+                    <span>
+                        <a href="{{ url_for('quickadd', date=date_pick, meal='Snacks') }}">Quick Add</a>
+                    </span>
                     <span> | </span>
                     <span>
                         <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
