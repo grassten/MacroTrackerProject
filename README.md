@@ -7,23 +7,30 @@ Daily food log to track calories/macronutrients against set goals.
 
 **2. Start a virtual environment in repo directory and activate it.**
 ```
-virtualenv venv
-source venv/bin/activate
+$ virtualenv venv
+$ source venv/bin/activate
 ```
 
 **3. Install dependencies.**
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 **4. Set environment variable FLASK_APP = macroapp.py**
 ```
-export FLASK_APP='macroapp.py'
+$ export FLASK_APP='macroapp.py'
 ```
 
-**5. Run flask app.**
+**5. Initialize the user/food database tables.**
 ```
-flask run
+$ flask db init
+$ flask db migrate
+$ flask db upgrade
+```
+
+**6. Run flask app.**
+```
+$ flask run
 ```
 
 # To Do:
