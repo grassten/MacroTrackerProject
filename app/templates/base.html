@@ -16,7 +16,7 @@ styles %} {{super()}}
 			<a class="navbar-brand text-center" href="{{ url_for('home') }}">Macro Tracker</a>
 		</div>
 		<!--top menu-->
-		<ul class="nav navbar-right top-nav">
+		<ul class="nav navbar-right top-nav hidden-xs">
 			{% if current_user.is_anonymous %}
 			<li>
 				<a href="{{ url_for('login') }}">Login</a>
@@ -44,7 +44,20 @@ styles %} {{super()}}
 		</ul>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
-				{% if current_user.is_anonymous %} {% else %}
+				{% if current_user.is_anonymous %} 
+				<li {% if 'login' in request.path %}class="active" {% endif %} class="hidden-sm hidden-md hidden-lg">
+					<a href="{{ url_for('login')}}">
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i class="navbar-icons fas fa-sign-in-alt fa-3x"></i>
+									<br/>Log In
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>				
+				{% else %}
 				<li {% if 'diary' in request.path %}class="active" {% endif %}>
 					<a href="{{ url_for('diary')}}">
 						<div class="outer">
@@ -76,6 +89,18 @@ styles %} {{super()}}
 								<div class="inner">
 									<i class="navbar-icons far fa-user fa-3x"></i>
 									<br />Profile
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li {% if 'logout' in request.path %}class="active" {% endif %} class="hidden-sm hidden-md hidden-lg">
+					<a href="{{ url_for('logout') }}">
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<i class="navbar-icons fas fa-sign-out-alt fa-3x"></i>
+									<br />Log Out
 								</div>
 							</div>
 						</div>

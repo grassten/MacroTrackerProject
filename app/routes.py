@@ -14,7 +14,8 @@ from app.forms import (SearchForm,
                        DiaryDatePicker,
                        SetMacroForm,
                        SetMacroGrams,
-                       QuickAddCals)
+                       QuickAddCals,
+                       CopyMealForm)
 from app.models import User, Food
 import requests
 from jinja2 import Template
@@ -22,6 +23,7 @@ from flask_login import login_required, logout_user, current_user, login_user
 from werkzeug.urls import url_parse
 from datetime import datetime, timedelta
 from sqlalchemy import desc
+from sqlalchemy.orm.session import make_transient
 
 
 @app.route('/')
@@ -281,6 +283,33 @@ def quickadd(date=datetime.now().strftime('%B %d, %Y'), meal=None):
             db.session.add(food)
             db.session.commit()
         return redirect(url_for('diary', date_pick=date))
+
+
+@app.route('/diary/copyto/<string:date>/<string:meal>', methods=['GET', 'POST'])
+@login_required
+def copyto(date, meal):
+    form = CopyMealForm()
+    
+    if request.method == 'GET':
+        return render_template('copyto.html', form=form)
+
+    if request.method == 'POST':
+        copy_to_date = form.dt.data.strftime('%B %d, %Y')
+        copy_to_meal = form.meal_select.data
+        copy_meal_items = Food.query.filter_by(user_id=current_user.get_id(),
+                                            date=date,
+                                            meal=meal)
+        
+        for row in copy_meal_items:
+            db.session.expunge(row)
+            make_transient(row)
+            row.id = None
+            row.meal = copy_to_meal
+            row.date = copy_to_date
+            db.session.add(row)
+        
+        db.session.commit()
+        return redirect(url_for('diary', date_pick = copy_to_date))
 
 
 @app.route('/login', methods=['GET', 'POST'])

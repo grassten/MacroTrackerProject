@@ -73,7 +73,9 @@
                         <a href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
                     </span>
                     <span> | </span>
-                    <span>Copy To</span>
+                    <span>
+                            <a href="{{ url_for('copyto', date=date_pick, meal='Breakfast') }}">Copy To</a>
+                    </span>
                 </td>
                 <td class="hidden-sm hidden-md hidden-lg" colspan=4>
                     <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Breakfast') }}">Add food</a>
@@ -84,11 +86,11 @@
                         </button>
                         <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a class="dropdown-item" href="#">Quick Add</a>
+                                <a class="dropdown-item" href="{{ url_for('quickadd', date=date_pick, meal='Breakfast') }}">Quick Add</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">Copy To</a>
+                                <a class="dropdown-item" href="{{ url_for('copyto', date=date_pick, meal='Breakfast') }}">Copy To</a>
                             </li>
                         </ul>
                     </div>
@@ -148,7 +150,9 @@
                         <a href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
                     </span>
                     <span> | </span>
-                    <span>Copy To</span>
+                    <span>
+                        <a href="{{ url_for('copyto', date=date_pick, meal='Lunch') }}">Copy To</a>
+                    </span>                
                 </td>
                 <td class="hidden-sm hidden-md hidden-lg" colspan=4>
                     <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Lunch') }}">Add food</a>
@@ -159,11 +163,11 @@
                         </button>
                         <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a class="dropdown-item" href="#">Quick Add</a>
+                                <a class="dropdown-item" href="{{ url_for('quickadd', date=date_pick, meal='Lunch') }}">Quick Add</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">Copy To</a>
+                                <a class="dropdown-item" href="{{ url_for('copyto', date=date_pick, meal='Lunch') }}">Copy To</a>
                             </li>
                         </ul>
                     </div>
@@ -224,7 +228,9 @@
                         <a href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
                     </span>
                     <span> | </span>
-                    <span>Copy To</span>
+                    <span>
+                        <a href="{{ url_for('copyto', date=date_pick, meal='Dinner') }}">Copy To</a>
+                    </span>                
                 </td>
                 <td class="hidden-sm hidden-md hidden-lg" colspan=4>
                     <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Dinner') }}">Add food</a>
@@ -235,11 +241,11 @@
                         </button>
                         <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a class="dropdown-item" href="#">Quick Add</a>
+                                <a class="dropdown-item" href="{{ url_for('quickadd', date=date_pick, meal='Dinner') }}">Quick Add</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">Copy To</a>
+                                <a class="dropdown-item" href="{{ url_for('copyto', date=date_pick, meal='Dinner') }}">Copy To</a>
                             </li>
                         </ul>
                     </div>
@@ -300,7 +306,9 @@
                         <a href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
                     </span>
                     <span> | </span>
-                    <span>Copy To</span>
+                    <span>
+                        <a href="{{ url_for('copyto', date=date_pick, meal='Snacks') }}">Copy To</a>
+                    </span>                
                 </td>
                 <td class="hidden-sm hidden-md hidden-lg" colspan=4>
                     <a class="btn btn-primary pull-left" href="{{ url_for('search', date=date_pick, meal='Snacks') }}">Add food</a>
@@ -311,11 +319,11 @@
                         </button>
                         <ul class="dropdown-menu text-right" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a class="dropdown-item" href="#">Quick Add</a>
+                                <a class="dropdown-item" href="{{ url_for('quickadd', date=date_pick, meal='Snacks') }}">Quick Add</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a class="dropdown-item" href="#">Copy To</a>
+                                <a class="dropdown-item" href="{{ url_for('copyto', date=date_pick, meal='Snacks') }}">Copy To</a>
                             </li>
                         </ul>
                     </div>

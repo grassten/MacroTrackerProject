@@ -5,7 +5,8 @@ from wtforms import (StringField,
                      PasswordField,
                      HiddenField,
                      SelectField,
-                     IntegerField)
+                     IntegerField,
+                     DateField)
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
 from datetime import datetime
@@ -58,6 +59,16 @@ class SetMacroGrams(FlaskForm):
     fat = IntegerField('Fat', validators=[DataRequired()])
     carbs = IntegerField('Carbs', validators=[DataRequired()])
     change_macros = SubmitField('Update')
+
+
+class CopyMealForm(FlaskForm):
+    MEAL_OPTIONS = [('Breakfast', 'Breakfast'),
+                    ('Lunch', 'Lunch'),
+                    ('Dinner', 'Dinner'),
+                    ('Snacks', 'Snacks')]
+    dt = DateField('DatePicker', format='%B %d, %Y')
+    meal_select = SelectField('Meal', choices=MEAL_OPTIONS, validators=[
+        DataRequired()])
 
 
 class QuickAddCals(FlaskForm):
