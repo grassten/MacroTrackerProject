@@ -1,6 +1,31 @@
 # https://stevensmacroapp.herokuapp.com/
 Daily food log to track calories/macronutrients against set goals.
 
+# Installation
+
+**1. Fork and clone repository.**
+
+**2. Start a virtual environment in repo directory and activate it.**
+```
+virtualenv venv
+source venv/bin/activate
+```
+
+**3. Install dependencies.**
+```
+pip install -r requirements.txt
+```
+
+**4. Set environment variable FLASK_APP = macroapp.py**
+```
+export FLASK_APP='macroapp.py'
+```
+
+**5. Run flask app.**
+```
+flask run
+```
+
 # To Do:
 
 ### Bug Fixes
