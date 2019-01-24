@@ -51,3 +51,5 @@ $ flask run
 
 ### Design
 
+### Other
+- Add more documentation within code
